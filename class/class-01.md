@@ -1,4 +1,4 @@
-#  1o Encontro
+#  Aula 1 - Manipulação de dados no R e introdução
 
 ## Objetivos Gerais
 
