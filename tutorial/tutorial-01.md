@@ -91,7 +91,7 @@ Clique no botão (aaaaaaargh!). Veja que temos a opção de importar arquivos de
 
 Use a segunda opção, "From Text (readr)" para carregar os dados da PIESP.
 
-Note que você pode escolher um arquivo na pasta local ou um URL, ou seja, um arquivo que esteja armazenado na web. O dados da PIESP não estão no seu computador, mas o endereço do repositório do curso: https://raw.githubusercontent.com/seade-R/programacao-r/master/data/piesp.csv
+Note que você pode escolher um arquivo na pasta local ou um URL, ou seja, um arquivo que esteja armazenado na web. O dados da PIESP não estão no seu computador, mas o endereço do repositório do curso: https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv
 
 Cole o URL no campo "File/URL" e clique em 'Update'.
 
@@ -116,7 +116,7 @@ Use o recurso "Import Dataset" enquanto não se sentir confortável com a lingua
 Repetindo o procedimento, para abrir os dados da PIESP basta fazer:
   
 ```{r}
-piesp <- read_csv2('https://raw.githubusercontent.com/seade-R/programacao-r/master/data/piesp.csv')
+piesp <- read_csv2('https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv')
 ```
 
 Em R, as funções "read." são as funções de abertura de dados do `base` e as funções _read_ são as análogas do pacote `readr`, parte do `tidyverse`. Há funções _read_ para abrir todos os tipos de dados, de arquivos de texto a páginas em HTML.
@@ -128,7 +128,7 @@ Note que utilizamos o URL dos dados diretamente. Não precisamos fazer download 
 Um jeito mais confortável, na minha opinião, de fazer a abertura de dados com um URL é guardar o URL em um objeto de texto e, depois, utilizar esse objeto como input da função. O resultado é idêntico e você pode testar se quiser.
   
 ```{r}
-url_piesp <- "https://raw.githubusercontent.com/seade-R/programacao-r/master/data/piesp.csv"
+url_piesp <- "https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv"
 piesp <- read_csv2(url_piesp)
 ```
 
@@ -269,7 +269,7 @@ No caso de nomes com mais de uma palavra ou espaços, é preciso colocar o texto
 No `tidyverse`, existe uma outra sintaxe para executar a mesma tarefa de (re)nomeação. Vamos olhar para ela (lembre-se de carregar novamente os dados, pois os nomes velhos já não existem mais e não existe Ctrl+Z em R):
   
 ```{r}
-piesp <- read_csv2('https://raw.githubusercontent.com/seade-R/programacao-r/master/data/piesp.csv')
+piesp <- read_csv2('https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv')
 
 piesp <- piesp %>% 
   rename(ano = Ano,
@@ -282,7 +282,7 @@ Usando o operador %>%, denominado _pipe_, retiramos de dentro da função `renam
 Compare com o código que havíamos executado anteriormente:
   
 ```{r}
-piesp <- read_csv2('https://raw.githubusercontent.com/seade-R/programacao-r/master/data/piesp.csv')
+piesp <- read_csv2('https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv')
 
 piesp <- rename(piesp, ano = Ano, valor = `Real (em milhoes)`, tipo = `Tipo Investimento`)
 ```
@@ -292,7 +292,7 @@ A sintaxe com o uso do _pipe_ tem uma vantagem importante: ela permite emendar u
 Vamos trabalhar com mais variáveis de uma única vez. Reabra os dados para que tenhamos uma versão não renomeada:
   
 ```{r}
-piesp <- read_csv2('https://raw.githubusercontent.com/seade-R/programacao-r/master/data/piesp.csv')
+piesp <- read_csv2('https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv')
 ```
 
 E renomeie as variáveis "Ano", "Real (em milhoes)" e "Tipo Investimento" e mais 4 de sua escolha. Em R a convenção é utilizar nomes de variáveis com letras minúsculas, sem caracteres especiais (acento e cedilha) e com nomes separados por "\_", como no exemplo: 
@@ -336,7 +336,7 @@ A grande vantagem de trabalharmos com o operador %>% é não precisar repetir o 
 Vejamos agora como usamos o operador %>% para "emendar" tarefas, começando da abertura dos dados. Note que o primeiro input é o url da base de dados e, que, uma vez carregados, vai sendo transformado a cada novo verbo.
 
 ```{r}
-piesp <- read_csv2('https://raw.githubusercontent.com/seade-R/programacao-r/master/data/piesp.csv') %>% 
+piesp <- read_csv2('https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv') %>% 
   rename(ano = Ano,
          empresa_alvo = `Empresa alvo do investimento`,
          empresa_investidora = `Empresa(s) investidora(s)`,
