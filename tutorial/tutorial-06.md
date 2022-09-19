@@ -11,6 +11,7 @@ Lembre-se sempre de carregar os pacotes que vai usar antes de começar a produzi
 Vamos carregar novamente os dados da PIESP:
 
 ```{r}
+library(tidyverse)
 url_piesp <- "https://raw.githubusercontent.com/seade-R/programacao-r/master/data/piesp.csv"
 piesp <- read_csv2(url_piesp)
 ```
