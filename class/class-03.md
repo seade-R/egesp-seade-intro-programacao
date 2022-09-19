@@ -12,7 +12,7 @@ No primeiro encontro trabalhamos com a gramática do pacote `dplyr` para manipul
 
 2 - Comece pelo [Tutorial 5](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-05.md) que trata da importação de dados em R.
 
-3 - A seguir vá para o [Tutorial 6](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-06.md), que retoma o exemplo da PIESP e discute um pouco sobre a produção de tabelas na gramática do `dplyr`. 
+3 - A seguir vá para o [Tutorial 6](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-06.md), que retoma o exemplo da Pesquisa SEADE Investimentos e discute um pouco sobre a produção de tabelas na gramática do `dplyr`. 
 
 4 - Se houver tempo, podemos antecipar o [Tutorial 7], que apresenta o pacote `janitor` para confecção de tabelas de frequência em R de um jeito simples.
 

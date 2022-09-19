@@ -36,3 +36,10 @@ O curso oferece uma iniciação à lógica de programação e ao uso da linguage
 - Wichkam, Hadley (2014). Advanced R. Ed: Chapman and Hall/CRC. Disponível gratuitamente Disponível gratuitamente [aqui](http://adv-r.had.co.nz/)
 - Chang, Winston. R Graphics Cookbook. Ed: O'Reilly Media. Disponível gratuitamente [aqui](https://r-graphics.org/index.html)
 - Gillespie, Colin e Lovelace, Robin (2016). Efficient R programming. Ed: O'Reilly Media. Disponível gratuitamente [aqui](https://csgillespie.github.io/efficientR/)
+- Silge, Julia e Robinson, David (2017). Text Mining with R: A Tidy Approach. Ed: O'Reilly Media. Disponível gratuitamente [aqui](https://www.tidytextmining.com/index.html)
+- Silge, Julia e Robinson, David (2017). Text Mining with R: A Tidy Approach. Ed: O'Reilly Media. Disponível gratuitamente [aqui](https://www.tidytextmining.com/index.html)
+- James, Gareth; Witten, Daniela; Hastie, Trevor; e Tibshirani, Rob (2021). An Introduction to Statistical
+Learning with Applications in R, 2nd Edition. Ed. Springer. Disponível gratuitamente [aqui](https://hastie.su.domains/ISLR2/ISLRv2_website.pdf)
+
+[The Big Book of R](https://www.bigbookofr.com/index.html) é um livro sobre os muitos livros gratuitos em R que você encontra gratuitamente na internet e vale muito a pena dar uma olhada.
+
