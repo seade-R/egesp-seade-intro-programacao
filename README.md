@@ -41,5 +41,5 @@ O curso oferece uma iniciação à lógica de programação e ao uso da linguage
 - James, Gareth; Witten, Daniela; Hastie, Trevor; e Tibshirani, Rob (2021). An Introduction to Statistical
 Learning with Applications in R, 2nd Edition. Ed. Springer. Disponível gratuitamente [aqui](https://hastie.su.domains/ISLR2/ISLRv2_website.pdf)
 
-[The Big Book of R](https://www.bigbookofr.com/index.html) é um livro sobre os muitos livros gratuitos em R que você encontra gratuitamente na internet e vale muito a pena dar uma olhada.
+[The Big Book of R](https://www.bigbookofr.com/index.html) é um livro sobre os muitos livros gratuitos em R que você encontra na internet sobre temas variados e vale muito a pena dar uma olhada.
 
