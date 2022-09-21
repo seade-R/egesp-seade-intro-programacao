@@ -28,4 +28,4 @@ A seguir, aprenderemos uma nova 'gramática' de R: a gramática de gráficos do 
 
 - Uma leitura alternativa e introdutória sobre `ggplot2` é o [Capítulo 3](https://r4ds.had.co.nz/data-visualisation.html) do livro 'R for Data Science'. Se o Tutorial 8 não foi suficiente para você aprender, recomendo esta leitura.
 
-- O livro 'R for Data Science' tem excelentes capítulos sobre Factors ([Capítulo 15](https://r4ds.had.co.nz/factors.html)).
+- O livro 'R for Data Science' tem um excelente capítulo sobre Factors ([Capítulo 15](https://r4ds.had.co.nz/factors.html)).

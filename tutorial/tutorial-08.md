@@ -184,7 +184,7 @@ obitos_2021 %>%
                color = 'blue',
                fill = 'blue',
                alpha = 0.2) +
-  geom_vline(aes(xintercept = 82))
+  geom_vline(aes(xintercept = 74))
 ```
 
 Veja que, com `ggplot2` podemos adicionar novas geometrias e dados sempre que precisarmos. Agora, temos duas camadas e duas geometrias. É por esta razão que a estrutura do código deste pacote difere tanto da estrutura para gráficos no pacote `base`. A flexibilidade para adicionar geometrias (usando ou não os dados inicialmente apontados) é uma das grandes vantagens do `ggplot2`.
@@ -198,7 +198,7 @@ obitos_2021 %>%
                color = 'blue',
                fill = 'blue',
                alpha = 0.2) +
-  geom_vline(aes(xintercept = 82),
+  geom_vline(aes(xintercept = 74),
              linetype = "dashed",
              color = "red")
 ```

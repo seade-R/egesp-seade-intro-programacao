@@ -366,11 +366,5 @@ obitos_2021 %>%
   adorn_pct_formatting()
 ```
 
-```{r}
-obitos_2021 %>% 
-   filter(is.na(idade_faixa)) %>% 
-  select(idadeanos, idade_faixa)
-```
-
 
 Fim
