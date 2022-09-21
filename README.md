@@ -24,15 +24,15 @@ O curso oferece uma iniciação à lógica de programação e ao uso da linguage
 
 [19-09-2022](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/class/class-03.md) __Tidyverse para manipualção de dados__ - Faremos o camninho de volta ao nosso ponto de partida do curso: a manipulação de dados com a gramática do _dplyr_. Exploraremos agora aspectos diversos da manipulação de dados com mais profundidade.
 
-[21-09-2022] __Bases de dados relacionais__ - No encontro de hoje seguiremos com a produção de tabelas em R, agora com o pacote _janitor_. Aprenderemos um pouco sobre factors, que é a estrutura de dados em R para variáveis categóricas. Em finalmente, veremo como trabalhar com dados relacionais em R.
+[26-09-2022](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/class/class-04.md) __ggplot2: Gramática de gráficos__ - No encontro de hoje seguiremos com a produção de tabelas em R, agora com o pacote _janitor_. A seguir, e considerando que temos muitos recursos para manipular dados em R, veremos como produzir gráficos com a gramática de gráficos do pacote _ggplot2_.
 
-[26-09-2022] __ggplot2: Gramática de gráficos__ - Agora que temos muitos recursos para manupilar dados em R, veremos como produzir gráficos com a gramática de gráficos do pacote _ggplot2_. Além disso, veremos a integração entre R e Power BI.
+[21-09-2022] __Bases de dados relacionais__ - 
 
 ## Referências bibliográficas
 
 - Grolemund, Garrett (2014). Hands-On Programming with R. Ed: O'Reilly Media.  Disponível gratuitamente [aqui](https://rstudio-education.github.io/hopr/)
 - Wichkam, Hadley e Grolemund, Garrett (2016). R for Data Science. Ed: O'Reilly Media. Disponível gratuitamente [aqui](http://r4ds.had.co.nz/data-visualisation.html)
-- Wichkam, Hadley(2016). [ggplot2: Elegant Graphics for Data Analysis]. Ed: O'Reilly Media. Disponível gratuitamente [aqui](https://ggplot2-book.org/)
+- Wichkam, Hadley (2016). ggplot2: Elegant Graphics for Data Analysis. Ed: O'Reilly Media. Disponível gratuitamente [aqui](https://ggplot2-book.org/)
 - Wichkam, Hadley (2014). Advanced R. Ed: Chapman and Hall/CRC. Disponível gratuitamente Disponível gratuitamente [aqui](http://adv-r.had.co.nz/)
 - Chang, Winston. R Graphics Cookbook. Ed: O'Reilly Media. Disponível gratuitamente [aqui](https://r-graphics.org/index.html)
 - Gillespie, Colin e Lovelace, Robin (2016). Efficient R programming. Ed: O'Reilly Media. Disponível gratuitamente [aqui](https://csgillespie.github.io/efficientR/)

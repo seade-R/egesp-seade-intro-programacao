@@ -67,23 +67,23 @@ Provavelmente as funções mais usadas no `readr` são `read\_csv` e `read\_csv2
 Nosso exemplo da pesquisa SEADE Investimentos abrimos um arquivo em .csv separado por ponto e vírgula:
 
 ```{r}
-url_piesp <- 'https://raw.githubusercontent.com/seade-R/programacao-r/master/data/piesp.csv'
+url_piesp <- 'https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv'
 piesp <- read_csv2(url_piesp)
 ```
 
 Se preferir repetir o código acima em um único passo: 
 
 ```{r}
-piesp <- read_csv2('https://raw.githubusercontent.com/seade-R/programacao-r/master/data/piesp.csv')
+piesp <- read_csv2('https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv')
 ```
 
 Como vamos trabalhar com arquivos parecidos armazenados em diversos URLs, colocaremos sempre como argumento da função de abertura de dados um objeto que armazena o URL e não o próprio o URL para explicitar o que estamos fazendo. E vamos desde já guardar os URLS dos arquivos com os quais vamos trabalhar como objetos:
 
 ```{r}
-url_piesp <- 'https://raw.githubusercontent.com/seade-R/programacao-r/master/data/piesp.csv'
-url_piesp_virgula <- 'https://raw.githubusercontent.com/seade-R/programacao-r/master/data/piesp_virgula.csv'
-url_piesp_tab <- 'https://raw.githubusercontent.com/seade-R/programacao-r/master/data/piesp_tab.txt'
-url_piesp_sem_cabecalho <- 'https://raw.githubusercontent.com/seade-R/programacao-r/master/data/piesp_sem_cabecalho.csv'
+url_piesp <- 'https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv'
+url_piesp_virgula <- 'https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp_virgula.csv'
+url_piesp_tab <- 'https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp_tab.txt'
+url_piesp_sem_cabecalho <- 'https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp_sem_cabecalho.csv'
 url_covid_latin1 <- 'https://raw.githubusercontent.com/seade-R/dados-covid-sp/master/data/dados_covid_sp_latin1.csv'
 ```
 

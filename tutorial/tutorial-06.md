@@ -8,11 +8,11 @@ Vamos fazer um exercício simples de recodificar a CNAE das empresas alvo de inv
 
 Lembre-se sempre de carregar os pacotes que vai usar antes de começar a produzir código. Usaremos, por enquanto, apenas o `tidyverse`
 
-Vamos carregar novamente os dados da PIESP:
+Vamos carregar novamente os dados da pesquisa SEADE Investimentos:
 
 ```{r}
 library(tidyverse)
-url_piesp <- "https://raw.githubusercontent.com/seade-R/programacao-r/master/data/piesp.csv"
+url_piesp <- "https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv"
 piesp <- read_csv2(url_piesp)
 ```
 
