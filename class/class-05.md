@@ -19,7 +19,7 @@ A seguir, veremos em pequenos vídeos como integrar R e Power BI. Finalmente, pa
 
 4 - O [Tutorial 11](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-11.md) não traz nenhuma novidade em relação ao anterior, mas utiliza os verbos "\_join" para um tipo de combinação de dados bastante comum: tabelas de indivíduos e domicílios em uma pesquisa amostral domiciliar, a TICDOM, realizada pelo CETIC-NIC.
 
-5 - Finalmente, para quem tiver interesse, o [Tutorial 12](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorials/tutorial-12.md), opcional, apresenta, com acompanhamento de vídeos, as maneiras mais simples de como integrar R e Power BI.
+5 - Finalmente, para quem tiver interesse, o [Tutorial 12](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-11.md), opcional, apresenta, com acompanhamento de vídeos, as maneiras mais simples de como integrar R e Power BI.
 
 ## Opcional
 
