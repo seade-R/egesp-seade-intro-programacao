@@ -33,7 +33,7 @@ O curso oferece uma iniciação à lógica de programação e ao uso da linguage
 
 [01-12-2022 (tarde)](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/class/class-04.md) **ggplot2: Gramática de gráficos** - Na segunda parte do nosso terceiro dia de curso, seguiremos com a produção de tabelas em R, agora explorando o pacote *janitor*. A seguir, e considerando que temos muitos recursos para manipular dados em R, veremos como produzir gráficos com a gramática de gráficos do pacote *ggplot2*.
 
-[02-12-2022 (manhã)](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/class/class-05.md) **Bases de dados relacionais** - Neste último encontro veremos como utilizar a gramática do `dplyr` para trabalharmos com dados relacionais. Finalmente, em um tutorial com vídeos, veremos maneiras simples de integrarmos R e Microsoft Power BI, uma ferramenta bastante utilizada na gestão pública.
+[02-12-2022 (manhã)](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/class/class-05.md) **Bases de dados relacionais** - Neste último encontro veremos como utilizar a gramática do *dplyr* para trabalharmos com dados relacionais. Finalmente, em um tutorial com vídeos, veremos maneiras simples de integrarmos R e Microsoft Power BI, uma ferramenta bastante utilizada na gestão pública.
 
 ## Referências bibliográficas
 
