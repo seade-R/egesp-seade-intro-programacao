@@ -8,7 +8,7 @@ A "gramática" mais popular da linguagem é a do pacote `dplyr`, parte do`tidyve
 
 Existem outras formas de se trabalhar com conjuntos de dados mais, digamos, antigas. É comum encontrarmos códigos escritos na "gramática" original da linguagem, que chamaremos de "base" ou "básico".
 
-Podemos pensar na linguagem R como uma língua com diversos dialétos. Os dois dialétos mais falados para manipulação de dados são o "base" e o do "tidyverse".
+Podemos pensar na linguagem R como uma língua com diversos dialetos. Os dois dialetos mais falados para manipulação de dados são o "base" e o do "tidyverse".
 
 # Instalando e carregando pacotes no R
 
@@ -26,7 +26,7 @@ Pronto. Seu computador (ou seu usuário no servidor RStudio) tem o pacote `tidyv
 
 Lembre-se de colocar aspas no nome do pacote, pois, até agora, `tidyverse` é um nome desconhecido para a linguagem R no seu computador. E qualquer texto arbitrário em R deve vir entre aspas, não importa se simples ou duplas.
 
-A partir da instalação, sempre que quizermos utilizar o pacote `tidyverse` devemos carregá-lo com a função `tidyverse`. Você deve fazer isso toda vez que abrir o RStudio.
+A partir da instalação, sempre que quisermos utilizar o pacote `tidyverse` devemos carregá-lo com a função `tidyverse`. Você deve fazer isso toda vez que abrir o RStudio. É importante notar que você só precisará instalar os pacotes uma vez em sua máquina ou em seu servidor remoto, mas precisará carregá-los toda vez que for iniciar uma nova sessão.
 
 ```{r}
 library(tidyverse)
@@ -34,17 +34,17 @@ library(tidyverse)
 
 Pronto!
   
-Antes de avançar, treine com mais outro pacote: `lubridate`, que é um pacote para tratamento de datas e horas. 
+Antes de avançar, treine com mais outro pacote: `magrittr`, que é um pacote de operadores em R, que ajudam a estruturar seu código. Não vamos usar este pacote agora, mas ele serve para testarmos os procedimentos de instalação. 
 
 # Introdução ao pacote `dplyr`: rename, select e filter
 
 ## Começando pelo meio: data frames
 
-Uma característica distintiva da linguagem de programação R é ter sido desenvolvida para a análise de dados. E quando pensamos em análise de dados, a protagonista do show é a _base de dados_ ou, como vamos conhecer a partir de agora, __data frame__.
+Uma característica distintiva da linguagem de programação R é ter sido desenvolvida para a análise de dados. E quando pensamos em análise de dados, a protagonista do show é a _base de dados_ ou, como vamos conhecer a partir de agora, o __data frame__.
 
 Por esta razão, em vez de aprender como fazer aritmética, elaborar funções ou executar loops para repetir tarefas e outros aspectos básicos da linguagem, vamos começar olhando para o R como um software concorrente dos demais utilizados para análise de dados em estatística, ciências sociais e demais ciências, como SPSS, Stata, SAS e companhia.
 
-As principais características de um data frame são: (1) cada coluna representa uma variável (ou característica) de um conjunto de observações; (2) cada linha representa uma observação e contém os valores de cada variável para tal observação. Vejamos um exemplo:
+As principais características de um data frame são: (1) cada coluna representa uma **variável** (ou característica) de um conjunto de observações; (2) cada linha representa uma **observação** e contém os valores de cada variável para tal observação. Vejamos um exemplo:
   
 | Município             | Área (km2)| População | 
 | --------------------- | ---------:| ---------:|
