@@ -333,7 +333,7 @@ O que o operador __pipe__ faz é simplesmente colocar o primeiro argumento da fu
 
 A grande vantagem de trabalharmos com o operador %>% é não precisar repetir o nome do _data frame_ diversas vezes ao aplicarmos a ele um conjunto de operações.
 
-Vejamos agora como usamos o operador %>% para "emendar" tarefas, começando da abertura dos dados. Note que o primeiro input é o url da base de dados e, que, uma vez carregados, vai sendo transformado a cada novo verbo.
+Vejamos agora como usamos o operador %>% para "emendar" tarefas, começando da abertura dos dados, passando pela ação de renomear as variáveis e, enfim, pela seleção de variáveis. Note que o primeiro input (entrada de dados) é o url da base de dados e, que, uma vez carregada, vai sendo transformada a cada novo verbo.
 
 ```{r}
 piesp <- read_csv2('https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv') %>% 
@@ -373,16 +373,16 @@ piesp1518 <- piesp %>%
   filter(ano == 2016 | ano == 2017 | ano == 2018)
 ```
 
-Note que, para dizer que para combinarmos as condições de seleção de linha, utilizamos uma barra vertical `|`. A barra é o símbolo "ou", e indica que todas as observações que atenderem a uma ou outra condição serão incluídas.
+Note que, para combinarmos as condições de seleção de linha, utilizamos uma barra vertical `|`. A barra é o símbolo "ou", e indica que todas as observações que atenderem a uma OU outra condição serão incluídas.
 
-Outra maneira de escrever a mesma condição é:
+Outra maneira de escrever a mesma condição seria:
 
 ```{r}
 piesp1518 <- piesp %>% 
   filter(ano >= 2015 & ano <= 2018)
 ```
 
-Neste caso, utilizamos `&`, que é o símbolo da conjunção "e".
+Neste caso, utilizamos `&`, que é o símbolo da conjunção "e". Dizemos, então, que queremos filtrar os anos maiores ou iguais a 2015 e menores ou iguais a 2018.
  
 Vamos supor que queremos estabelecer agora condições para a seleção de linhas a partir de duas variáveis. Por exemplo, queremos apenas os investimentos cujo tipo é 'Implantacao' para os anos de 2016 a 2018. Novamente, precisaremos da conjunção `&`.
   
@@ -412,7 +412,7 @@ piesp <- piesp %>%
 
 Vimos até agora 3 verbos do pacote `dplyr`: `rename`, `select` e `filter`. Eles têm algumas características em comum:
 
-- O primeiro argumento é sempre o data frame que será transformado. Podemos retirar o primeiro argumento de dentro do parênteses se utilizamos o pipe (%>%).
+- O primeiro argumento é sempre o data frame que será transformado. Podemos retirar o primeiro argumento de dentro do parênteses se utilizamos o operador pipe (%>%).
 
 - Dentro do parênteses escrevemos uma lista de transformações utilizando vírgula para separá-las.
 
