@@ -1,19 +1,18 @@
-#  5a Aula - Bases relacionais e R + Pwer BI
+#  Aula 4 - Bases relacionais e R + Power BI
 
 ## Objetivos Gerais
 
-Neste últim encontro veremos como combinar data frames de diferentes origens que se relacionam por meio de uma ou mais variáveis chave. Utilizaremos novos verbos do dplyr, de sufixo "\_join" para trabalhar com bases de dados relacionais.
+Neste último encontro veremos como combinar data frames de diferentes origens que se relacionam por meio de uma ou mais variáveis chave. Utilizaremos novos verbos do dplyr, de sufixo "\_join" para trabalhar com bases de dados relacionais.
 
 A seguir, veremos em pequenos vídeos como integrar R e Power BI. Finalmente, para quem estiver confortável com a linguagem, convém aprender um pouco da 'gramática' básica de R.
 
 ## Roteiro
 
-0 - Às 9h30 faremos um encontro virtual (Teams) de 1h para falarmos dos objetivos de hoje e tirarmos dúvidas sobre a aula passada.
+0 - Às 8h30 faremos um encontro virtual (Teams) para falarmos dos objetivos de hoje e tirarmos dúvidas sobre a aula passada.
 
-1 - Entre 9h às 9h30, leia as instruções deste roteiro. Se deixou algum tutorial inacabado do encontro anterior, comece a ele. Caso contrário, prossiga.
+1 - Se deixou algum tutorial inacabado do encontro anterior, comece por ele. Caso contrário, prossiga.
 
 2 - Comece pelo tutorial no qual parou: [Tutorial 1](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-01.md), [Tutorial 2](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-02.md), [Tutorial 3](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-03.md), [Tutorial 4](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-04.md), [Tutorial 5](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-05.md), [Tutorial 6](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-06.md), [Tutorial 7](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-07.md), [Tutorial 8](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-08.md) e [Tutorial 9](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-09.md)
-
 
 3 - Na sequência, vá para o [Tutorial 10](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-10.md) que apresenta como trabalhar com bases de dados relacionais utilizando os verbos do `dplyr`.
 
