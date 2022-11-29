@@ -12,15 +12,15 @@ A seguir, aprenderemos uma nova 'gramática' de R: a gramática de gráficos do 
 
 1 - Se deixou algum tutorial inacabado até aqui, comece por ele. Caso contrário, prossiga.
 
-2 - Comece pelo tutorial no qual parou: [Tutorial 1](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-01.md), [Tutorial 2](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-02.md), [Tutorial 3](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-03.md), [Tutorial 4](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-04.md), [Tutorial 5](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-05.md) e [Tutorial 6](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-06.md)
+2 - Comece pelo tutorial no qual parou: [Tutorial 1](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-01.md), [Tutorial 2](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-02.md), [Tutorial 3](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-03.md), [Tutorial 4](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-04.md), [Tutorial 5](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-05.md) e [Tutorial 6](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-06.md)
 
-3 - Na sequência, vá para o [Tutorial 7](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-07.md), já indicado no encontro passado, que apresenta o pacote `janitor` para limpeza de dados e construção de tabelas, simples e de duas entradas.
+3 - Na sequência, vá para o [Tutorial 7](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-07.md), já indicado no encontro passado, que apresenta o pacote `janitor` para limpeza de dados e construção de tabelas, simples e de duas entradas.
 
-4 - Finalmente vá para o [Tutorial 8](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-08.md) que introduz um das especialidades de R: a gramática de gráficos do pacote `ggplot2`.
+4 - Finalmente vá para o [Tutorial 8](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-08.md) que introduz um das especialidades de R: a gramática de gráficos do pacote `ggplot2`.
 
 ## Opcional
 
-5 - Em algum momento do curso, ou após, seria interessante ter uma exposição à gramática básica do R. Se, e somente se, você estiver confortável com a gramática do `dplyr` e houver tempo, faça (ou pelo menos comece a fazer) o [Tutorial 9](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-09.md)
+5 - Em algum momento do curso, ou após, seria interessante ter uma exposição à gramática básica do R. Se, e somente se, você estiver confortável com a gramática do `dplyr` e houver tempo, faça (ou pelo menos comece a fazer) o [Tutorial 9](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-09.md)
 
 ## Dicas de Leitura
 
