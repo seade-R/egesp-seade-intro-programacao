@@ -1,16 +1,16 @@
-#  4o Aula - ggplot2: Gramática de gráficos
+#  Aula 3 (parte 2) - ggplot2: Gramática de gráficos
 
 ## Objetivos Gerais
 
-No encontro de hoje vamos seguir com a gramática do `dplyr` para transformar os dados e produzir tabelas. Utilizaremos um pacote excelente (e desconhecido para mim até pouco tempo) chamado `janitor`. No meio do caminho, aprenderemos um pouco sobre `factors`, que é a estrutura de dados utilizada em R para variáveis categóricas.
+Na parte da tarde vamos seguir com a gramática do `dplyr` para transformar os dados e produzir tabelas. Utilizaremos um pacote chamado `janitor`. No meio do caminho, aprenderemos um pouco sobre `factors`, que é a estrutura de dados utilizada em R para variáveis categóricas, e pode ser muito útil para o dia-a-dia de trabalho com dados na gestão pública.
 
 A seguir, aprenderemos uma nova 'gramática' de R: a gramática de gráficos do pacote `ggplot2`. Este pacote é certamente uma das razões pelas quais R se tornou popular (e uma das vantagens de R sobre python). Trabalharemos algumas das inúmeros 'geometrias' do pacote, nos preocupando menos em colecionar funções e mais em compreender a estrutura dessa gramática.
 
 ## Roteiro
 
-0 - Às 9h30 faremos um encontro virtual (Teams) de 1h para falarmos dos objetivos de hoje e tirarmos dúvidas sobre a aula passada.
+0 - Às 13h30 faremos um encontro virtual (Teams) para falarmos dos objetivos de hoje e tirarmos dúvidas sobre a aula passada.
 
-1 - Entre 9h às 9h30, leia as instruções deste roteiro. Se deixou algum tutorial inacabado do encontro anterior, comece a ele. Caso contrário, prossiga.
+1 - Se deixou algum tutorial inacabado até aqui, comece por ele. Caso contrário, prossiga.
 
 2 - Comece pelo tutorial no qual parou: [Tutorial 1](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-01.md), [Tutorial 2](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-02.md), [Tutorial 3](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-03.md), [Tutorial 4](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-04.md), [Tutorial 5](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-05.md) e [Tutorial 6](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-06.md)
 
@@ -20,7 +20,7 @@ A seguir, aprenderemos uma nova 'gramática' de R: a gramática de gráficos do 
 
 ## Opcional
 
-5 - Em algum momento do curso, ou após, seria interessante ter uma exposição à gramática básica do R. Se, e somente se, você estiver confortável com a gramática do `dplyr` e houver tempo, faça (ou comece) o [Tutorial 9](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-09.md)
+5 - Em algum momento do curso, ou após, seria interessante ter uma exposição à gramática básica do R. Se, e somente se, você estiver confortável com a gramática do `dplyr` e houver tempo, faça (ou pelo menos comece a fazer) o [Tutorial 9](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-09.md)
 
 ## Dicas de Leitura
 
