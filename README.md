@@ -4,13 +4,13 @@ Bem vindas e bem vindos ao curso de 'Introdução à programação e ciência de
 
 ## Informações básicas
 
-### Instrutor
+### Instrutora
 
-Leonardo S. Barone
+Thandara Santos
 
 ### Local, data e hora
 
-Virtual, às segundas e quartas, das 9h às 13h, de 12 a 26 de Setemrbo
+Virtual, de terça a sexta-feira, à partir das 13:30, de 29/11 a 02/12
 
 ## Apresentação
 
@@ -18,15 +18,15 @@ O curso oferece uma iniciação à lógica de programação e ao uso da linguage
 
 ## Programa
 
-[12-09-2022](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/class/class-01.md) __Manipulação de dados no R e introdução__ - Na primeira aula do curso nos habituaremos à linguagem R trabalhando com uma das gramáticas mais populares de manipulação de dados em R, a do pacote _dplyr_. O curso começa, assim, não pelos elementos básicos da linguagem R, mas pelo seu uso mais comum. Dessa forma, nos habituaremos à linguagem observando seu uso a problemas concretos.
+[29-11-2022](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/class/class-01.md) __Manipulação de dados no R e introdução__ - Na primeira aula do curso nos habituaremos à linguagem R trabalhando com uma das gramáticas mais populares de manipulação de dados em R, a do pacote _dplyr_. O curso começa, assim, não pelos elementos básicos da linguagem R, mas pelo seu uso mais comum. Dessa forma, nos habituaremos à linguagem observando seu uso a problemas concretos.
 
-[14-09-2022](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/class/class-02.md) __Do básico ao intermediário__ - Após termos aprendido sobre data frames, vamos fazer um percurso das funcionalidades básicas da linguagem até alguns de seus usos intermediários. O objetivo do percurso é criar um repertório de funções e utilidades da linguagem que serão utilizados adiante.
+[30-11-2022](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/class/class-02.md) __Do básico ao intermediário__ - Após termos aprendido sobre data frames, vamos fazer um percurso das funcionalidades básicas da linguagem até alguns de seus usos intermediários. O objetivo do percurso é criar um repertório de funções e utilidades da linguagem que serão utilizados adiante.
 
-[19-09-2022](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/class/class-03.md) __Tidyverse para manipualção de dados__ - Faremos o camninho de volta ao nosso ponto de partida do curso: a manipulação de dados com a gramática do _dplyr_. Exploraremos agora aspectos diversos da manipulação de dados com mais profundidade.
+[01-12-2022](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/class/class-03.md) __Tidyverse para manipulação de dados__ - No terceiro encontro, faremos o camninho de volta ao nosso ponto de partida do curso: a manipulação de dados com a gramática do _dplyr_. Exploraremos agora aspectos diversos da manipulação de dados com mais profundidade.
 
-[26-09-2022](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/class/class-04.md) __ggplot2: Gramática de gráficos__ - No encontro de hoje seguiremos com a produção de tabelas em R, agora com o pacote _janitor_. A seguir, e considerando que temos muitos recursos para manipular dados em R, veremos como produzir gráficos com a gramática de gráficos do pacote _ggplot2_.
+[01-12-2022](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/class/class-04.md) __ggplot2: Gramática de gráficos__ - Na segunda parte do nosso terceiro dia de curso, seguiremos com a produção de tabelas em R, agora explorando o pacote _janitor_. A seguir, e considerando que temos muitos recursos para manipular dados em R, veremos como produzir gráficos com a gramática de gráficos do pacote _ggplot2_.
 
-[21-09-2022](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/class/class-05.md) __Bases de dados relacionais__ - Neste último encontro veremos como utilizar a gramática do `dplyr` para trabalharmos com dados relacionais. Finalmente, em um tutorial com vídeos, veremos maneiras simples de integrarmos R e Microsoft Power BI.
+[02-12-2022](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/class/class-05.md) __Bases de dados relacionais__ - Neste último encontro veremos como utilizar a gramática do `dplyr` para trabalharmos com dados relacionais. Finalmente, em um tutorial com vídeos, veremos maneiras simples de integrarmos R e Microsoft Power BI, uma ferramenta bastante utilizada na gestão pública.
 
 ## Referências bibliográficas
 
