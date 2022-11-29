@@ -6,7 +6,7 @@ Neste primeiro encontro vamos conhecer o ambiente de programação de R e o soft
 
 ## Roteiro
 
-1- Nos encontraremos em uma sala virtual (Teams) às 13h30. Faremos uma breve apresentação das e dos participantes e conversaremos sobre o funcionamento do curso. Veremos como utilizar o RStudio no servidor do SEADE.
+1- Nos encontraremos em uma sala virtual (Teams) às 13h30. Faremos uma breve apresentação das e dos participantes e conversaremos sobre o funcionamento do curso. Veremos como utilizar o RStudio no servidor da Fundação SEADE.
 
 2- Assista ao breve vídeo sobre a interface RStudio: https://www.youtube.com/watch?v=7yhw_xYWqlU
 
