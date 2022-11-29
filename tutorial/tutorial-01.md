@@ -4,7 +4,7 @@ Um dos aspectos mais incríveis da linguagem R é o desenvolvimento de novas fun
 
 Há diversas "gramática para bases de dados", ou seja, formas de importar, organizar, manipular e extrair informações das bases de dados, que foram desenvolvidas ao longo da última década.
 
-A "gramática" mais popular da linguagem é a do pacote `dplyr`, parte do`tidyverse`. Neste primeiro tutorial veremos como utilizar algumas das principais funções, ou "verbos", do pacote`dplyr`. Começaremos com os verbos `rename`, para renomear variáveis, `select` para selecionar colunas (variáveis) e `filter` para selecionar linhas. 
+A "gramática" mais popular da linguagem é a do pacote `dplyr`, parte do`tidyverse` (um verdadeiro universo dentro do R!). Neste primeiro tutorial veremos como utilizar algumas das principais funções, ou "verbos", do pacote`dplyr`. Começaremos com os verbos `rename`, para renomear variáveis, `select` para selecionar colunas (variáveis) e `filter` para selecionar linhas. 
 
 Existem outras formas de se trabalhar com conjuntos de dados mais, digamos, antigas. É comum encontrarmos códigos escritos na "gramática" original da linguagem, que chamaremos de "base" ou "básico".
 
