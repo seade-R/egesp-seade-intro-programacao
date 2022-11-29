@@ -6,9 +6,9 @@ No primeiro encontro trabalhamos com a gramática do pacote _dplyr_ para manipul
 
 ## Roteiro
 
-0 - Às 9h30 faremos um encontro virtual (via Teams) de 30 a 45 minutos para falarmos dos objetivos de hoje e tirarmos dúvidas sobre a aula anterior.
+0 - Às 13h30 faremos um encontro virtual (via Teams) de 30 a 45 minutos para falarmos dos objetivos de hoje e tirarmos dúvidas sobre a aula anterior.
 
-1 - Entre 9h às 9h30, leia as instruções deste roteiro. Se deixou algum tutorial inacabado do encontro anterior, comece por ele. Caso contrário, prossiga. Após as 9h30 faremos momentos intercalados com vídeo e chat.
+1 - Se deixou algum tutorial inacabado do encontro anterior, comece por ele. Caso contrário, prossiga. 
 
 2 - Assista ao breve vídeo sobre como gerenciar projetos no RStudio: https://www.youtube.com/watch?v=ukU9iNkPX60&t=3s. Uma boa dica de leitura sobre o assunto (opcional e para o final da manhã de hoje: https://curso-r.github.io/zen-do-r/rproj-dir.html#diret%C3%B3rio-de-trabalho).
 
@@ -18,7 +18,7 @@ No primeiro encontro trabalhamos com a gramática do pacote _dplyr_ para manipul
 
 5 - Assita ao breve vídeo sobre como enviar e fazer download de arquivos no servidor de RStudio no qual estamos trabalhando: https://www.youtube.com/watch?v=IRjLs5P5A9c
 
-6 - Como no 1o encontro, às 12h15 faremos uma nova conversa coletiva na sala do Teams.
+6 - Como no 1o encontro, às 17h00 faremos uma nova conversa coletiva na sala do Teams.
 
 ## Dica de Leitura
 
