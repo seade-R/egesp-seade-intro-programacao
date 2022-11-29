@@ -55,9 +55,9 @@ As principais características de um data frame são: (1) cada coluna representa
   
 Fonte: SEADE
 
-Note que em uma linha os elementos são de tipos de diferentes: na primeira coluna há uma nome (texto), na segunda uma medida de área (números com casa decimais) e na terceira uma contagem (número inteiros). 
+Note que em uma linha os elementos são de tipos de diferentes: na primeira coluna há uma nome (texto), na segunda uma medida de área (números com casa decimais) e na terceira uma contagem (números inteiros). 
 
-Por outro lado, em cada coluna há somente elementos de um tipo. Por exemplo, há apenas números inteiros na coluna população. Colunas são variáveis e por isso aceitam registros de um único tipo. Se você já fez um curso de estatísticas básica ou de métodos quantitativos deve se lembrar que as variáveis são classificadas da seguinte maneira:
+Por outro lado, em cada coluna há somente elementos de um tipo. Por exemplo, há apenas números inteiros na coluna população. Colunas são variáveis e por isso aceitam registros de um único tipo. Se você já fez um curso de estatística básica ou de métodos quantitativos deve se lembrar que as variáveis são classificadas da seguinte maneira:
   
 1- Discretas
 
@@ -79,9 +79,9 @@ Vamos ver como o R representa vetores e data frames na tela. Antes disso, é pre
 
 ## Pesquisa de Investimentos Anunciados no Estado de São Paulo (PIESP)
 
-Neste primeiro tutorial vamos trabalhar com dados de uma pesquisa a [SEADE Investimentos](https://investimentos.seade.gov.br), que capta anúncios de investimento realizados por empresas públicas e privadas no Estado de São Paulo. Vamos abrir os dados antes e depois examinar do que se trata exatamente.
+Neste primeiro tutorial vamos trabalhar com dados de uma pesquisa do SEADE, a [SEADE Investimentos](https://investimentos.seade.gov.br), que capta anúncios de investimento realizados por empresas públicas e privadas no Estado de São Paulo. Vamos abrir os dados antes e depois examinar do que se trata exatamente.
 
-Os para este exercício dados estão armazenados em um arquivo de texto no formato .csv (comma separated values), ou seja, em cada linha os dados de cada coluna são separados por ponto e vírgula (;). Outros separadores, como vírgula ou tab são possíveis nesse formato.
+Para este exercício, os dados estão armazenados em um arquivo de texto no formato .csv (comma separated values), ou seja, em cada linha os dados de cada coluna são separados por ponto e vírgula (;). Outros separadores, como vírgula ou tab são possíveis nesse formato.
 
 ## Abrindo dados em R com botão (aaaaaaargh!)
 
@@ -91,7 +91,7 @@ Clique no botão (aaaaaaargh!). Veja que temos a opção de importar arquivos de
 
 Use a segunda opção, "From Text (readr)" para carregar os dados da PIESP.
 
-Note que você pode escolher um arquivo na pasta local ou um URL, ou seja, um arquivo que esteja armazenado na web. O dados da PIESP não estão no seu computador, mas o endereço do repositório do curso: https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv
+Note que você pode escolher um arquivo na pasta local ou um URL, ou seja, um arquivo que esteja armazenado na web. Os dados da PIESP não estão no seu computador, mas no endereço do repositório do curso: https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv
 
 Cole o URL no campo "File/URL" e clique em 'Update'.
 
@@ -156,9 +156,9 @@ View(piesp)
 
 Ao lado da aba do script no qual você está trabalhando aparecerá uma aba com a matriz de dados da PIESP. Vamos aproveitar para entender o que são esses dados.
 
-O SEADE disponibiliza a informação detalhada de todos os investimentos anunciados por empresas privadas em públicas de São Paulo (1) captados na imprensa e (2) confirmados em contato com as empresas. O dado que carregamos para nossa atividade é o de investimentos confirmados de 2012 até o dia 03 de Agosto de 2020. A versão dos dados é uma modificação da original (sem acentos nos textos e com colunas de valores em formato numérico) realizada para fins didáticos.
+O SEADE disponibiliza a informação detalhada de todos os investimentos anunciados por empresas privadas e públicas de São Paulo (1) captados na imprensa e (2) confirmados em contato com as empresas. O dado que carregamos para nossa atividade é o de investimentos confirmados de 2012 até o dia 03 de Agosto de 2020. A versão dos dados é uma modificação da original (sem acentos nos textos e com colunas de valores em formato numérico) realizada para fins didáticos.
 
-Cada linha representa um investimento confirmado e temos, resumidamente, informações sobre a data e tipo do investimento, a empresa investidora e sua atividade econômica, o valor investido, o local da empresa.
+Cada linha representa um investimento confirmado e temos, resumidamente, informações sobre a data e tipo do investimento, a empresa investidora e sua atividade econômica, o valor investido e o local da empresa.
 
 Podemos rapidamente olhar para uma "amostra" dos dados com a função `head`, que nos apresenta as 6 primeiras linhas do conjunto de dados e as primeiras colunas à esquerda.
 
@@ -201,7 +201,7 @@ names(piesp) # Repetindo o comando acima com comentario em outro lugar
 
 Comentários são extremamente úteis para documentar seu código. Use e abuse. Documentar é parte de programar e você deve pensar nas pessoas com as quais vai compartilhar o código e no fato de que com certeza não se lembrará do que fez em pouco tempo (garanto, você vai esquecer).
 
-Durante o curso, comente todos os seus scripts.
+Durante o curso, comente todos os seus scripts e, especialmente, as linhas de código que podem lhe parecer mais úteis para suas atividades futuras. Será mais fácil voltar a elas e estudar se estiverem documentadas.
 
 ## Argumentos ou parâmetros das funções
 
@@ -246,7 +246,7 @@ O símbolo _NA_ em R quer dizer valor faltante (missing value). Na coluna de val
 
 ## Renomeando variáveis
 
-Quando trabalhamos com dados que não coletamos, em geral, não vamos gostar dos nomes das variáveis que quem produziu os dados escolheu. Mais ainda, com certa frequência, obtemos dados cujos nomes das colunas são compostos ou contêm acentuação, cecedilha e demais caracteres especiais, como no caso da PIESP. Dá um tremendo trabalho usar nomes com tais característica, apesar de possível. O ideal é termos nomes sem espaço (você pode usar ponto ou subscrito para separar palavras em um nome composto) e que contenham preferencialmente letras minísculas sem acento e números.
+Quando trabalhamos com dados que não coletamos, em geral, não vamos gostar dos nomes das variáveis que quem produziu os dados escolheu. Mais ainda, com certa frequência, obtemos dados cujos nomes das colunas são compostos ou contêm acentuação, cedilha e demais caracteres especiais, como no caso da PIESP. Dá um tremendo trabalho usar nomes com tais característica, apesar de possível. O ideal é termos nomes sem espaço (você pode usar ponto ou subscrito para separar palavras em um nome composto, por exemplo) e que contenham preferencialmente letras minísculas sem acento e números.
 
 Vamos começar renomeando algumas variáveis no nosso banco de dados, cujos nomes vemos com o comando abaixo:
   
@@ -262,7 +262,7 @@ piesp <- rename(piesp, ano = Ano, valor = `Real (em milhoes)`, tipo = `Tipo Inve
 
 Simples, não? 
 
-No caso de nomes com mais de uma palavra ou espaços, é preciso colocar o texto entre dois acentos graves (crase) para sabermos onde começa e onde termina o nome da variável.
+No caso de nomes com mais de uma palavra ou espaços, é preciso colocar o texto entre dois acentos graves (crase) para sabermos onde começa e onde termina o nome da variável, como em "Tipo Investimento".
   
 ## Uma gramática, duas formas
   
@@ -277,7 +277,7 @@ piesp <- piesp %>%
          tipo = `Tipo Investimento`)
 ```
 
-Usando o operador %>%, denominado _pipe_, retiramos de dentro da função `rename` o banco de dados cujas variáveis serão renomeadas. As quebras de linha depois do %>% e dentro da função `rename` são opcionais. Porém, o padrão é 'verticalizar o código' e colcar os 'verbos' (no caso, `rename`) à esquerda, o que torna sua leitura mais confortável.
+Usando o operador %>%, denominado _pipe_, retiramos de dentro da função `rename` o banco de dados cujas variáveis serão renomeadas. As quebras de linha depois do %>% e dentro da função `rename` são opcionais. Porém, o padrão é 'verticalizar o código' e colocar os 'verbos' (no caso, o verbo `rename`) à esquerda, o que torna sua leitura mais confortável.
 
 Compare com o código que havíamos executado anteriormente:
   
@@ -289,7 +289,7 @@ piesp <- rename(piesp, ano = Ano, valor = `Real (em milhoes)`, tipo = `Tipo Inve
 
 A sintaxe com o uso do _pipe_ tem uma vantagem importante: ela permite emendar uma operação de transformação do banco de dados em outra. Veremos adiante como fazer isso. Por enquanto, tenha em mente que o resultado é o mesmo para qualquer uma das duas formas.
 
-Vamos trabalhar com mais variáveis de uma única vez. Reabra os dados para que tenhamos uma versão não renomeada:
+Vamos trabalhar com mais variáveis de uma única vez. Reabra os dados para que tenhamos uma versão não renomeada e limpa:
   
 ```{r}
 piesp <- read_csv2('https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv')
