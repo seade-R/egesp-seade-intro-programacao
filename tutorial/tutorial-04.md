@@ -350,7 +350,6 @@ Seguindo a mesma lógica:
 - Crie uma função que recebe um valor em reais e uma cotação do dólar e retorna o valor em dólares (ou seja, que contém 2 parâmetros).
 
 
-
 ## Paramos por aqui
 
 Hoje percorremos um caminho longo no aprendizado da linguagem R. Vamos parar por aqui para respirar e assentar o que aprendemos.
