@@ -4,9 +4,9 @@ No primeiro e segundo tutoriais aprendemos sobre os principais verbos do `dplyr`
 
 ## PIESP - investimento por CNAE
 
-Vamos fazer um exercício simples de recodificar a CNAE das empresas alvo de investimento, trabalhando com as duas divisões da CNAE que mais recebem investimentos e com o tipo de investimento (ampliação, moderniação ou implantação).
+Vamos fazer um exercício simples de recodificar a CNAE das empresas alvo de investimento, trabalhando com as duas divisões da CNAE que mais recebem investimentos e com o tipo de investimento (ampliação, modernização ou implantação).
 
-Lembre-se sempre de carregar os pacotes que vai usar antes de começar a produzir código. Usaremos, por enquanto, apenas o `tidyverse`
+Lembre-se sempre de carregar os pacotes que vai usar antes de começar a produzir o código. Usaremos, por enquanto, apenas o `tidyverse`
 
 Vamos carregar novamente os dados da pesquisa SEADE Investimentos:
 
@@ -58,7 +58,7 @@ piesp %>%
 
 Quando falamos em tabulações, no contexto da gramática do `dplyr`, estamos falando em data frames reduzidos pelo uso do verbo de agrupamento.
 
-Vamos produzir agora uma tabela com contagem de investimentos por CNAE e ordenado de forma decrescente pela contagem (variável 'n'):
+Vamos produzir agora uma tabela com contagem de investimentos por CNAE e ordenada de forma decrescente pela contagem (variável 'n'):
 
 ```{r}
 piesp %>% 
@@ -67,7 +67,7 @@ piesp %>%
   arrange(-n) 
 ```
 
-Voltaremos a falar sobre tabelas. Vamos para agora para fazer algumas transformações na variável 'cnae'.
+Voltaremos a falar sobre tabelas. Vamos parar agora para fazer algumas transformações na variável 'cnae'.
 
 ## Divisão da CNAE
 
@@ -92,7 +92,7 @@ piesp %>%
   arrange(-n) 
 ```
 
-Encontramos 76 divisões nos dados de investimentos. Vamos restringir nossa análise às duas divisões com mais investimentos, 47 e 56, que são comércio varejista e alimentação, respectivamente. Criaremos, assim, uma nova versão dos dados apenas com as linhas de investimentos dessas duas divisões. Note que precisamos fazer uma nova atribuição para gerar essa cópia reduizada dos nossos dados.
+Encontramos 76 divisões nos dados de investimentos. Vamos restringir nossa análise às duas divisões com mais investimentos, 47 e 56, que são comércio varejista e alimentação, respectivamente. Criaremos, assim, uma nova versão dos dados apenas com as linhas de investimentos dessas duas divisões. Note que precisamos fazer uma nova atribuição para gerar essa cópia reduzida dos nossos dados.
 
 ```{r}
 piesp_2 <- piesp %>%
@@ -122,7 +122,7 @@ piesp_2 %>%
   count
 ```
 
-Qual das divisões tem, na média, mais investimentos anunciados de maior valor? Em vez de usarmos `count` para termos a contagem como conteúdo das células, podemos usar uma gerar uma estatística a partir de uma segunda variável com o verbo `summarise`. Por exemplo, a média de valores anunciados:
+Qual das divisões tem, na média, mais investimentos anunciados de maior valor? Em vez de usarmos `count` para termos a contagem como conteúdo das células, podemos gerar uma estatística a partir de uma segunda variável com o verbo `summarise`. Por exemplo, a média de valores anunciados:
 
 ```{r}
 piesp_2 %>% 
@@ -161,7 +161,7 @@ piesp_2 %>%
             maximo = max(valor))
 ```
 
-Lembre-se de que não estamos criando novos objetos. Apenas 'imprimindo' tabelas no Console para analisar os dados.
+Lembre-se que, aqui, não estamos criando novos objetos. Apenas 'imprimindo' tabelas no Console para analisar os dados. Para criarmos novos objetos teríamos que atribuir (<-) o código a um objeto nomeado.
 
 ## Cruzamentos de variáveis
 
@@ -197,7 +197,7 @@ Não era isso que esperávamos, certo? Seria mais legal receber algo assim (como
 table(piesp_2$divisao_desc, piesp_2$tipo)
 ```
 
-Repare com cuidado. As duas tabelas fornecem a mesma informação. A diferença está no formato. A segunda é representa o pivotamento da primeira, que, apesar de termos chamado de tabela, é um data frame no formato 'long'.
+Repare com cuidado. As duas tabelas fornecem a mesma informação. A diferença está no formato. A segunda representa o pivotamento da primeira, que, apesar de termos chamado de tabela, é um data frame no formato 'long'.
 
 'Long' e 'wide' são as denominações que damos aos formatos acima, respectivamente. Na gramática do `dplyr` trabalharemos sempre com o formato 'long' e há uma boa razão para isso: fazer operações e, sobretudo, produzir gráficos com tabelas no formato 'long' é mais simples. Quando chegarmos à 'gramática dos gráficos' isso ficará mais claro.
 
