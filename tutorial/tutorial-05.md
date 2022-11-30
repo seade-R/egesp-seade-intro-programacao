@@ -24,7 +24,7 @@ library(beepr)
 
 Você pode dispensar as aspas ao usar a função `library`, pois é opcional.
 
-Se você quiser usar rapidamente apenas uma função de um pacote sem carregá-lo, você pode utilizar a função precedidade por `::` (":" duas vezes) e o nome do pacote. Veja o exemplo:
+Se você quiser usar rapidamente apenas uma função de um pacote sem carregá-lo, você pode utilizar a função precedida por `::` (":" duas vezes) e o nome do pacote. Veja o exemplo:
 
 ```{r}
 beepr::beep()
@@ -48,7 +48,7 @@ setwd("C:\\User\\Documents")
 
 Simples e muito útil para evitar escrevermos "labirintos de pastas" cada vez que queremos importar dados. Agora só precisamos nos referir ao nome do arquivo (e não a sua pasta) para abrí-lo. É uma boa prática manter todos os arquivos, scripts e saídas importados em uma pasta de projeto bem organizada.
 
-IMPORTANTE! Um detalhe fundamental para quem usa Windows: os caminhos devem ser escritos com duas barras no lugar de uma, como no exemplo acima. É uma chatice e a melhor solução é mudar definitivamente para Linux.
+IMPORTANTE! Um detalhe fundamental para quem usa Windows: os caminhos devem ser escritos com duas barras no lugar de uma, como no exemplo acima.
 
 Se você preferir não se preocupar com as pastas, pode criar um projeto para armazenar toda a documentação em uma única pasta, como vimos no vídeo disponibilizado na 2a aula.
 
@@ -64,7 +64,7 @@ library(tidyverse)
 
 Provavelmente as funções mais usadas no `readr` são `read\_csv` e `read\_csv2`, que abrem arquivos .csv separados por vírgula e ponto e vírgula, respectivamente. Temos à nossa disposição no repositório do github a base de dados da pesquisa SEADE Investimentos com a qual trabalhamos anteriormente salva em formatos de texto variados -- com vírgula ou ponto e vírgula como separador, com ou sem cabeçalho na primeira linha identificando o nome das variáveis e com diferentes encodings.
 
-Nosso exemplo da pesquisa SEADE Investimentos abrimos um arquivo em .csv separado por ponto e vírgula:
+Nosse exemplo da pesquisa SEADE Investimentos abrimos um arquivo em .csv separado por ponto e vírgula:
 
 ```{r}
 url_piesp <- 'https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv'
@@ -138,7 +138,7 @@ piesp <- read_delim(url_piesp,
 
 Perceba que quando abrimos os dados sem especificar o tipo da coluna, a função `read\_delim` e suas variantes tentam identificá-los. 
 
-Uma complexidade de abertura de dados brasileiros é o uso da vírgula como separador decimal e o ponto para indicar milhares. Note que deixamos as colunas de valores como 'character' por usar ',' como de separador de decimal, quando o padrão em R é '.'. Temos que especificar no argumento _locale_ essas diferenças. 
+Uma complexidade de abertura de dados brasileiros é o uso da vírgula como separador decimal e o ponto para indicar milhares (em inglês, esse padrão muda e precisamos levar em conta que a maior parte dos grandes pacotes em R foram escritos em inglês). Note que deixamos as colunas de valores como 'character' por usar ',' como separador de decimal, quando o padrão em R é '.'. Temos que especificar no argumento _locale_ essas diferenças. 
 
 ```{r}
 piesp <- read_delim(url_piesp, 
@@ -147,7 +147,7 @@ piesp <- read_delim(url_piesp,
                     locale = locale(decimal_mark = ",", grouping_mark = "."))
 ```
 
-No caso dos dados da pesquisa SEADE Investimentos, alguns números não são lidos corretamente por haver espaços inúteis antes ou depois. Com o argumento `trim_ws = TRUE` eliminamos espaços em que precedem ou sucedem a informação em todas as variáveis. Vamos usá-lo:
+No caso dos dados da pesquisa SEADE Investimentos, alguns números não são lidos corretamente por haver espaços inúteis antes ou depois. Com o argumento `trim_ws = TRUE` eliminamos espaços que precedem ou sucedem a informação em todas as variáveis. Vamos usá-lo:
 
 ```{r}
 piesp <- read_delim(url_piesp, 
@@ -161,7 +161,7 @@ Também podemos usar `locale` para especificar o formato da hora, o formato da d
 
 É comum termos problemas para abrir arquivos que contenham caracteres especiais, pois há diferentes formas do computador transformar 0 e 1 em vogais acentuadas, cecedilha, etc. O "encoding" de cada arquivo varia de acordo com o sistema operacional e aplicativo no qual foi gerado.
 
-No servidor do SEADE utilizamos como encoding nativo "UTF-8", pois o servidor é Linux (use Linux!). Mac também costuma usar UTF-8. Windowns, por sua vez, costuma usar outros encodings, como 'Latin1'. Vamos abrir um arquivo sobre casos e óbitos relacionados à epidemia de COVID-19 em São Paulo cujo encoding é 'Latin1' sem informar o parâmetro do encoding:
+No servidor do SEADE utilizamos como encoding nativo "UTF-8", pois o servidor é Linux. Mac também costuma usar UTF-8. Windowns, por sua vez, costuma usar outros encodings, como 'Latin1'. Vamos abrir um arquivo sobre casos e óbitos relacionados à epidemia de COVID-19 em São Paulo cujo encoding é 'Latin1' sem informar o parâmetro do encoding:
 
 ```{r}
 covid <- read_csv2(url_covid_latin1) 
@@ -180,9 +180,11 @@ head(covid)
 
 Veja como agora resolvemos o problema.
 
-Infelizmente não há formas automáticas infalíveis de descobrir o "encoding" de um arquivo e é preciso conhecer como foi gerado -- seja por que você produziu o arquivo ou por que você teve acesso à documentação. Ou descobrir a partir para tentativa e erro. Alguns "encodings" comuns são "latin1", "latin2" e "utf8", mas há diversos outros.
+Infelizmente não há formas automáticas infalíveis de descobrir o "encoding" de um arquivo e é preciso conhecer como foi gerado -- seja por que você produziu o arquivo ou por que você teve acesso à documentação sobre o arquivo. Você pode sempre partir para tentativa e erro (tentar diferentes encodings e ver o resultado). Para você usar em seus testes, alguns "encodings" mais comuns são "latin1", "latin2" e "utf8", mas há diversos outros.
 
-Finalmente, você pode pular escolher 'pular' algumas linhas do arquivo (por exemplo, no caso de arquivos com informações que não fazem parte do banco na primeira linha) como argumento 'skip' ou limitar a abertura a um número de linhas com 'n_max'. Se estiver lidando com bases muito grandes, convém abrir apenas as primeiras para acertar todos os parâmetros da abertura e depois excluir o limite para abrir o arquivo completo.
+Finalmente, você escolher 'pular' algumas linhas do arquivo (por exemplo, no caso de arquivos com informações que não fazem parte do banco na primeira linha) como argumento 'skip' ou limitar a abertura a um número de linhas com 'n_max'. 
+
+Isso pode ser importante se estiver lidando com bases muito grandes. Nesses casos, convém abrir apenas as primeiras para acertar todos os parâmetros da abertura e depois excluir o limite para abrir o arquivo completo.
 
 Recomendo que você leia rapidamento 'help' das funções com as quais trabalhamos para aprender um pouco mais:
 
@@ -192,9 +194,9 @@ Recomendo que você leia rapidamento 'help' das funções com as quais trabalham
 
 ## Fread, a melhor função de abertura
 
-R é uma linguagem com vários dialetos. Um dialeto excelente, mas não tão popular quanto o do `dplyr` é o do pacote `data.table`. Não vamos falar dele no curso. Mas vamos instalá-lo para usar uma única função disponível que vale muito a pena ter em nosso repertório: `fread`.
+R é uma linguagem com vários dialetos. Um dialeto excelente, mas não tão popular quanto o do `dplyr` é o do pacote `data.table`. Não vamos falar dele no curso. Mas vamos instalá-lo para usar uma única função disponível que vale muito à pena ter em nosso repertório: `fread`.
 
-OBS: se estiver com problemas de instalação de pacotes no curso, pode pular o código abaixo.
+OBS: é possível que o pacote já esteja instalado na sua sessão, nesse caso, pode pular o código abaixo e vá direto ao carregamento.
 
 ```{r}
 install.packages('data.table')
@@ -206,7 +208,7 @@ Lembre-se de carregá-lo:
 library(data.table)
 ```
 
-A função `fread` é extremamente rápida e inteligente para abrir dados. Ela reconhece automaticamente boa parte dos parâmetros necessários para abrir os dados. E consegue abrir bases muito grandes na RAM que as funções do `readr` não conseguem (e fazem o RStudio 'quebrar'). Seu uso é trivial:
+A função `fread` é extremamente rápida e inteligente para abrir dados. Ela reconhece automaticamente boa parte dos parâmetros necessários para abrir os dados. E consegue abrir bases muito grandes na RAM, que as funções do `readr` não conseguem (e fazem o RStudio 'quebrar'). Seu uso é trivial:
 
 ```{r}
 piesp <- fread(url_piesp)
@@ -226,14 +228,14 @@ Editores de planilha são, em geral, a primeira ferramenta de análise de dados 
 
 Vamos ver como obter dados em formato .xls ou .xlsx diretamente, sem precisar abrir os arquivos e exportá-los para um formato de texto.
 
-Há dois bons pacotes com funções para dados em editores de planilha: _readxl_ e _gdata_. Vamos trabalhar apenas com o primeiro, mas convém conhecer o segundo se você for trabalhar constantemente com planilhas e quiser editá-las, e não só salvá-las. `readxl` também é parte do movimennto `tidyverse`, mas temos que abri a biblioteca direitamente, pois não é carregada ao carregarmos o pacote `tidyverse`. Instale e carregue o pacote:
+Há dois bons pacotes com funções para dados em editores de planilha: _readxl_ e _gdata_. Vamos trabalhar apenas com o primeiro, mas convém conhecer o segundo se você for trabalhar constantemente com planilhas e quiser editá-las, e não só salvá-las. `readxl` também é parte do movimennto `tidyverse`, mas temos que abrir a biblioteca diretamente, pois não é carregada automaticamente ao carregarmos o pacote `tidyverse`. Instale e carregue o pacote:
 
 ```{r}
 install.packages('readxl')
 library(readxl)
 ```
 
-### Um pouco sobre donwload e manipulação de arquivos
+### Um pouco sobre download e manipulação de arquivos
 
 Nosso exemplo de arquivo em .xlsx será a tabela sobre "Cartões de Bilhetagem Eletrônica Ativos" produzida pela [EMTU](https://www.emtu.sp.gov.br/emtu/dados-abertos/dados-abertos-principal/bilhetagem-eletronica/arquivos-de-bilhetagem-eletronica.fss). Você pode baixá-la no URL https://www.emtu.sp.gov.br/EMTU/pdf/Jan16%20a%20Ago18_cartoes%20ativos%20BOM.xlsx.
 
@@ -243,7 +245,7 @@ Em vez de baixarmos o arquivo manualmente, vamos fazer download em código com a
 url_arquivo <- "https://www.emtu.sp.gov.br/EMTU/pdf/Jan16%20a%20Ago18_cartoes%20ativos%20BOM.xlsx"
 ```
 
-A seguir, utilizaremos `download.file`. O primeiro argumento desta função é o URL e o segundo é o nome do arquivo que será salvo no seu computador (veja, ainda não estamos criando um objeto, só estamos fazendo download como se utilizassemos um navegador).
+A seguir, utilizaremos `download.file`. O primeiro argumento desta função é o URL e o segundo é o nome do arquivo que será salvo no seu computador (veja, ainda não estamos criando um objeto, só estamos fazendo download como se utilizássemos um navegador).
 
 ```{r}
 download.file(url_arquivo, "bilhetagem_eletronica.xlsx")
@@ -302,7 +304,7 @@ R é bastante flexível quanto à importação de dados de outros softwares esta
 library(haven)
 ```
 
-Basicamente, há cinco funções de importação de dados em`haven`: `read\_sas`, para dados em SAS; `read\_stata` e `read\_dta`, idênticas, para dados em formato .dta gerados em Stata; e `read\_sav` e `read\_por`, uma para cada formato de dados em SPSS. O uso, como era de se esperar, é bastante similar ao que vimos no tutorial todo.
+Basicamente, há cinco funções de importação de dados em `haven`: `read\_sas`, para dados em SAS; `read\_stata` e `read\_dta`, idênticas, para dados em formato .dta gerados em Stata; e `read\_sav` e `read\_por`, uma para cada formato de dados em SPSS. O uso, como era de se esperar, é bastante similar ao que vimos no tutorial todo.
 
 Vamos usar como exemplo os dados da PED de 2019, disponível em https://produtos2.seade.gov.br/produtos/microdados/.
 
@@ -333,7 +335,7 @@ Pronto, podemos importar a base em .sav.
 ped19 <- read_sav("PED2019_Jan_a_Jun_sav.SAV")
 ```
 
-ou, uma função quase idêntica, mas que também abre arquivos de extensão .por
+ou, uma função quase idêntica, mas que também abre arquivos de extensão .sav
 
 ```{r}
 ped19 <- read_spss("PED2019_Jan_a_Jun_sav.SAV")
@@ -343,11 +345,11 @@ Simples assim.
 
 Há critérios de conversão de variáveis categóricas, rótulos e etc, adotados pelo R ao importar arquivos de outras linguagens, mas você pode descobrí-los testando sozinha.
 
-O procedimento para dados em provenientes de Stata ou SAS é bastante similar e a grafia das funções fácil de advinhar: `read\_stata` e `read\_sas`.
+O procedimento para dados provenientes de Stata ou SAS é bastante similar e a grafia das funções fácil de advinhar: `read\_stata` e `read\_sas`.
 
-## readxl e haven no botão (aaaaaaaaaaaaaaaaargh!!!) Import Dataset
+## readxl e haven no botão Import Dataset
 
-Podemos utilizar o botão (aaaaaaaaaaaaaaaaargh!!!) 'Import Dataset' para abrir planilhas ou arquivos de outros softwares. Pode testar, funciona.
+Podemos utilizar o botão 'Import Dataset' para abrir planilhas ou arquivos de outros softwares. Pode testar, funciona.
 
 ## Uau! Quanta coisa!
 
