@@ -4,9 +4,9 @@ No tutorial anterior vimos que a produção de tabelas na gramática do tidyvers
 
 Neste tutorial vamos explorar um pouco mais a confecção de tabelas na gramática do dplyr utilizando um pacote que é uma baita mão na roda: `janitor`. Em vez de utilizarmos `group_by` para produzirmos tabelas de frequência, teremos funções simples que entregam o mesmo resultado e, de quebra, formatam a tabela para seu uso em relatórios ou para exportação.
 
-No processo de confecção de tabelas aprenderemos sobre um novo tipo de variável em R: _factor_. Factors são utilizados variáveis para categóricas. Até agora, mantivemos tais variáveis como texto. Entretanto, trabalhar variáveis categóricas como texto é incoveniente, sobretudo no caso de categoriais ordenáveis, nas quais a ordem das categorias não corresponde à ordem alfabética. Para quem vêm de outros softwares de análise de dados, factors correspondem a variáveis categóricas armazenadas com códigos numéricos acompanhados de rótulos de valores.
+No processo de confecção de tabelas aprenderemos sobre um novo tipo de variável em R: *factor*. Factors são utilizados para variáveis categóricas. Até agora, mantivemos tais variáveis como texto. Entretanto, trabalhar variáveis categóricas como texto é incoveniente, sobretudo no caso de categorias ordenáveis, nas quais a ordem das categorias não corresponde à ordem alfabética. Para quem vem de outros softwares de análise de dados, factors correspondem a variáveis categóricas armazenadas com códigos numéricos acompanhados de rótulos de valores.
 
-Comece instalando o pacote que vamos utilizar, `janitor`: 
+Comece instalando o pacote que vamos utilizar, `janitor`:
 
 ```{r}
 install.packages('janitor')
@@ -14,38 +14,36 @@ install.packages('janitor')
 
 ## Dados de óbitos de 2021
 
-Neste tutorial utilizaremos os microdados de óbitos do Registro Civil de São Paulo de 2021, produzidos pelo SEADE. Você encontra os dados aqui: https://repositorio.seade.gov.br/dataset/microdados-obitos. Antes de obter os dados, vamos carregar os pacotes que vamos utilizar, `janitor` e `tidyverse`. 
+Neste tutorial utilizaremos os microdados de óbitos do Registro Civil de São Paulo de 2021, produzidos pelo SEADE. Você encontra os dados aqui: <https://repositorio.seade.gov.br/dataset/microdados-obitos>. Antes de obter os dados, vamos carregar os pacotes que vamos utilizar, `janitor` e `tidyverse`.
 
 ```{r}
 library(janitor)
 library(tidyverse)
 ```
 
-Vamos carregar os dados: 
-
+Vamos carregar os dados:
 
 ```{r}
 obitos_2021 <- read_csv2("https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/main/data/microdados_obitos2021.csv")
 ```
 
-
 ## Nomes bonitos para variáveis com janitor
 
-Os nomes das variáveis dos dados de óbitos do registro civil estão razoavelmente dentro das convenções. Poderiam, porém, estar em minúscula. No pacote `janitor` há uma função excelente para lidar com nomes com espaços, acentos e maísculas: _clean\_names_. No próximos tutorial esta função será bastante útil. Por ora, vamos aplicá-la para tornar os nomes deste conjunto de dados mais próximos das convenção e conhecer a função:
+Os nomes das variáveis dos dados de óbitos do registro civil estão razoavelmente dentro das convenções. Poderiam, porém, estar em minúscula. No pacote `janitor` há uma função excelente para lidar com nomes com espaços, acentos e maísculas: *clean_names*. No próximos tutorial esta função será bastante útil. Por ora, vamos aplicá-la para tornar os nomes deste conjunto de dados mais próximos da convenção e conhecer a função:
 
 ```{r}
 obitos_2021 <- obitos_2021 %>% 
   clean_names() 
 ```
 
-Vamos usar novamente _glimpse_ para observar o resultado:
+Vamos usar novamente *glimpse* para observar o resultado:
 
 ```{r}
 obitos_2021 %>% 
   glimpse()
 ```
 
-Ótimo. Guarde _clean\_names_ para utilizar no futuro.
+Ótimo. Guarde *clean_names* para utilizar no futuro.
 
 ## tabyl: seu novo melhor amigo para produzir tabelas
 
@@ -64,9 +62,9 @@ obitos_2021 %>%
   tabyl(sexo)
 ```
 
-Ademias de produzir a contagem, `tabyl` produz também a frequência relativa de cada categoria da variável escolhida.
+Ademais de produzir a contagem, `tabyl` produz também a frequência relativa de cada categoria da variável escolhida.
 
-A tabela é, digamos, feia. Vamos melhorá-la. Porém, não começaremos pela estética da tabela, mas produzindo uma mudança na variável _sexo_, transformando-a de character em factor.
+A tabela é, digamos, feia. Vamos melhorá-la. Porém, não começaremos pela estética da tabela, mas produzindo uma mudança na variável *sexo*, transformando-a de character em factor.
 
 ## Factors em R
 
@@ -74,9 +72,9 @@ Factors são certamente uma das maiores pedras no sapato em R (e por isso evitam
 
 Entretanto, factors são muito úteis e, as vezes, inevitáveis. Olhe novamente para a tabela que produzimos: as categorias da variável sexo são 'F', 'I' e 'M', e você deve ter deduzido que correspondem a 'Feminino', 'Ignorado' e 'Masculino', respectivamente. Incovenientemente, 'Ignorado' aparece no meio da tabela, quando esperaríamos que figurasse como última categoria.
 
-A tabela respeita o ordenamento da variável que, por ser do tipo _character_, é alfabética. Como fazer uma tabela na qual a ordem será 'Feminino', 'Masculino' e 'Ignorado'?
+A tabela respeita o ordenamento da variável que, por ser do tipo *character*, é alfabético. Como fazer uma tabela na qual a ordem seja 'Feminino', 'Masculino' e 'Ignorado'?
 
-Em primeiro lugar, vamos recodificar a variável e escrever o nome das categorias por extenso. Fazemos isso com _mutate_, já que estamos transformando uma coluna, e _recode_, que é a função de transformação que aplicaremos:
+Em primeiro lugar, vamos recodificar a variável e escrever o nome das categorias por extenso. Fazemos isso com *mutate*, já que estamos transformando uma coluna, e *recode*, que é a função de transformação que aplicaremos:
 
 ```{r}
 obitos_2021 <- obitos_2021 %>% 
@@ -86,14 +84,14 @@ obitos_2021 <- obitos_2021 %>%
                           'I' = 'Ignorado'))
 ```
 
-Repetindo a tabela, vamos que os textos das categorias mudaram, mas a ordem continua inconveniente. Após a recodificação, 'sexo' ainda é uma variável de texto.
+Repetindo a tabela, vemos que os textos das categorias mudaram, mas a ordem continua inconveniente. Após a recodificação, 'sexo' ainda é uma variável de texto.
 
 ```{r}
 obitos_2021 %>% 
   tabyl(sexo)
 ```
 
-Para transformar texto em factor usamos a função _factor_. E especificamos no argumento 'level' um vetor com a ordem das categorias da nova variável. Assim, vamos criar uma nova variável, 'sexo_f', que será a versão de sexo como factor, e cuja ordem das categorias é definida pelo vetor "c('Feminino', 'Masculino', 'Ignorado')". Veja:
+Para transformar texto em factor usamos a função *factor*. E especificamos no argumento 'level' um vetor com a ordem das categorias da nova variável. Assim, vamos criar uma nova variável, 'sexo_f', que será a versão de sexo como factor, e cuja ordem das categorias é definida pelo vetor "c('Feminino', 'Masculino', 'Ignorado')". Veja:
 
 ```{r}
 obitos_2021 <- obitos_2021 %>% 
@@ -117,9 +115,9 @@ obitos_2021 %>%
   tabyl(racacor) 
 ```
 
-Puxa, está tudo em código numérico! Não tem problema, vamos recodificar (se precisar, faça download do dicionário de dados na página do SEADE).
+Puxa, está tudo em código numérico! Não tem problema, vamos recodificar. Para que possamos recofidicar, precisamos ter acesso ao dicionário de variáveis dessa base. O dicionário é um documento que descreve a base de dados e todas as suas variáveis. O dessa pesquisa está disponível no site do SEADE, aqui: <https://repositorio.seade.gov.br/dataset/30026c29-2237-4ee4-8650-ea3a9657dcd8/resource/12244a8d-db32-4de5-b5cd-7c9af53ad4ee/download/dicvar_microdados_obitos.csv>
 
-Dessa vez, porém, não utilizaremos _recode_. Como sabemos que queremos uma variável do tipo factor ao final, utiliaremos _recode\_factor_. A ordem das recodificações corresponderá à ordem dos 'levels' da nova variável:
+Dessa vez, porém, não utilizaremos *recode*. Como sabemos que queremos uma variável do tipo factor ao final, utiliaremos *recode_factor*. A ordem das recodificações corresponderá à ordem dos 'levels' da nova variável:
 
 ```{r}
 obitos_2021 <- obitos_2021 %>% 
@@ -152,7 +150,7 @@ obitos_2021 %>%
          percentual = percent)
 ```
 
-No pacote `janitor`, há um conjunto de funções de prefixo `adorn_*` que serve para alterar a estética da tabela. `adorn_pct_formatting` transforma a coluna 'percent' em percentual, ou seja, multiplica por 100, delimita o número de casas decimais e adiciona o símbolo %. 
+No pacote `janitor`, há um conjunto de funções de prefixo `adorn_*` que serve para alterar a estética da tabela. `adorn_pct_formatting` transforma a coluna 'percent' em percentual, ou seja, multiplica por 100, delimita o número de casas decimais e adiciona o símbolo %.
 
 ```{r}
 obitos_2021 %>% 
@@ -175,6 +173,7 @@ obitos_2021 %>%
   tabyl(racacor_f) %>% 
   adorn_totals()
 ```
+
 Você pode combinar mais de uma função `adorn_*`:
 
 ```{r}
@@ -203,7 +202,7 @@ E pode usá-la novamente quando quiser.
 tabela_racacor
 ```
 
-Uma curiosidade. Se invertermos o símbolo de atribuição, ou seja, se no lugar de '<-' usarmos '->' a operação de atribuição funciona?
+Uma curiosidade. Se invertermos o símbolo de atribuição, ou seja, se no lugar de '\<-' usarmos '-\>' a operação de atribuição funciona?
 
 ```{r}
 obitos_2021 %>% 
@@ -214,9 +213,9 @@ obitos_2021 %>%
          percentual = percent) -> tabela_racacor 
 ```
 
-Sim, funciona
+Sim, funciona. Mas a boa prática de legibilidade dos códigos em R é usar o sentido de \<-
 
-## Exportando tabelas com _readr_
+## Exportando tabelas com *readr*
 
 Chegamos, finalmente, a uma tabela razoavelmente bonita em R. Como exportá-la?
 
@@ -227,9 +226,10 @@ Por exemplo, se quiseremos exportar nossa tabela (que é um data frame) em forma
 ```{r}
 write_csv2(tabela_racacor, 'tabela_racacor.csv')
 ```
+
 O primeiro argumento é o objeto a ser exportado e o segundo é o nome do arquivo que será criado.
 
-Outra forma de escrever o mesmo comando é usando pipe (%>%):
+Outra forma de escrever o mesmo comando é usando pipe (%\>%):
 
 ```{r}
 tabela_racacor %>% 
@@ -345,12 +345,17 @@ obitos_2021 %>%
 
 ## Cut: criando faixas (factor) a partir de uma variável numérica
 
-Uma das tarnsformações 
+Uma das transformações que podemos fazer com variáveis numéricas envolve a criação de faixas (ou categorias) associadas a intervalos determinados entre os valores numéricos.
+
+Por exemplo, no data frame de óbitos, temos a variável 'idadeanos', que apesar de ter apenas números, foi salva como uma variável textual. O primeiro passo, então, é torná-la uma variável numérica, usando *as.numeric*, do R base.
 
 ```{r}
 obitos_2021 <- obitos_2021 %>% 
   mutate(idadeanos = as.numeric(idadeanos)) 
 ```
+
+Em seguida, podemos "cortar" as idades em alguns intervalos (ou breaks) e atribuir rótulos (ou labels) a esses intervalos, que descrevem as faixas de idade a que pertencem. Veja no exemplo abaixo:
+
 ```{r}
 obitos_2021 <- obitos_2021 %>% 
   mutate(
@@ -360,11 +365,12 @@ obitos_2021 <- obitos_2021 %>%
   )
 ```
 
+Agora podemos rodar a tabela de frequências usando `tabyl` como vimos anteriormente:
+
 ```{r}
 obitos_2021 %>% 
   tabyl(idade_faixa) %>% 
   adorn_pct_formatting()
 ```
-
 
 Fim
