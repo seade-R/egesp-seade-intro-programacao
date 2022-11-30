@@ -7,7 +7,7 @@ No primeiro encontro trabalhamos com a gramática do pacote `dplyr` para manipul
 
 ## Roteiro
 
-0 - Às 8h30 faremos um encontro virtual (Teams) de 30 a 45 minutos para falarmos dos objetivos de hoje e tirarmos dúvidas sobre a aula passada. Hoje teremos duas aulas ao longo do dia. Esta, pela manhã, e seguiremos com a Aula 4 na parte da tarde. Tome fôlego e vamos juntos!
+0 - Às 13h30 faremos um encontro virtual (Teams) de 30 a 45 minutos para falarmos dos objetivos de hoje e tirarmos dúvidas sobre a aula passada. Hoje teremos duas aulas ao longo do dia. Esta, pela manhã, e seguiremos com a Aula 3 (parte 2) na parte da tarde. Tome fôlego e vamos juntos!
 
 1 - Se deixou algum tutorial inacabado do encontro anterior, comece a ele. Caso contrário, prossiga.
 
@@ -17,7 +17,7 @@ No primeiro encontro trabalhamos com a gramática do pacote `dplyr` para manipul
 
 4 - Se houver tempo, podemos antecipar o [Tutorial 7](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-07.md), que apresenta o pacote `janitor` para confecção de tabelas de frequência em R de um jeito simples.
 
-5 - Nos encontraremos no Teams novamente por volta das 11h30 para conversarmos sobre dúvidas e próximos passos.
+5 - Nos encontraremos no Teams novamente por volta das 17h00 para conversarmos sobre dúvidas e próximos passos.
 
 ## Dica de Leitura
 
