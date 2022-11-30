@@ -115,7 +115,7 @@ obitos_2021 %>%
   tabyl(racacor) 
 ```
 
-Puxa, está tudo em código numérico! Não tem problema, vamos recodificar. Para que possamos recofidicar, precisamos ter acesso ao dicionário de variáveis dessa base. O dicionário é um documento que descreve a base de dados e todas as suas variáveis. O dessa pesquisa está disponível no site do SEADE, aqui: <https://repositorio.seade.gov.br/dataset/30026c29-2237-4ee4-8650-ea3a9657dcd8/resource/12244a8d-db32-4de5-b5cd-7c9af53ad4ee/download/dicvar_microdados_obitos.csv>
+Puxa, está tudo em código numérico! Não tem problema, vamos recodificar. Para que possamos recofidicar, precisamos ter acesso ao dicionário de variáveis dessa base. O dicionário é um documento que descreve a base de dados e todas as suas variáveis. O dessa pesquisa está disponível no site do SEADE, [aqui](https://repositorio.seade.gov.br/dataset/30026c29-2237-4ee4-8650-ea3a9657dcd8/resource/12244a8d-db32-4de5-b5cd-7c9af53ad4ee/download/dicvar_microdados_obitos.csv).
 
 Dessa vez, porém, não utilizaremos *recode*. Como sabemos que queremos uma variável do tipo factor ao final, utiliaremos *recode_factor*. A ordem das recodificações corresponderá à ordem dos 'levels' da nova variável:
 
