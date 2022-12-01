@@ -344,7 +344,7 @@ ordem <- order(fake$income)
 print(ordem)
 ```
 
-Se aplicarmos um vetor numérico com um novo ordenamento à parte destinada às linhas no colchetes, receberemos o *data frame* ordenado:
+Se aplicarmos um vetor numérico com um novo ordenamento à parte destinada às linhas nos colchetes, receberemos o *data frame* ordenado:
 
 ```{r}
 fake_ordenado <- fake[ordem, ]
@@ -379,7 +379,7 @@ Note que precisamos da exclamação (operador lógico "não") para ficar com tod
 
 ## Renomeando variáveis
 
-Em breve veremos como renomear variáveis de uma maneira bastante mais simples. Por enquanto, vamos aprender o jeito trabalhoso de renomear um variável.
+Já vimos em tutoriais anteriores como renomear variáveis de uma maneira bastante mais simples. Aqui, vamos aprender o jeito trabalhoso de renomear uma variável usando o R base.
 
 Podemos observar os nomes das variáveis de um *data frame* usando o comando *names*:
 
