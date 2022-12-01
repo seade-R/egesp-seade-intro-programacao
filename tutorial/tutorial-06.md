@@ -242,13 +242,4 @@ piesp_2 %>%
               values_from = media_valor)
 ```
 
-```{r}
-
-piesp_2 %>% 
-  group_by(divisao_desc, tipo) %>% 
-  summarise(media_valor = mean(valor, na.rm = T)) %>% 
-  pivot_wider(names_from = tipo,
-              values_from = media_valor)
-```
-
 No próximo tutorial veremos como produzir tabelas semelhantes utilizando outro pacote que se tornou bastante popular recentemente, `janitor`, e faremos menos uso das combinações `group_by` + `count` e `group_by` + `summarise`.
