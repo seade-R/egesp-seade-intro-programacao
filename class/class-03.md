@@ -1,4 +1,4 @@
-#  Aula 3 - Tidyverse para manipuação de dados
+#  Aula 3 - Tidyverse para manipulação de dados
 
 ## Objetivos Gerais
 
