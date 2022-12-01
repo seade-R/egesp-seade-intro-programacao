@@ -127,4 +127,5 @@ Novamente, não importa quais são os data frames à direita ou à esquerda. A u
 
 O livro [R for Data Science](https://r4ds.had.co.nz/relational-data.html) tem um capítulo muito bom sobre bases relacionais, que trás uma representação visual dos diferentes tipos de joins possíveis. Talvez isso possa lhe ajudar a guardar as informações deste tutorial:
 
+
 ![Representação visual de joins](join.png){width="213"}
