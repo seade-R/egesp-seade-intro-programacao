@@ -1,4 +1,4 @@
-#  Aula 4 - Bases relacionais e R + Power BI
+# Aula 4 - Bases relacionais e R + Power BI
 
 ## Objetivos Gerais
 
@@ -18,15 +18,26 @@ A seguir, veremos em pequenos vídeos como integrar R e Power BI. Finalmente, pa
 
 4 - O [Tutorial 11](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-11.md) não traz nenhuma novidade em relação ao anterior, mas utiliza os verbos "\_join" para um tipo de combinação de dados bastante comum: tabelas de indivíduos e domicílios em uma pesquisa amostral domiciliar, a TICDOM, realizada pelo CETIC-NIC.
 
-5 - Finalmente, para quem tiver interesse, o [Tutorial 12](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-11.md), opcional, apresenta, com acompanhamento de vídeos, as maneiras mais simples de como integrar R e Power BI.
-
 ## Opcional
 
-6 - Em algum momento do curso, ou após, seria interessante ter uma exposição à gramática básica do R. Se, e somente se, você estiver confortável com a gramática do `dplyr` e houver tempo, faça (ou comece) o [Tutorial 9](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-09.md)
+5 - Para quem tiver interesse, o [Tutorial 12](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-11.md), opcional, apresenta, com acompanhamento de vídeos curtos, as maneiras mais simples de como integrar R e Power BI.
+
+## Instalação do R e RStudio em sua máquina local
+
+Trabalhamos, ao longo de todo o curso, com RStudio instalado no servidor do SEADE. Agora, para que você possa seguir usando R em sua vida, você vai precisar instalar a ferramenta na sua máquina local, seu desktop pessoal ou notebook.
+
+O R e RStudio funcionam juntos, portanto, precisamos instalar os dois. Pense que o R é o motor e RStudio é a lataria do carro (a parte visível). Ambos são inteiramente gratuitos e já vêm com distribuições compiladas para Windows, Mac e Linux.
+
+A instalação é bastante fácil e, em geral, basta seguir as instruções da tela.
+
+1.  Para instalar o R, baixe a versão adequada para seu computador em: <https://cloud.r-project.org/>
+
+2.  Para instalar o RStudio, baixe a versão adequada para seu computador em: <https://www.rstudio.com/products/rstudio/download/>
+
+3.  Uma vez instalados o R e o RStudio, basta abrir o RStudio e começar a criar seus projetos. Lembre-se que os pacotes que usamos ao longo do curso vão precisar ser instalados em sua máquina. Esse processo vai acontecer uma única vez e, nas próximas vezes que for usar o R em sua máquina, basta carregas as bibliotecas.
 
 ## Dicas de Leitura
 
 O livro 'R for Data Science' tem excelente capítulo dados relacionais ([Capítulo 13](https://r4ds.had.co.nz/relational-data.html)).
 
 Para a integração entre R e Power BI, convém ler a documentação da Microsoft: (1) [Executar scripts do R no Power BI Desktop](https://docs.microsoft.com/pt-br/power-bi/connect-data/desktop-r-scripts); (2) [Uso do R no Editor do Power Query](https://docs.microsoft.com/pt-br/power-bi/connect-data/desktop-r-in-query-editor); (3) [Criar visuais do Power BI usando o R](https://docs.microsoft.com/pt-br/power-bi/create-reports/desktop-r-visuals).
-
