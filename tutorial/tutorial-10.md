@@ -257,7 +257,7 @@ pop20 %>%
   tabyl(ano)
 ```
 
-Vamos, assim selecionar apenas as linhas correspondentes à 2020:
+Vamos, assim selecionar apenas as linhas correspondentes ao ano de 2020:
 
 ```{r}
 pop20 <- pop20 %>% 
@@ -306,7 +306,7 @@ df_left <- covid_maio %>%
   left_join(pop20,  by = c('codigo_ibge' = 'cod_ibge'))
 ```
 
-O dta frame à esquerda é, portanto, a que está fora da função quando utilizamos o pipe. O resultado final tem, como esperávamos, o mesmo número de linhas da base à esquerda, 'covid_maio'. Existe apenas um caso deste conjunto de dados que não tem par em 'pop20': o município de número 9999999, 'Ignorado'.
+O data frame à esquerda é, portanto, a que está fora da função quando utilizamos o pipe. O resultado final tem, como esperávamos, o mesmo número de linhas da base à esquerda, 'covid_maio'. Existe apenas um caso deste conjunto de dados que não tem par em 'pop20': o município de número 9999999, 'Ignorado'.
 
 O que acontece com as variáveis de 'pop20' acrescentadas à linha do município 'Ignorado'? Vamos examinar:
 
