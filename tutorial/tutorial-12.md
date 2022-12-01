@@ -14,16 +14,16 @@ Note que os códigos que utilizaremos dentro do Power BI são praticamente idên
 
 Existem alguns requisitos para se trabalhar com R e Power BI:
 
-0 - Não usar Linux, infelizmente.
+0 - Não usar Linux ou Mac.
 1 - Ter R instalado no mesmo computador que o Power BI Desktop. O Power BI utiliza a instalação local de R.
 2 - Ter instalado, em R, todas as bibliotecas que serão utilizadas nos scripts do Power BI.
-3 - Utilizar apenas pacotes da lista de pacotes de R com suporte no Power BI, que você encontra aqui. https://docs.microsoft.com/pt-br/power-bi/connect-data/service-r-packages-support. No curso, até agora, utilizamos apenas pacotes com suporte no Power BI.
+3 - Utilizar apenas pacotes da lista de pacotes de R com suporte no Power BI, que você encontra aqui. https://docs.microsoft.com/pt-br/power-bi/connect-data/service-r-packages-support. Essa lista é sempre atualizada. No curso, até agora, utilizamos apenas pacotes com suporte no Power BI.
 
 ## Importando dados (já modelados) com R para o Power BI
 
 O script [Script-1-PBI](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/R/pbi-1.R) contém os passos de importação e transformação dos dados utilizados no tutorial sobre bases de dados relacionais. Acesse-o e leia o código. Execute-o em R e veja se compreendeu.
 
-A seguir, assista ao vídeo sobre como utilizar esse script itegralmente no Power BI: [https://www.youtube.com/watch?v=EOp4FZHqFbc](https://www.youtube.com/watch?v=EOp4FZHqFbc)
+A seguir, assista ao vídeo sobre como utilizar esse script integralmente no Power BI: [https://www.youtube.com/watch?v=EOp4FZHqFbc](https://www.youtube.com/watch?v=EOp4FZHqFbc)
 
 ## Transformando dados no Power BI
 
@@ -39,4 +39,4 @@ Assista ao vídeo sobre como utilizar esse código para gerar um gráfico no Pow
 
 ## Modelagem de dados: R dentro ou fora do Power BI?
 
-Vamos ver como utilizar R dentro do Power BI. Mas você pode utilizar fora também. R é uma linguagem excelente para modelar dados e prepará-los para visualização, mesmo se for utilizar um editor de planilhas ou o Power BI. Você pode exportar os dados de R para o local onde armazena as fontes de dados do Power BI e, assim, não precisa executar scritps dentro do Power BI.
+Vimos como utilizar R dentro do Power BI. Mas você pode utilizar fora também. R é uma linguagem excelente para modelar dados e prepará-los para visualização, mesmo se for utilizar um editor de planilhas ou o Power BI. Você pode exportar os dados de R para o local onde armazena as fontes de dados do Power BI e, assim, não precisa executar scritps dentro do Power BI.

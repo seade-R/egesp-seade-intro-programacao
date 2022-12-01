@@ -1,6 +1,6 @@
 # Indivíduos e Domicílios: combinando os arquivos da TICDOM
 
-Nesta seção, redundante em relação ao que já fizemos no tutorial, veremos o uso dos 'joins' com dados de survey (TICDOM).
+Nesta seção, redundante em relação ao que já fizemos no tutorial anterior, veremos o uso dos 'joins' com dados de survey (TICDOM).
 
 Em pesquisa aplicada é bastante comum encontrarmos dados que têm natureza hierárquica. Por exemplo, em surveys como a PNAD ou a TICDOM, no qual os indívuos estão dentro de domicílios, coleta-se dados tanto dos invíduos quanto do domicílios. Como é possível haver mais de um indivíduo em um determinado domicílio, os dados podem ser organizados de duas maneiras diferentes:
 
@@ -62,7 +62,7 @@ O segundo passo é escolher qual será a base posicionada 'à esquerda' e qual s
 ticdom_all_ind <- left_join(ticdom_ind, ticdom_dom, by = 'id_domicilio')
 ```
 
-O data frame que aparece do lado esquedo do parêntese é obviamente, o que foi posicionado à esquerda. Ao utilizarmos o verbo `left_join` estamos fazendo a seguinte opção: 'manter na nova base todas as unidades que existiam na base à esquerda e adicionar a elas as colunas da base da direita quando houver correspondência'.
+O data frame que aparece do lado esquerdo do parêntese é, obviamente, o que foi posicionado à esquerda. Ao utilizarmos o verbo `left_join` estamos fazendo a seguinte opção: 'manter na nova base todas as unidades que existiam na base à esquerda e adicionar a elas as colunas da base da direita quando houver correspondência'.
 
 No nosso caso, todos os indivíduos permanecerão no novo data frame. Se o 'id\_domicilio' desses indivíduos for encontrado na base de domicílios, as informações do domicílio serão adicionadas como novas colunas. Se, por outro lado, o 'id\_domicilio' desses indivíduos não constar na base de domicílios, as novas colunas existirão, porém serão preenchidas com NA.
 
@@ -92,7 +92,7 @@ ticdom_all_dom <- ticdom_ind %>%
   right_join(ticdom_dom, by = 'id_domicilio')
 ```
 
-Dessa vez, a base resultante tem o mesmo número de linha que a base de domicílios. Nesse caso, porém, nem todos os domicílios encontraram correspondência no data frame de indivíduos. Para tais domicílios, as variáveis originárias da base de indivíduos são preenchidas com NA. Podemos inspecionar isso rapidamente pedindo para observar as linhas com NA para uma variável que só existe no data frame de indivíduos. como "ID\_MORADOR":
+Dessa vez, a base resultante tem o mesmo número de linha que a base de domicílios. Nesse caso, porém, nem todos os domicílios encontraram correspondência no data frame de indivíduos. Para tais domicílios, as variáveis originárias da base de indivíduos são preenchidas com NA. Podemos inspecionar isso rapidamente pedindo para observar as linhas com NA para uma variável que só existe no data frame de indivíduos, como "ID\_MORADOR":
 
 ```{r}
 ticdom_all_dom %>% 
@@ -108,7 +108,7 @@ ticdom_inner <- ticdom_ind %>%
   inner_join(ticdom_dom, by = 'id_domicilio')
 ```
 
-Não importa, nessa situação, qual é a base à direita ou à esquerda. Ambas contribuem somemente com os casos 'completos' e todas as sua variáveis.
+Não importa, nessa situação, qual é a base à direita ou à esquerda. Ambas contribuem somente com os casos 'completos' e todas as suas variáveis.
 
 Como, para os dados com os quais trabalhamos, todos os indivíduos encontram correspondência em domicílios -- o contrário não é verdade -- o resultado é idêntico ao produzido com `left_join`. Mas, obviamente, isso é ocasional e, em geral, não ocorre.
 
@@ -121,4 +121,4 @@ ticdom_full <- ticdom_ind %>%
   full_join(ticdom_dom, by = 'id_domicilio')
 ```
 
-Novamente, não importa quais são os data frame à direita ou à esquerda. A união incluirá todos os casos completos da interseção e também os casos incompletos que apareceriam no `left_join` e no `right_join`.
+Novamente, não importa quais são os data frames à direita ou à esquerda. A união incluirá todos os casos completos da interseção e também os casos incompletos que apareceriam no `left_join` e no `right_join`.
