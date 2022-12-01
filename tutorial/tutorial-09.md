@@ -23,8 +23,8 @@ Fakeland é uma democracia muito estável que realiza eleições presidenciais a
 -   *age*: idade
 -   *sex*: sexo
 -   *educ*: nível educacional
--   *income*: renda mensal medida em dinheiro falso (FM  \$)
--   *savings*: Dinheiro falso total (FM  \$) na conta de poupança
+-   *income*: renda mensal medida em dinheiro falso
+-   *savings*: Dinheiro falso total na conta de poupança
 -   *marriage*: estado civil (sim = casado)
 -   *kids*: número de filhos
 -   *party*: afiliação partidária
@@ -36,7 +36,7 @@ Fakeland é uma democracia muito estável que realiza eleições presidenciais a
 
 ## Exercício
 
-Utilize as funções que você já conhece -- *head*, *dim*, *names*, *str*, etc -- para conhecer os dados. Quantas linhas há no *data frame*? Quantas colunas? Como estão armazenadas cada variável (tipo de dados e classe dos vetores colunas)?
+Utilize as funções que você já conhece -- *head*, *dim*, *names*, *str*, *glimpse*, etc -- para conhecer os dados. Quantas linhas há no *data frame*? Quantas colunas? Como estão armazenadas cada variável (tipo de dados e classe dos vetores colunas)?
 
 ## Data frame como conjunto de vetores
 
@@ -55,7 +55,7 @@ print(idade)
 
 Porque não podemos simplesmente usar "age" e precisamos colocar o nome do *data frame* seguido de "\$" para indicar o vetor do conjunto de dados? Por que podemos ter mais de um *data frame* no mesmo **Environment** com uma variável de nome "age". Pense no *data frame* + nome da variável como um endereço composto da variável no seu Environment, que evita ambiguidade. Para quem está aconstumada a trabalhar com SPSS, Stata ou SAS, ter que indicar qual é o *data frame* ao qual a variável pertence parece estranho, mas faz todo sentido para o R.
 
-Outros exemplos simples de como usar variáveis de um *data frame* em outras funções (algumas das quais veremos no futuro, mas você já pode ir se acostumando à linguagem).
+Outros exemplos simples de como usar variáveis de um *data frame* em outras funções (algumas das quais veremos adiante, mas você já pode ir se acostumando à linguagem).
 
 Gráfico de distribuição de uma variável contínua:
 
@@ -135,6 +135,7 @@ fake[, 1:3]
 ## Exercício
 
 Qual é a idade do 17o. indivíduo? Qual é o candidato de preferência do 25o. indivíduo?
+
 
 ## Seleção de colunas com nomes das variáveis
 
@@ -248,7 +249,7 @@ Agora, observe o resultado do código abaixo:
 fake$party[fake$party == "Independent"]
 ```
 
-Fizemos um subconjunto de apenas uma variável do *data frame*, e não do *data frame* todo. Note a ausência da vírgula dentro dos colchetes. Se atribuirmos algo a essa selação, por exemplo, o texto "Independente", substituiremos os valores da seleção:
+Fizemos um subconjunto de apenas uma variável do *data frame*, e não do *data frame* todo. Note a ausência da vírgula dentro dos colchetes. Se atribuirmos algo a essa seleção, por exemplo, o texto "Independente", substituiremos os valores da seleção:
 
 ```{r}
 fake$party[fake$party == "Independent"] <- "Independente"
@@ -287,7 +288,7 @@ table(fake$rich)
 
 ## Exercício
 
-Utilize o que você aprendeu sobre transformações de variáveis neste tutorial e o sobre fatores ("factors") no tutorial 2 para transformar a variável "rich" em um fator.
+Utilize o que você aprendeu sobre transformações de variáveis neste tutorial e sobre fatores ("factors") no tutorial 2 para transformar a variável "rich" em um fator.
 
 ## Exercício (mais um)
 
@@ -304,7 +305,7 @@ fake$rich2 <- cut(fake$income,
 table(fake$rich2)
 ```
 
-Algumas observações importantes: (1) se a nova variável tiver 2 categorias, precisamos de 3 "break points"; (2) "-Inf" e "Inf" são os símbolos do R para menos e mais infinito, respectivamente; por padrão, o R não inclui o primeiro "break point" na primeira categoria, exceto se o argumento "include.lowest" for alterado para TRUE; (3) também por padrão, os intervalos são fechados à direita, e abertos à esquerda (ou seja, incluem o valor superior que delimita o intervalor, mas não o inferior), exceto se o argumento "right" for alterado para FALSE.
+Algumas observações importantes: (1) se a nova variável tiver 2 categorias, precisamos de 3 "break points"; (2) "-Inf" e "Inf" são os símbolos do R para menos e mais infinito, respectivamente; por padrão, o R não inclui o primeiro "break point" na primeira categoria, exceto se o argumento "include.lowest" for alterado para TRUE; (3) também por padrão, os intervalos são fechados à direita, e abertos à esquerda (ou seja, incluem o valor superior que delimita o intervalo, mas não o inferior), exceto se o argumento "right" for alterado para FALSE.
 
 ## Exercício
 
@@ -399,4 +400,4 @@ Você não precisa de um vetor com todos os nomes sempre que precisar alterar al
 names(fake)[6] <- "casado"
 ```
 
-Simples, porém um pouco mala.
+Simples, porém um pouco chato.
