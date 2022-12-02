@@ -36,6 +36,10 @@ A instalação é bastante fácil e, em geral, basta seguir as instruções da t
 
 3.  Uma vez instalados o R e o RStudio, basta abrir o RStudio e começar a criar seus projetos. Lembre-se que os pacotes que usamos ao longo do curso vão precisar ser instalados em sua máquina. Esse processo vai acontecer uma única vez e, nas próximas vezes que for usar o R em sua máquina, basta carregas as bibliotecas.
 
+## Avaliação do curso
+
+Criamos um formulário para que você possa avaliar a qualidade do curso oferecido. Assim, esperamos aprimorar os conteúdos e metodologia para as próximas edições. Acesse e preencha o formulário [aqui](https://forms.gle/DRwwt25QohxD4p596).
+
 ## Dicas de Leitura
 
 O livro 'R for Data Science' tem excelente capítulo dados relacionais ([Capítulo 13](https://r4ds.had.co.nz/relational-data.html)).
