@@ -20,7 +20,7 @@ A seguir, veremos em pequenos vídeos como integrar R e Power BI. Finalmente, pa
 
 ## Opcional
 
-5 - Para quem tiver interesse, o [Tutorial 12](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-11.md), opcional, apresenta, com acompanhamento de vídeos curtos, as maneiras mais simples de como integrar R e Power BI.
+5 - Para quem tiver interesse, o [Tutorial 12](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-12.md), opcional, apresenta, com acompanhamento de vídeos curtos, as maneiras mais simples de como integrar R e Power BI.
 
 ## Instalação do R e RStudio em sua máquina local
 
