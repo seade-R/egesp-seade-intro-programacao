@@ -4,15 +4,15 @@ No primeiro e segundo tutoriais aprendemos sobre os principais verbos do `dplyr`
 
 ## PIESP - investimento por CNAE
 
-Vamos fazer um exercício simples de recodificar a CNAE das empresas alvo de investimento, trabalhando com as duas divisões da CNAE que mais recebem investimentos e com o tipo de investimento (ampliação, moderniação ou implantação).
+Vamos fazer um exercício simples de recodificar a CNAE das empresas alvo de investimento, trabalhando com as duas divisões da CNAE que mais recebem investimentos e com o tipo de investimento (ampliação, modernização ou implantação).
 
-Lembre-se sempre de carregar os pacotes que vai usar antes de começar a produzir código. Usaremos, por enquanto, apenas o `tidyverse`
+Lembre-se sempre de carregar os pacotes que vai usar antes de começar a produzir o código. Usaremos, por enquanto, apenas o `tidyverse`
 
 Vamos carregar novamente os dados da pesquisa SEADE Investimentos:
 
 ```{r}
 library(tidyverse)
-url_piesp <- "https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv"
+url_piesp <- "https://raw.githubusercontent.com/thandarasantos/egesp-seade-intro-programacao/main/data/piesp.csv"
 piesp <- read_csv2(url_piesp)
 ```
 
@@ -31,7 +31,7 @@ piesp <- piesp %>%
 
 Vocês notaram a ausência de uma função simples de produção de tabela até agora nos tutoriais? Algo como 'table'?
 
-Bom, existe a função  `table` no pacote base. Seu uso é um pouco estranho por conta de um símbolo que ainda não vimos, o '$'. Veremos esse símbolo quando aprendermos sobre a gramática de manipulação de dados do 'base'.
+Bom, existe a função `table` no pacote base. Seu uso é um pouco estranho por conta de um símbolo que ainda não vimos, o '\$'. Veremos esse símbolo quando aprendermos sobre a gramática de manipulação de dados do 'base'.
 
 Veja uma tabela de contagem de investimentos por ano:
 
@@ -39,7 +39,7 @@ Veja uma tabela de contagem de investimentos por ano:
 table(piesp$ano)
 ```
 
-Com o pacote `dplyr`, porém, utilizamos o verbo `group\_by` para produzir operações que envolvem agregação por uma variável categórica:
+Com o pacote `dplyr`, porém, utilizamos o verbo `group_by` para produzir operações que envolvem agregação por uma variável categórica:
 
 ```{r}
 piesp %>% 
@@ -47,7 +47,7 @@ piesp %>%
   count 
 ```
 
-`count` serve para contar as linhas dentro de cada 'grupo' da variável ano. A classe do objeto gerado com o código acima é, veja só, também um data frame. 
+`count` serve para contar as linhas dentro de cada 'grupo' da variável ano. A classe do objeto gerado com o código acima é, veja só, também um data frame.
 
 ```{r}
 piesp %>% 
@@ -58,7 +58,7 @@ piesp %>%
 
 Quando falamos em tabulações, no contexto da gramática do `dplyr`, estamos falando em data frames reduzidos pelo uso do verbo de agrupamento.
 
-Vamos produzir agora uma tabela com contagem de investimentos por CNAE e ordenado de forma decrescente pela contagem (variável 'n'):
+Vamos produzir agora uma tabela com contagem de investimentos por CNAE e ordenada de forma decrescente pela contagem (variável 'n'):
 
 ```{r}
 piesp %>% 
@@ -67,11 +67,11 @@ piesp %>%
   arrange(-n) 
 ```
 
-Voltaremos a falar sobre tabelas. Vamos para agora para fazer algumas transformações na variável 'cnae'.
+Voltaremos a falar sobre tabelas. Vamos parar agora para fazer algumas transformações na variável 'cnae'.
 
 ## Divisão da CNAE
 
-A última tabela que produzimos ficou demasidamente grande. Há muitas CNAEs. Para simplificar nossa análise, vamos trabalhar apenas com a divisão da CNAE, que é representada pelos 2 primeiros dígitos. Como a CNAE é uma variável do tipo 'character', apesar de ser escrita em números, temos que fazer um recorte pelos 2 primeiros dígitos do texto da CNAE. Vamos usar o verbo `mutate` e a função `str\_sub` ('str' de _string_ e 'sub' de _subset_) para criar a variável divisão. `str\_sub` é parte do pacote `stringr`, que também compõem o `tidyverse`.
+A última tabela que produzimos ficou demasidamente grande. Há muitas CNAEs. Para simplificar nossa análise, vamos trabalhar apenas com a divisão da CNAE, que é representada pelos 2 primeiros dígitos. Como a CNAE é uma variável do tipo 'character', apesar de ser escrita em números, temos que fazer um recorte pelos 2 primeiros dígitos do texto da CNAE. Vamos usar o verbo `mutate` e a função `str_sub` ('str' de *string* e 'sub' de *subset*) para criar a variável divisão. `str_sub` é parte do pacote `stringr`, que também compõem o `tidyverse`.
 
 ```{r}
 piesp <- piesp %>% 
@@ -79,7 +79,7 @@ piesp <- piesp %>%
          divisao = as.numeric(divisao))
 ```
 
-Os argumentos de `str\_sub` são a variável da qual retiraremos os dígitos, a posição do primeiro dígito a ser retirado e a posição do último dígito.
+Os argumentos de `str_sub` são a variável da qual retiraremos os dígitos, a posição do primeiro dígito a ser retirado e a posição do último dígito.
 
 Como o resultado é um número de 2 dígitos podemos, se quisermos, usar a função `as.numeric` para transformarmos seu tipo. Existe uma função de prefixo 'as.' para cada tipo de dado: character, logical, etc.
 
@@ -92,7 +92,7 @@ piesp %>%
   arrange(-n) 
 ```
 
-Encontramos 76 divisões nos dados de investimentos. Vamos restringir nossa análise às duas divisões com mais investimentos, 47 e 56, que são comércio varejista e alimentação, respectivamente. Criaremos, assim, uma nova versão dos dados apenas com as linhas de investimentos dessas duas divisões. Note que precisamos fazer uma nova atribuição para gerar essa cópia reduizada dos nossos dados.
+Encontramos 76 divisões nos dados de investimentos. Vamos restringir nossa análise às duas divisões com mais investimentos, 47 e 56, que são comércio varejista e alimentação, respectivamente. Criaremos, assim, uma nova versão dos dados apenas com as linhas de investimentos dessas duas divisões. Note que precisamos fazer uma nova atribuição para gerar essa cópia reduzida dos nossos dados.
 
 ```{r}
 piesp_2 <- piesp %>%
@@ -122,7 +122,7 @@ piesp_2 %>%
   count
 ```
 
-Qual das divisões tem, na média, mais investimentos anunciados de maior valor? Em vez de usarmos `count` para termos a contagem como conteúdo das células, podemos usar uma gerar uma estatística a partir de uma segunda variável com o verbo `summarise`. Por exemplo, a média de valores anunciados:
+Qual das divisões tem, na média, mais investimentos anunciados de maior valor? Em vez de usarmos `count` para termos a contagem como conteúdo das células, podemos gerar uma estatística a partir de uma segunda variável com o verbo `summarise`. Por exemplo, a média de valores anunciados:
 
 ```{r}
 piesp_2 %>% 
@@ -130,7 +130,7 @@ piesp_2 %>%
   summarise(media_valor = mean(valor, na.rm = T))
 ```
 
-Lembre-se da usar o argumento `na.rm = T` para excluir os missings, pois há muitos na variável de valor em milhões de R$ que utilizamos acima.
+Lembre-se da usar o argumento `na.rm = T` para excluir os missings, pois há muitos na variável de valor em milhões de R\$ que utilizamos acima.
 
 Dentro do `summarise` cabem todas as estatísticas descritivas que vimos no tutorial 3:
 
@@ -161,7 +161,7 @@ piesp_2 %>%
             maximo = max(valor))
 ```
 
-Lembre-se de que não estamos criando novos objetos. Apenas 'imprimindo' tabelas no Console para analisar os dados.
+Lembre-se que, aqui, não estamos criando novos objetos. Apenas 'imprimindo' tabelas no Console para analisar os dados. Para criarmos novos objetos teríamos que atribuir (\<-) o código a um objeto nomeado.
 
 ## Cruzamentos de variáveis
 
@@ -197,11 +197,11 @@ Não era isso que esperávamos, certo? Seria mais legal receber algo assim (como
 table(piesp_2$divisao_desc, piesp_2$tipo)
 ```
 
-Repare com cuidado. As duas tabelas fornecem a mesma informação. A diferença está no formato. A segunda é representa o pivotamento da primeira, que, apesar de termos chamado de tabela, é um data frame no formato 'long'.
+Repare com cuidado. As duas tabelas fornecem a mesma informação. A diferença está no formato. A segunda representa o pivotamento da primeira, que, apesar de termos chamado de tabela, é um data frame no formato 'long'.
 
 'Long' e 'wide' são as denominações que damos aos formatos acima, respectivamente. Na gramática do `dplyr` trabalharemos sempre com o formato 'long' e há uma boa razão para isso: fazer operações e, sobretudo, produzir gráficos com tabelas no formato 'long' é mais simples. Quando chegarmos à 'gramática dos gráficos' isso ficará mais claro.
 
-Há dois verbos no `tidyverse` (mais especificamente, no pacote `tidyr`) que são utilizados para redesenhar data frames de 'long' em 'wide' e _vice_ _versa_: `pivot\_wider` e `pivot\_longer`. Veja o uso do primeiro para rearranjar nossa tabela:
+Há dois verbos no `tidyverse` (mais especificamente, no pacote `tidyr`) que são utilizados para redesenhar data frames de 'long' em 'wide' e *vice* *versa*: `pivot_wider` e `pivot_longer`. Veja o uso do primeiro para rearranjar nossa tabela:
 
 ```{r}
 piesp_2 %>% 
@@ -226,7 +226,6 @@ piesp_2 %>%
 
 Não precisamos trabalhar apanas com contagem ao combinarmos duas ou mais variáveis em um agrupamento. Novamente, substituindo `count` por `summarise` com uma função de estatística descritiva alteramos o conteúdo da célula. Veja o exemplo com a média do valor:
 
-
 ```{r}
 piesp_2 %>% 
   group_by(divisao_desc, tipo) %>% 
@@ -243,13 +242,4 @@ piesp_2 %>%
               values_from = media_valor)
 ```
 
-```{r}
-
-piesp_2 %>% 
-  group_by(divisao_desc, tipo) %>% 
-  summarise(media_valor = mean(valor, na.rm = T)) %>% 
-  pivot_wider(names_from = tipo,
-              values_from = media_valor)
-```
-
-No próximo tutorial veremos como produzir tabelas semelhantes utilizando outro pacote que se tornou bastante popular recentemente, `janitor`, e faremos menos uso das combinações `group\_by` + `count` e `group\_by` + `summarise`.
+No próximo tutorial veremos como produzir tabelas semelhantes utilizando outro pacote que se tornou bastante popular recentemente, `janitor`, e faremos menos uso das combinações `group_by` + `count` e `group_by` + `summarise`.

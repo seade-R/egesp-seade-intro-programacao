@@ -4,11 +4,11 @@ Um dos aspectos mais incríveis da linguagem R é o desenvolvimento de novas fun
 
 Há diversas "gramática para bases de dados", ou seja, formas de importar, organizar, manipular e extrair informações das bases de dados, que foram desenvolvidas ao longo da última década.
 
-A "gramática" mais popular da linguagem é a do pacote `dplyr`, parte do`tidyverse`. Neste primeiro tutorial veremos como utilizar algumas das principais funções, ou "verbos", do pacote`dplyr`. Começaremos com os verbos `rename`, para renomear variáveis, `select` para selecionar colunas (variáveis) e `filter` para selecionar linhas. 
+A "gramática" mais popular da linguagem é a do pacote `dplyr`, parte do`tidyverse` (um verdadeiro universo dentro do R!). Neste primeiro tutorial veremos como utilizar algumas das principais funções, ou "verbos", do pacote`dplyr`. Começaremos com os verbos `rename`, para renomear variáveis, `select` para selecionar colunas (variáveis) e `filter` para selecionar linhas. 
 
 Existem outras formas de se trabalhar com conjuntos de dados mais, digamos, antigas. É comum encontrarmos códigos escritos na "gramática" original da linguagem, que chamaremos de "base" ou "básico".
 
-Podemos pensar na linguagem R como uma língua com diversos dialétos. Os dois dialétos mais falados para manipulação de dados são o "base" e o do "tidyverse".
+Podemos pensar na linguagem R como uma língua com diversos dialetos. Os dois dialetos mais falados para manipulação de dados são o "base" e o do "tidyverse".
 
 # Instalando e carregando pacotes no R
 
@@ -26,7 +26,7 @@ Pronto. Seu computador (ou seu usuário no servidor RStudio) tem o pacote `tidyv
 
 Lembre-se de colocar aspas no nome do pacote, pois, até agora, `tidyverse` é um nome desconhecido para a linguagem R no seu computador. E qualquer texto arbitrário em R deve vir entre aspas, não importa se simples ou duplas.
 
-A partir da instalação, sempre que quizermos utilizar o pacote `tidyverse` devemos carregá-lo com a função `tidyverse`. Você deve fazer isso toda vez que abrir o RStudio.
+A partir da instalação, sempre que quisermos utilizar o pacote `tidyverse` devemos carregá-lo com a função `tidyverse`. Você deve fazer isso toda vez que abrir o RStudio. É importante notar que você só precisará instalar os pacotes uma vez em sua máquina ou em seu servidor remoto, mas precisará carregá-los toda vez que for iniciar uma nova sessão.
 
 ```{r}
 library(tidyverse)
@@ -34,17 +34,17 @@ library(tidyverse)
 
 Pronto!
   
-Antes de avançar, treine com mais outro pacote: `lubridate`, que é um pacote para tratamento de datas e horas. 
+Antes de avançar, treine com mais outro pacote: `magrittr`, que é um pacote de operadores em R, que ajudam a estruturar seu código. Não vamos usar este pacote agora, mas ele serve para testarmos os procedimentos de instalação. 
 
 # Introdução ao pacote `dplyr`: rename, select e filter
 
 ## Começando pelo meio: data frames
 
-Uma característica distintiva da linguagem de programação R é ter sido desenvolvida para a análise de dados. E quando pensamos em análise de dados, a protagonista do show é a _base de dados_ ou, como vamos conhecer a partir de agora, __data frame__.
+Uma característica distintiva da linguagem de programação R é ter sido desenvolvida para a análise de dados. E quando pensamos em análise de dados, a protagonista do show é a _base de dados_ ou, como vamos conhecer a partir de agora, o __data frame__.
 
 Por esta razão, em vez de aprender como fazer aritmética, elaborar funções ou executar loops para repetir tarefas e outros aspectos básicos da linguagem, vamos começar olhando para o R como um software concorrente dos demais utilizados para análise de dados em estatística, ciências sociais e demais ciências, como SPSS, Stata, SAS e companhia.
 
-As principais características de um data frame são: (1) cada coluna representa uma variável (ou característica) de um conjunto de observações; (2) cada linha representa uma observação e contém os valores de cada variável para tal observação. Vejamos um exemplo:
+As principais características de um data frame são: (1) cada coluna representa uma **variável** (ou característica) de um conjunto de observações; (2) cada linha representa uma **observação** e contém os valores de cada variável para tal observação. Vejamos um exemplo:
   
 | Município             | Área (km2)| População | 
 | --------------------- | ---------:| ---------:|
@@ -55,9 +55,9 @@ As principais características de um data frame são: (1) cada coluna representa
   
 Fonte: SEADE
 
-Note que em uma linha os elementos são de tipos de diferentes: na primeira coluna há uma nome (texto), na segunda uma medida de área (números com casa decimais) e na terceira uma contagem (número inteiros). 
+Note que em uma linha os elementos são de tipos de diferentes: na primeira coluna há uma nome (texto), na segunda uma medida de área (números com casa decimais) e na terceira uma contagem (números inteiros). 
 
-Por outro lado, em cada coluna há somente elementos de um tipo. Por exemplo, há apenas números inteiros na coluna população. Colunas são variáveis e por isso aceitam registros de um único tipo. Se você já fez um curso de estatísticas básica ou de métodos quantitativos deve se lembrar que as variáveis são classificadas da seguinte maneira:
+Por outro lado, em cada coluna há somente elementos de um tipo. Por exemplo, há apenas números inteiros na coluna população. Colunas são variáveis e por isso aceitam registros de um único tipo. Se você já fez um curso de estatística básica ou de métodos quantitativos deve se lembrar que as variáveis são classificadas da seguinte maneira:
   
 1- Discretas
 
@@ -79,9 +79,9 @@ Vamos ver como o R representa vetores e data frames na tela. Antes disso, é pre
 
 ## Pesquisa de Investimentos Anunciados no Estado de São Paulo (PIESP)
 
-Neste primeiro tutorial vamos trabalhar com dados de uma pesquisa a [SEADE Investimentos](https://investimentos.seade.gov.br), que capta anúncios de investimento realizados por empresas públicas e privadas no Estado de São Paulo. Vamos abrir os dados antes e depois examinar do que se trata exatamente.
+Neste primeiro tutorial vamos trabalhar com dados de uma pesquisa do SEADE, a [SEADE Investimentos](https://investimentos.seade.gov.br), que capta anúncios de investimento realizados por empresas públicas e privadas no Estado de São Paulo. Vamos abrir os dados antes e depois examinar do que se trata exatamente.
 
-Os para este exercício dados estão armazenados em um arquivo de texto no formato .csv (comma separated values), ou seja, em cada linha os dados de cada coluna são separados por ponto e vírgula (;). Outros separadores, como vírgula ou tab são possíveis nesse formato.
+Para este exercício, os dados estão armazenados em um arquivo de texto no formato .csv (comma separated values), ou seja, em cada linha os dados de cada coluna são separados por ponto e vírgula (;). Outros separadores, como vírgula ou tab são possíveis nesse formato.
 
 ## Abrindo dados em R com botão (aaaaaaargh!)
 
@@ -91,7 +91,7 @@ Clique no botão (aaaaaaargh!). Veja que temos a opção de importar arquivos de
 
 Use a segunda opção, "From Text (readr)" para carregar os dados da PIESP.
 
-Note que você pode escolher um arquivo na pasta local ou um URL, ou seja, um arquivo que esteja armazenado na web. O dados da PIESP não estão no seu computador, mas o endereço do repositório do curso: https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv
+Note que você pode escolher um arquivo na pasta local ou um URL, ou seja, um arquivo que esteja armazenado na web. Os dados da PIESP não estão no seu computador, mas no endereço do repositório do curso: https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv
 
 Cole o URL no campo "File/URL" e clique em 'Update'.
 
@@ -156,9 +156,9 @@ View(piesp)
 
 Ao lado da aba do script no qual você está trabalhando aparecerá uma aba com a matriz de dados da PIESP. Vamos aproveitar para entender o que são esses dados.
 
-O SEADE disponibiliza a informação detalhada de todos os investimentos anunciados por empresas privadas em públicas de São Paulo (1) captados na imprensa e (2) confirmados em contato com as empresas. O dado que carregamos para nossa atividade é o de investimentos confirmados de 2012 até o dia 03 de Agosto de 2020. A versão dos dados é uma modificação da original (sem acentos nos textos e com colunas de valores em formato numérico) realizada para fins didáticos.
+O SEADE disponibiliza a informação detalhada de todos os investimentos anunciados por empresas privadas e públicas de São Paulo (1) captados na imprensa e (2) confirmados em contato com as empresas. O dado que carregamos para nossa atividade é o de investimentos confirmados de 2012 até o dia 03 de Agosto de 2020. A versão dos dados é uma modificação da original (sem acentos nos textos e com colunas de valores em formato numérico) realizada para fins didáticos.
 
-Cada linha representa um investimento confirmado e temos, resumidamente, informações sobre a data e tipo do investimento, a empresa investidora e sua atividade econômica, o valor investido, o local da empresa.
+Cada linha representa um investimento confirmado e temos, resumidamente, informações sobre a data e tipo do investimento, a empresa investidora e sua atividade econômica, o valor investido e o local da empresa.
 
 Podemos rapidamente olhar para uma "amostra" dos dados com a função `head`, que nos apresenta as 6 primeiras linhas do conjunto de dados e as primeiras colunas à esquerda.
 
@@ -201,7 +201,7 @@ names(piesp) # Repetindo o comando acima com comentario em outro lugar
 
 Comentários são extremamente úteis para documentar seu código. Use e abuse. Documentar é parte de programar e você deve pensar nas pessoas com as quais vai compartilhar o código e no fato de que com certeza não se lembrará do que fez em pouco tempo (garanto, você vai esquecer).
 
-Durante o curso, comente todos os seus scripts.
+Durante o curso, comente todos os seus scripts e, especialmente, as linhas de código que podem lhe parecer mais úteis para suas atividades futuras. Será mais fácil voltar a elas e estudar se estiverem documentadas.
 
 ## Argumentos ou parâmetros das funções
 
@@ -246,7 +246,7 @@ O símbolo _NA_ em R quer dizer valor faltante (missing value). Na coluna de val
 
 ## Renomeando variáveis
 
-Quando trabalhamos com dados que não coletamos, em geral, não vamos gostar dos nomes das variáveis que quem produziu os dados escolheu. Mais ainda, com certa frequência, obtemos dados cujos nomes das colunas são compostos ou contêm acentuação, cecedilha e demais caracteres especiais, como no caso da PIESP. Dá um tremendo trabalho usar nomes com tais característica, apesar de possível. O ideal é termos nomes sem espaço (você pode usar ponto ou subscrito para separar palavras em um nome composto) e que contenham preferencialmente letras minísculas sem acento e números.
+Quando trabalhamos com dados que não coletamos, em geral, não vamos gostar dos nomes das variáveis que quem produziu os dados escolheu. Mais ainda, com certa frequência, obtemos dados cujos nomes das colunas são compostos ou contêm acentuação, cedilha e demais caracteres especiais, como no caso da PIESP. Dá um tremendo trabalho usar nomes com tais característica, apesar de possível. O ideal é termos nomes sem espaço (você pode usar ponto ou subscrito para separar palavras em um nome composto, por exemplo) e que contenham preferencialmente letras minísculas sem acento e números.
 
 Vamos começar renomeando algumas variáveis no nosso banco de dados, cujos nomes vemos com o comando abaixo:
   
@@ -262,7 +262,7 @@ piesp <- rename(piesp, ano = Ano, valor = `Real (em milhoes)`, tipo = `Tipo Inve
 
 Simples, não? 
 
-No caso de nomes com mais de uma palavra ou espaços, é preciso colocar o texto entre dois acentos graves (crase) para sabermos onde começa e onde termina o nome da variável.
+No caso de nomes com mais de uma palavra ou espaços, é preciso colocar o texto entre dois acentos graves (crase) para sabermos onde começa e onde termina o nome da variável, como em "Tipo Investimento".
   
 ## Uma gramática, duas formas
   
@@ -277,7 +277,7 @@ piesp <- piesp %>%
          tipo = `Tipo Investimento`)
 ```
 
-Usando o operador %>%, denominado _pipe_, retiramos de dentro da função `rename` o banco de dados cujas variáveis serão renomeadas. As quebras de linha depois do %>% e dentro da função `rename` são opcionais. Porém, o padrão é 'verticalizar o código' e colcar os 'verbos' (no caso, `rename`) à esquerda, o que torna sua leitura mais confortável.
+Usando o operador %>%, denominado _pipe_, retiramos de dentro da função `rename` o banco de dados cujas variáveis serão renomeadas. As quebras de linha depois do %>% e dentro da função `rename` são opcionais. Porém, o padrão é 'verticalizar o código' e colocar os 'verbos' (no caso, o verbo `rename`) à esquerda, o que torna sua leitura mais confortável.
 
 Compare com o código que havíamos executado anteriormente:
   
@@ -289,7 +289,7 @@ piesp <- rename(piesp, ano = Ano, valor = `Real (em milhoes)`, tipo = `Tipo Inve
 
 A sintaxe com o uso do _pipe_ tem uma vantagem importante: ela permite emendar uma operação de transformação do banco de dados em outra. Veremos adiante como fazer isso. Por enquanto, tenha em mente que o resultado é o mesmo para qualquer uma das duas formas.
 
-Vamos trabalhar com mais variáveis de uma única vez. Reabra os dados para que tenhamos uma versão não renomeada:
+Vamos trabalhar com mais variáveis de uma única vez. Reabra os dados para que tenhamos uma versão não renomeada e limpa:
   
 ```{r}
 piesp <- read_csv2('https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv')
@@ -333,7 +333,7 @@ O que o operador __pipe__ faz é simplesmente colocar o primeiro argumento da fu
 
 A grande vantagem de trabalharmos com o operador %>% é não precisar repetir o nome do _data frame_ diversas vezes ao aplicarmos a ele um conjunto de operações.
 
-Vejamos agora como usamos o operador %>% para "emendar" tarefas, começando da abertura dos dados. Note que o primeiro input é o url da base de dados e, que, uma vez carregados, vai sendo transformado a cada novo verbo.
+Vejamos agora como usamos o operador %>% para "emendar" tarefas, começando da abertura dos dados, passando pela ação de renomear as variáveis e, enfim, pela seleção de variáveis. Note que o primeiro input (entrada de dados) é o url da base de dados e, que, uma vez carregada, vai sendo transformada a cada novo verbo.
 
 ```{r}
 piesp <- read_csv2('https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv') %>% 
@@ -373,16 +373,16 @@ piesp1518 <- piesp %>%
   filter(ano == 2016 | ano == 2017 | ano == 2018)
 ```
 
-Note que, para dizer que para combinarmos as condições de seleção de linha, utilizamos uma barra vertical `|`. A barra é o símbolo "ou", e indica que todas as observações que atenderem a uma ou outra condição serão incluídas.
+Note que, para combinarmos as condições de seleção de linha, utilizamos uma barra vertical `|`. A barra é o símbolo "ou", e indica que todas as observações que atenderem a uma OU outra condição serão incluídas.
 
-Outra maneira de escrever a mesma condição é:
+Outra maneira de escrever a mesma condição seria:
 
 ```{r}
 piesp1518 <- piesp %>% 
   filter(ano >= 2015 & ano <= 2018)
 ```
 
-Neste caso, utilizamos `&`, que é o símbolo da conjunção "e".
+Neste caso, utilizamos `&`, que é o símbolo da conjunção "e". Dizemos, então, que queremos filtrar os anos maiores ou iguais a 2015 e menores ou iguais a 2018.
  
 Vamos supor que queremos estabelecer agora condições para a seleção de linhas a partir de duas variáveis. Por exemplo, queremos apenas os investimentos cujo tipo é 'Implantacao' para os anos de 2016 a 2018. Novamente, precisaremos da conjunção `&`.
   
@@ -412,7 +412,7 @@ piesp <- piesp %>%
 
 Vimos até agora 3 verbos do pacote `dplyr`: `rename`, `select` e `filter`. Eles têm algumas características em comum:
 
-- O primeiro argumento é sempre o data frame que será transformado. Podemos retirar o primeiro argumento de dentro do parênteses se utilizamos o pipe (%>%).
+- O primeiro argumento é sempre o data frame que será transformado. Podemos retirar o primeiro argumento de dentro do parênteses se utilizamos o operador pipe (%>%).
 
 - Dentro do parênteses escrevemos uma lista de transformações utilizando vírgula para separá-las.
 

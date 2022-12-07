@@ -32,7 +32,7 @@ Vamos começar com alguns exemplos simples:
 
 Antes de avançar, tenha certeza que entendeu os exemplos acima.
 
-Operadores relacionais também vale para textos:
+Operadores relacionais também valem para textos:
   
 ```{r}
 "texto" == "texto"
@@ -77,7 +77,7 @@ x > y
 
 É possível comparar um vetor com um valor. Neste caso, cada elemento do vetor é comparado individualmente ao valor e o resultado é um vetor lógico de tamanho igual ao vetor comparado.
 
-Abaixo temos vetor com a projeção da população de seis municípios fictícios em 2020:
+Abaixo temos um vetor com a projeção da população de seis municípios fictícios em 2020:
 
 ```{r}
 pop20 <- c(200431, 15325, 49344, 80331, 9075, 39871)
@@ -89,7 +89,7 @@ Quais são os municípios com menos de 50 mil habitantes?
 pop20 < 50000
 ```
 
-Vamos agora comparar com a população desses mesmos municípios em 2010, armazenadas em outra vetor com o mesmo ordenamento:
+Vamos agora comparar com a população desses mesmos municípios em 2010, armazenada em outro vetor com o mesmo ordenamento:
   
 ```{r}
 pop10 <- c(190434, 18934, 45123, 83621, 8328, 36863)
@@ -215,6 +215,8 @@ Por fim, vamos imaginar um regra mais complexa. Se a taxa de ocupação for maio
 Veja como traduzir a regra acima em código usando `if`, `else if` e `else`.
 
 ```{r}
+ocupacao_leitos_uti <- 50
+
 if (ocupacao_leitos_uti >= 80){
   status <- "vermelho"
 } else if (ocupacao_leitos_uti < 80 & ocupacao_leitos_uti >= 70){
@@ -222,6 +224,8 @@ if (ocupacao_leitos_uti >= 80){
 } else {
   status <- "verde"
 }
+
+print(status)
 ```
 
 É possível complicar bastante o uso dos condicionais "aninhando" uma cláusula dentro da outra e criando "labirintos" de condições. Fazer isso, porém, é mais uma questão de lógica do que de uso da linguagem. Não há variações relevantes do uso em relação aos exemplos simples apresentados acima. Se você consegue fazer condicionais complexos em papel e caneta e se os exemplos anteriores tiverem ficado claros, então consegue fazê-los também em R.
@@ -239,8 +243,6 @@ while (contador <= 42) {
   print(contador)
   contador <- contador + 1
 }
-
-print(contador)
 
 ```
 
@@ -262,7 +264,6 @@ while (contador <= 42) {
   contador <- contador + 1
 }
 
-print(contador)
 ```
 
 Veja que temos agora um código "aninhado", pois colocamos um condicional dentro de um loop. Novamente, combinar estruturas de código é mais um problema de lógica do que de linguagem e, se você consegue fazer no papel, consegue traduzir para R.
@@ -305,7 +306,7 @@ for (regiao in vetor_regioes){
 }
 ```
 
-Se você já trabalhou pesquisa repetidas com alguma peridicidade, você certamente teve de abrir diversos arquivos semelhantes, um para cada período. Ou ainda, se você já obteve informações na internet talvez tenha precisado "passar" por diversas páginas semelhantes. Loops resolvem problemas desse tipo: eles repetem procedimentos variando apenas um índice. Aprender a usar loops economiza um tempo enorme, pois conseguimos automatizar tarefas ou, pelo menos, escrever um código mais curto para aplicar o mesmo comando inúmeras vezes.
+Se você já trabalhou com pesquisas repetidas com alguma periodicidade, você certamente teve de abrir diversos arquivos semelhantes, um para cada período. Ou ainda, se você já obteve informações na internet talvez tenha precisado "passar" por diversas páginas semelhantes. Loops resolvem problemas desse tipo: eles repetem procedimentos variando apenas um índice. Aprender a usar loops economiza um tempo enorme, pois conseguimos automatizar tarefas ou, pelo menos, escrever um código mais curto para aplicar o mesmo comando inúmeras vezes.
 
 Vamos parar por aqui com _loops_ e voltaremos a eles para fazermos exercícios.
 
@@ -327,7 +328,7 @@ Temos vários elementos no "construtor" de funções. Em primeiro lugar, criamos
 
 Para criar uma função, usamos `function`. Basicamente, o "construtor" tem duas partes: os argumentos da função, que inserimos no parênteses após `function`; e o corpo da função em chaves, que utiliza os argumentos para realizar uma tarefa e retorna um resultado, indicado pela função `return`.
 
-## Exercício
+## Exercícios
 
 Crie uma função chamada "quadrado" que recebe um número "x" e retorna o quadrado de x.
 
@@ -343,10 +344,11 @@ quadrado(4)
 quadrado(17)
 ```
 
-## Exercício
+Seguindo a mesma lógica:
 
 - Crie uma função que recebe um valor em reais e retorna o valor em dólares (use a 3.9 como cotação do dólar)
 - Crie uma função que recebe um valor em reais e uma cotação do dólar e retorna o valor em dólares (ou seja, que contém 2 parâmetros).
+
 
 ## Paramos por aqui
 

@@ -14,9 +14,9 @@ library(tidyverse)
 
 ## COVID-19 no Estado de São Paulo
 
-Durante a pandemia de COVID-19 o SEADE passou a dar suporte ao Governo do Estado de São Paulo para a produção, organização e publicização de dados sobre a pandemia. Uma das bases que o SEADE organizou e levou a público foi a de casos e óbitos por municípios.
+Durante a pandemia de COVID-19, o SEADE passou a dar suporte ao Governo do Estado de São Paulo para a produção, organização e publicização de dados sobre a pandemia. Uma das bases que o SEADE organizou e levou a público foi a de casos e óbitos por municípios.
 
-Neste tutorial, trabalharemos com uma versão reduzida e levemente modificada (sem acentos) deste conjunto de dados e extraída em 03 de Agosto de 2020. Os dados completos e atuais podem ser encontrados [aqui](https://github.com/seade-R/dados-covid-sp).
+Neste tutorial, trabalharemos com uma versão reduzida e levemente modificada (sem acentos) deste conjunto de dados e extraída em 03 de Agosto de 2020. Os dados completos e mais atuais podem ser encontrados [aqui](https://github.com/seade-R/dados-covid-sp).
 
 O conjunto de dados contém as seguintes informações:
 
@@ -38,7 +38,7 @@ Cada linha contém, portanto, a infomação de uma combinação de município e 
 
 Sua primeira tarefa é carregar os dados utilizando o botão (aaaaaargh!) "Import Dataset". Os dados estão no URL: https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/dados_covid_sp.csv. O separador (delimiter) é ponto e vírgula (semicolon) e você pode dar o nome de 'covid' a esta base.
 
-Melhor do que o botão é utilizar a função _read\_csv2_:
+Melhor do que o botão é utilizar a função _read\_csv2_, que vimos anteriormente:
 
 ```{r}
 covid <- read_csv2('https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/dados_covid_sp.csv') 
@@ -46,7 +46,7 @@ covid <- read_csv2('https://raw.githubusercontent.com/seade-R/egesp-seade-intro-
 
 Antes de avançar, utilize as funções que você aprendeu no tutorial anterior para examinar os dados. São elas: `View`, `head`, `nrow`, `ncol`, `names` e `glimpse`. Se habitue aos dados antes de prosseguir.
 
-Dica: examine os últimos dias com `tail`, que é a versão de `head` para examinar as linhas finais do data frame. Há muitos 0 nas primeiras observações e, infelizmente, números maiores vão aparececendo em datas mais recentes.
+Dica: examine os últimos dias com `tail`, que é a versão de `head` para examinar as linhas finais do data frame. Há muitos 0 nas primeiras observações e, infelizmente, números maiores vão aparececendo em datas mais recentes, expressando o aumento de casos de Covid-19 no estado.
 
 ## Transformando e criando variáveis com `mutate`
 
@@ -76,20 +76,20 @@ Pronto, produzimos um data frame de uma linha que contém o que queríamos obser
 
 ## Não faltou o '<-' no código acima?
 
-Repare que não utilizamos o sinal de atribuição, '<-', na nossa última operação. Por não termos utilizado o sinal de atribuição, nenhum objeto foi criado. Em vez disso, o resultado do código apareceu no Console. Foi impresso. E não foi armazenado.
+Repare que não utilizamos o sinal de atribuição, '<-', na nossa última operação. Por não termos utilizado o sinal de atribuição, nenhum objeto foi criado. Em vez disso, o resultado do código apareceu no Console. Foi impresso. E não foi armazenado na memória.
 
-É possível, portanto, utilizar os verbos do `dplyr` para examinar os dados mesmo sem criar um novo objeto, como fizemos acima. Se o '<-' não é utilizado, nenhum objeto é criado, mas vemos seu resultado é impresso no Console.
+É possível, portanto, utilizar os verbos do `dplyr` para examinar os dados mesmo sem criar um novo objeto, como fizemos acima. Se o '<-' não é utilizado, nenhum objeto é criado, mas vemos seu resultado impresso no Console.
 
 ## Voltando ao `mutate`
 
-Em São Paulo no dia 03 de Agosto de 2020 havia 0.000812 óbitos por COVID-19 per capita. Há muitas casas decimais e nossa variável nova não ficou muito fácil de se lida. Vamos mudar a variável para 'óbitos por 100 mil habitantes', ou seja, vamos multiplicar a nova variável 'obitos_pc' por 100000:
+Em São Paulo no dia 03 de Agosto de 2020 havia 0.000812 óbitos por COVID-19 per capita. Há muitas casas decimais e nossa variável nova não ficou muito fácil de ser lida. Vamos mudar a variável para 'óbitos por 100 mil habitantes', ou seja, vamos multiplicar a nova variável 'obitos_pc' por 100000:
 
 ```{r}
 covid <- covid %>% 
   mutate(obitos_pc = obitos_pc * 100000)
 ```
 
-Note que agora não estamos criando uma variável nova, mas transformando uma variável existente. Isso por que o nome 'obitos_pc' já estava ocupado, ou seja, já tinhamos uma variável com esse nome no conjunto de dados. A operação sobrescreve 'obitos_pc' por ela mesma multiplicada por 100 mil.
+Note que agora não estamos criando uma variável nova, mas transformando uma variável existente. Isso por que o nome 'obitos_pc' já estava ocupado, ou seja, já tínhamos uma variável com esse nome no conjunto de dados. A operação sobrescreve 'obitos_pc' por ela mesma multiplicada por 100 mil.
 
 Podemos reutilizar o código anterior para examinar a variável transformada em São Paulo no dia 03 de Agosto de 2020:
 
@@ -111,11 +111,11 @@ covid <- covid %>%
          letalidade = obitos / casos)
 ```
 
-Em outro momento veremos um conjunto de funções úteis em para transformar variáveis (recodificar, fazer substituições, mudar de tipo, discretizar, etc). Por enquanto, vamos nos concentrar no funcionamento do verbo `mutate`.
+Em outro momento, veremos um conjunto de funções úteis para transformar variáveis (recodificar, fazer substituições, mudar de tipo, discretizar, etc). Por enquanto, vamos nos concentrar no funcionamento do verbo `mutate`.
 
 ## Agrupando com `filter` e `pull`
 
-Vamos supor que nos interessa observar os óbitos novos de uma região do Estado de São Paulo, os Departamentos Regionais de Saúde da Grande São Paulo. Poderíamos rapidamente selecionar as linhas de um dos Departamentos Regionais de Saúde (DRS) com o verbo `filter`:
+Vamos supor que nos interessa observar os óbitos novos de uma região do Estado de São Paulo, aquela que contempla os Departamentos Regionais de Saúde da Grande São Paulo. Poderíamos rapidamente selecionar as linhas de um dos Departamentos Regionais de Saúde (DRS) com o verbo `filter`:
 
 ```{r}
 covid %>%
@@ -140,9 +140,9 @@ covid %>%
 
 Note que não utilizamos o símbolo de atribuição '<-' e, portanto, não armazenamos o resultado em nenhum objeto.
 
-Note também que podemos adicionar à pipeline qualquer função que não seja 'verbo' do `dplyr`, como comando `mean`.
+Note também que podemos adicionar à pipeline qualquer função que não seja 'verbo' do `dplyr`, como o comando `mean`.
 
-Essa estratégia funciona para calcular uma medida qualquer para um 'grupo' em uma variável categórica. Mas, em geral, interessa 'sumarizar' um variável -- como novos óbitos -- por uma variável de grupo -- como DRS -- sem destacar cada uma das categorias à parte. Vamos ver como fazer isso.
+Essa estratégia funciona para calcular uma medida qualquer para um 'grupo' em uma variável categórica. Mas, em geral, nos interessa mais 'sumarizar' uma variável -- como novos óbitos -- por uma variável de grupo -- como DRS -- sem destacar cada uma das categorias à parte. Vamos ver como fazer isso.
 
 ## `summarise`
 
@@ -160,7 +160,7 @@ covid %>%
   summarise(obitos_totais = sum(obitos_novos))
 ```
 
-## Agrupando com `group\_by` by e `summarise`
+## Agrupando com `group\_by` e `summarise`
 
 Para agrupar os dados por uma ou mais variáveis na 'gramática' do `dplyr` utilizamos o verbo `group\_by` em combinação com `summarise`. Veja um exemplo antes de detalharmos seu uso:
 
@@ -170,9 +170,9 @@ covid %>%
   summarise(obitos_totais = sum(obitos_novos))
 ```
 
-O resultado é uma tabela de 17 linhas que contém a soma de óbitos para DRS. O primeiro passo é justamente indicar qual é a variável -- discreta -- pela qual queremos agrupar os dados. Fazemos isso com `group\_by`. No nosso exemplo a variável é 'nome_drs'.
+O resultado é uma tabela de 17 linhas que contém a soma de óbitos para cada um dos DRS. O primeiro passo é justamente indicar qual é a variável -- discreta -- pela qual queremos agrupar os dados. Fazemos isso com `group\_by`. No nosso exemplo a variável é 'nome_drs'.
 
-Na sequência, utilizamos `summarise` para criar uma lista das operações que faremos em outras variáveis ao agrupar os dados. Por exemplo, estamos calculando a soma dos óbitos, que aparecerá com o nome 'obitos\_totais', para cada uma das DRS.
+Na sequência, utilizamos `summarise` para criar uma lista das operações que faremos em outras variáveis ao agrupar os dados. Por exemplo, estamos calculando a soma dos óbitos, que aparecerá com o nome 'obitos\_totais', para cada um dos DRS.
 
 Execute novamente o código acima e observe atentamente sua estrutura antes de avançar.
 
@@ -226,7 +226,7 @@ covid_drs <- covid %>%
             casos_totais = sum(casos_novos))
 ```
 
-Se quisermos ordenar, de forma crescente, nossos dados por idade, por exemplo, basta usar o comando `arrange`:
+Se quisermos ordenar, de forma crescente, nossos dados de acordo com o total de óbitos, por exemplo, basta usar o comando `arrange`:
 
 ```{r}
 covid_drs %>% 
@@ -240,7 +240,7 @@ covid_drs %>%
   arrange(-obitos_totais)
 ```
 
-Se quisermos 'desempatar' o ordenamento por idade por uma segunda variável, basta adicioná-la ao `arrange`:
+Se quisermos 'desempatar' o ordenamento pelo total de óbitos por uma segunda variável (total de casos), basta adicioná-la ao `arrange`:
 
 ```{r}
 covid_drs %>% 

@@ -10,7 +10,7 @@ Você verá, depois de um punhado de gráficos, que a estrutura pouco muda de um
 
 ## Registro Civil: óbitos em 2021
 
-Na primeira parte deste tutorial vamos trabalhar com dados de óbitos de 2021 do Registro Civil do estado de São Paulo (SEADE), os mesmos que utilizamos anteriormente.
+Na primeira parte deste tutorial vamos trabalhar com dados de óbitos de 2021 do Registro Civil do estado de São Paulo (SEADE), os mesmos que já utilizamos anteriormente.
 
 Vamos começar carregando os pacotes que utilizaremos. Note que o `ggplot2` é parte do `tidyverse` e não precisamos carregá-lo diretamente.
 
@@ -81,7 +81,7 @@ Ao usarmos a função `ggplot` iniciamos um gráfico sem conteúdo, por enquanto
 
 Para adicionarmos uma geometria, colocamos um símbolo de `+` após fecharmos o parêntesis da função `ggplot`. Cada `+` nos permite adicionar mais uma camada em nosso gráfico. Mas qual camada? Nós definimos um gráfico por sua _geometria_ - o tipo de representação visual dos nossos dados que queremos. `geom_bar` indica que queremos uma geometria de barras, como um 'bar chart' em editores de planilha.
 
-A escolha da geometria depende do tipo de dados que você deseja visualizar de seu dados frame. Como analisamos a distribuição de óbitos pela variável raça/cor, que é discreta (_factor_), utilizamos uma geometria adequada a dados discretos. A lógica de um gráfico de barras é representar a contagem de cada categoria discreta, então faz sentido usar a geometria `geom_bar`. Vamos ver exemplos de outras geometrias que corespondam a outros dados abaixo.
+A escolha da geometria depende do tipo de dados que você deseja visualizar em seu data frame. Como analisamos a distribuição de óbitos pela variável raça/cor, que é discreta (_factor_), utilizamos uma geometria adequada a dados discretos. A lógica de um gráfico de barras é representar a contagem de cada categoria discreta, então faz sentido usar a geometria `geom_bar`. Vamos ver exemplos de outras geometrias que correspondam a outros dados abaixo.
 
 Na linha de código da geometria, as 3 letrinhas `aes` causam estranheza. `aes` é a abreviação de "aesthetics". Aqui definiremos quais variáveis de nosso data frame farão parte do gráfico. Estamos trabalhando por enquanto com apenas uma variável, representada no eixo horizontal, ou eixo "x". Por esta razão preenchemos o parâmetro "x" da "aesthetics" e nada mais.
 
@@ -122,7 +122,7 @@ obitos_2021 %>%
                  fill = 'green')
 ```
 
-Melhor, não? Certamente não! Mas note que podemos trocar os contornos das barras e seu preenchimento. Em geral, os argumentos `color` e `fill` servem a várias geometrias.
+Melhor, não? Certamente não! Mas note que podemos trocar os contornos das barras e seu preenchimento. Em geral, os argumentos `color` e `fill` servem a várias geometrias. Faça o teste e mude os nomes das cores para ver como fica (lembre-se que os nomes das cores precisam ser em inglês: red, blue, purple, yellow, etc)
 
 Curiosidade: R aceita as duas grafias em inglês para a palavra cor, "colour" (britânico) e "color" (americano).
 
@@ -257,7 +257,7 @@ obitos_2021 %>%
 
 Mesmo quando precisamos 'remodelar' os dados para produzir um novo gráfico, não precisamos criar um novo data frame. Basta fazer todas as modificações necessárias com os verbos do `dplyr` e emendar, com o pipe, a função `ggplot`.
 
-Vamos adicionar cores no preenchimnento das curcas com `fill` para melhorar nosso gráfico:
+Vamos adicionar cores no preenchimnento das curvas com `fill` para melhorar nosso gráfico:
 
 ```{r}
 obitos_2021 %>% 

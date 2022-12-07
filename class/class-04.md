@@ -1,31 +1,47 @@
-#  4o Aula - ggplot2: Gramática de gráficos
+# Aula 4 - Bases relacionais e R + Power BI
 
 ## Objetivos Gerais
 
-No encontro de hoje vamos seguir com a gramática do `dplyr` para transformar os dados e produzir tabelas. Utilizaremos um pacote excelente (e desconhecido para mim até pouco tempo) chamado `janitor`. No meio do caminho, aprenderemos um pouco sobre `factors`, que é a estrutura de dados utilizada em R para variáveis categóricas.
+Neste último encontro veremos como combinar data frames de diferentes origens que se relacionam por meio de uma ou mais variáveis chave. Utilizaremos novos verbos do dplyr, de sufixo "\_join" para trabalhar com bases de dados relacionais.
 
-A seguir, aprenderemos uma nova 'gramática' de R: a gramática de gráficos do pacote `ggplot2`. Este pacote é certamente uma das razões pelas quais R se tornou popular (e uma das vantagens de R sobre python). Trabalharemos algumas das inúmeros 'geometrias' do pacote, nos preocupando menos em colecionar funções e mais em compreender a estrutura dessa gramática.
+A seguir, veremos em pequenos vídeos como integrar R e Power BI. Finalmente, para quem estiver confortável com a linguagem, convém aprender um pouco da 'gramática' básica de R.
 
 ## Roteiro
 
-0 - Às 9h30 faremos um encontro virtual (Teams) de 1h para falarmos dos objetivos de hoje e tirarmos dúvidas sobre a aula passada.
+0 - Às 8h30 faremos um encontro virtual (Teams) para falarmos dos objetivos de hoje e tirarmos dúvidas sobre a aula passada.
 
-1 - Entre 9h às 9h30, leia as instruções deste roteiro. Se deixou algum tutorial inacabado do encontro anterior, comece a ele. Caso contrário, prossiga.
+1 - Se deixou algum tutorial inacabado do encontro anterior, comece por ele. Caso contrário, prossiga.
 
-2 - Comece pelo tutorial no qual parou: [Tutorial 1](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-01.md), [Tutorial 2](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-02.md), [Tutorial 3](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-03.md), [Tutorial 4](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-04.md), [Tutorial 5](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-05.md) e [Tutorial 6](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-06.md)
+2 - Comece pelo tutorial no qual parou: [Tutorial 1](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-01.md), [Tutorial 2](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-02.md), [Tutorial 3](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-03.md), [Tutorial 4](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-04.md), [Tutorial 5](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-05.md), [Tutorial 6](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-06.md), [Tutorial 7](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-07.md), [Tutorial 8](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-08.md) e [Tutorial 9](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-09.md)
 
-3 - Na sequência, vá para o [Tutorial 7](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-07.md), já indicado no encontro passado, que apresenta o pacote `janitor` para limpeza de dados e construção de tabelas, simples e de duas entradas.
+3 - Na sequência, vá para o [Tutorial 10](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-10.md) que apresenta como trabalhar com bases de dados relacionais utilizando os verbos do `dplyr`.
 
-4 - Finalmente vá para o [Tutorial 8](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-08.md) que introduz um das especialidades de R: a gramática de gráficos do pacote `ggplot2`.
+4 - O [Tutorial 11](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-11.md) não traz nenhuma novidade em relação ao anterior, mas utiliza os verbos "\_join" para um tipo de combinação de dados bastante comum: tabelas de indivíduos e domicílios em uma pesquisa amostral domiciliar, a TICDOM, realizada pelo CETIC-NIC.
 
 ## Opcional
 
-5 - Em algum momento do curso, ou após, seria interessante ter uma exposição à gramática básica do R. Se, e somente se, você estiver confortável com a gramática do `dplyr` e houver tempo, faça (ou comece) o [Tutorial 9](https://github.com/seade-R/egesp-seade-intro-programacao/blob/master/tutorial/tutorial-09.md)
+5 - Para quem tiver interesse, o [Tutorial 12](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-12.md), opcional, apresenta, com acompanhamento de vídeos curtos, as maneiras mais simples de como integrar R e Power BI.
+
+## Instalação do R e RStudio em sua máquina local
+
+Trabalhamos, ao longo de todo o curso, com RStudio instalado no servidor do SEADE. Agora, para que você possa seguir usando R em sua vida, você vai precisar instalar a ferramenta na sua máquina local, seu desktop pessoal ou notebook.
+
+O R e RStudio funcionam juntos, portanto, precisamos instalar os dois. Pense que o R é o motor e RStudio é a lataria do carro (a parte visível). Ambos são inteiramente gratuitos e já vêm com distribuições compiladas para Windows, Mac e Linux.
+
+A instalação é bastante fácil e, em geral, basta seguir as instruções da tela.
+
+1.  Para instalar o R, baixe a versão adequada para seu computador em: <https://cloud.r-project.org/>
+
+2.  Para instalar o RStudio, baixe a versão adequada para seu computador em: <https://www.rstudio.com/products/rstudio/download/>
+
+3.  Uma vez instalados o R e o RStudio, basta abrir o RStudio e começar a criar seus projetos. Lembre-se que os pacotes que usamos ao longo do curso vão precisar ser instalados em sua máquina. Esse processo vai acontecer uma única vez e, nas próximas vezes que for usar o R em sua máquina, basta carregas as bibliotecas.
+
+## Avaliação do curso
+
+Criamos um formulário para que você possa avaliar a qualidade do curso oferecido. Assim, esperamos aprimorar os conteúdos e metodologia para as próximas edições. Acesse e preencha o formulário [aqui](https://forms.gle/DRwwt25QohxD4p596).
 
 ## Dicas de Leitura
 
-- Voltando à gramática de gráficos, não trabalhamos, propositalmente, com todos os elementos visuais secundários às geometrias: títulos, legenda, eixos, etc. Você pode aprender um pouco mais explorando os exemplos do livro [R Graphics Cookbook](https://r-graphics.org/): gráficos de barras no [Capítulo 3](https://r-graphics.org/chapter-bar-graph); gráficos de linha no [Capítulo 4](https://r-graphics.org/chapter-line-graph); ou gráficos de dispersão no [Capítulo 5](https://r-graphics.org/chapter-scatter). Finalmente, se tiver tempo, explore a [página do R Graphics Cookbook](http://www.cookbook-r.com/Graphs/) (que é diferente do livro).
+O livro 'R for Data Science' tem excelente capítulo dados relacionais ([Capítulo 13](https://r4ds.had.co.nz/relational-data.html)).
 
-- Uma leitura alternativa e introdutória sobre `ggplot2` é o [Capítulo 3](https://r4ds.had.co.nz/data-visualisation.html) do livro 'R for Data Science'. Se o Tutorial 8 não foi suficiente para você aprender, recomendo esta leitura.
-
-- O livro 'R for Data Science' tem um excelente capítulo sobre Factors ([Capítulo 15](https://r4ds.had.co.nz/factors.html)).
+Para a integração entre R e Power BI, convém ler a documentação da Microsoft: (1) [Executar scripts do R no Power BI Desktop](https://docs.microsoft.com/pt-br/power-bi/connect-data/desktop-r-scripts); (2) [Uso do R no Editor do Power Query](https://docs.microsoft.com/pt-br/power-bi/connect-data/desktop-r-in-query-editor); (3) [Criar visuais do Power BI usando o R](https://docs.microsoft.com/pt-br/power-bi/create-reports/desktop-r-visuals).
