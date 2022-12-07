@@ -1,23 +1,15 @@
-# Introdução à programação e ciência de dados para a gestão pública
+# Introdução à Programação e Ciência de Dados para a Gestão Pública
 
-Bem vindas e bem vindos ao curso de 'Introdução à programação e ciência de dados para a gestão pública' do SEADE.
+Bem vindas e bem vindos ao curso de 'Introdução à Programação e Ciência de Dados para a Gestão Pública' do SEADE.
+
+Este é o repositório de instruções, tutoriais e atividades do curso. O material foi preparado para a primeira versão do curso por [Leonardo Barone](https://github.com/leobarone). Pequenas revisões foram feitas por [Thandara Santos](https://github.com/thandarasantos).
 
 ## Informações básicas
 
-### Instrutora
+### Instrutores
 
-Thandara Santos
-
-### Local, data e hora
-
-Virtual, de terça a sexta-feira, à partir das 13:30, de 29/11 a 02/12
-
-| Dia                 |            Horário |
-|---------------------|-------------------:|
-| 29/11/2022 (terça)  | Das 13:30 às 17:30 |
-| 30/11/2022 (quarta) | Das 13:30 às 17:30 |
-| 01/12/2022 (quinta) | Das 08:30 às 17:30 |
-| 02/12/2022 (sexta)  | Das 08:30 às 12:30 |
+Primeira edição: Leonardo Barone
+Segunda edição: Thandara Santos
 
 ## Apresentação
 
@@ -25,7 +17,7 @@ O curso oferece uma iniciação à lógica de programação e ao uso da linguage
 
 ## Programa
 
-[29-11-2022 (tarde)](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/class/class-01.md) **Manipulação de dados no R e introdução** - Na primeira aula do curso nos habituaremos à linguagem R trabalhando com uma das gramáticas mais populares de manipulação de dados em R, a do pacote *dplyr*. O curso começa, assim, não pelos elementos básicos da linguagem R, mas pelo seu uso mais comum. Dessa forma, nos habituaremos à linguagem observando seu uso a problemas concretos.
+[Aula 01](/class/class-01.md) **Manipulação de dados no R e introdução** - Na primeira aula do curso nos habituaremos à linguagem R trabalhando com uma das gramáticas mais populares de manipulação de dados em R, a do pacote *dplyr*. O curso começa, assim, não pelos elementos básicos da linguagem R, mas pelo seu uso mais comum. Dessa forma, nos habituaremos à linguagem observando seu uso a problemas concretos.
 
 [30-11-2022 (tarde)](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/class/class-02.md) **Do básico ao intermediário** - Após termos aprendido sobre data frames, vamos fazer um percurso das funcionalidades básicas da linguagem até alguns de seus usos intermediários. O objetivo do percurso é criar um repertório de funções e utilidades da linguagem que serão utilizados adiante.
 
