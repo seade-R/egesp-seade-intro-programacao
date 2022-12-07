@@ -11,11 +11,11 @@ No primeiro encontro trabalhamos com a gramática do pacote `dplyr` para manipul
 
 1 - Se deixou algum tutorial inacabado do encontro anterior, comece a ele. Caso contrário, prossiga.
 
-2 - Comece pelo [Tutorial 5](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-05.md) que trata da importação de dados em R.
+2 - Comece pelo [Tutorial 5](/tutorial/tutorial-05.md) que trata da importação de dados em R.
 
-3 - A seguir vá para o [Tutorial 6](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-06.md), que retoma o exemplo da Pesquisa SEADE Investimentos e discute um pouco sobre a produção de tabelas na gramática do `dplyr`. 
+3 - A seguir vá para o [Tutorial 6](/tutorial/tutorial-06.md), que retoma o exemplo da Pesquisa SEADE Investimentos e discute um pouco sobre a produção de tabelas na gramática do `dplyr`. 
 
-4 - Se houver tempo, podemos começar o [Tutorial 7](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-07.md), que apresenta o pacote `janitor` para confecção de tabelas de frequência em R de um jeito simples.
+4 - Se houver tempo, podemos começar o [Tutorial 7](/tutorial/tutorial-07.md), que apresenta o pacote `janitor` para confecção de tabelas de frequência em R de um jeito simples.
 
 5 - Faremos uma pausa às 12h30, para o almoço. Retornaremos às 13h30 para a segunda parte da aula.
 

@@ -12,15 +12,15 @@ A seguir, veremos em pequenos vídeos como integrar R e Power BI. Finalmente, pa
 
 1 - Se deixou algum tutorial inacabado do encontro anterior, comece por ele. Caso contrário, prossiga.
 
-2 - Comece pelo tutorial no qual parou: [Tutorial 1](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-01.md), [Tutorial 2](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-02.md), [Tutorial 3](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-03.md), [Tutorial 4](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-04.md), [Tutorial 5](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-05.md), [Tutorial 6](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-06.md), [Tutorial 7](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-07.md), [Tutorial 8](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-08.md) e [Tutorial 9](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-09.md)
+2 - Comece pelo tutorial no qual parou: [Tutorial 1](/tutorial/tutorial-01.md), [Tutorial 2](/tutorial/tutorial-02.md), [Tutorial 3](/tutorial/tutorial-03.md), [Tutorial 4](/tutorial/tutorial-04.md), [Tutorial 5](/tutorial/tutorial-05.md), [Tutorial 6](/tutorial/tutorial-06.md), [Tutorial 7](/tutorial/tutorial-07.md), [Tutorial 8](/tutorial/tutorial-08.md) e [Tutorial 9](/tutorial/tutorial-09.md)
 
-3 - Na sequência, vá para o [Tutorial 10](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-10.md) que apresenta como trabalhar com bases de dados relacionais utilizando os verbos do `dplyr`.
+3 - Na sequência, vá para o [Tutorial 10](/tutorial/tutorial-10.md) que apresenta como trabalhar com bases de dados relacionais utilizando os verbos do `dplyr`.
 
-4 - O [Tutorial 11](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-11.md) não traz nenhuma novidade em relação ao anterior, mas utiliza os verbos "\_join" para um tipo de combinação de dados bastante comum: tabelas de indivíduos e domicílios em uma pesquisa amostral domiciliar, a TICDOM, realizada pelo CETIC-NIC.
+4 - O [Tutorial 11](/main/tutorial/tutorial-11.md) não traz nenhuma novidade em relação ao anterior, mas utiliza os verbos "\_join" para um tipo de combinação de dados bastante comum: tabelas de indivíduos e domicílios em uma pesquisa amostral domiciliar, a TICDOM, realizada pelo CETIC-NIC.
 
 ## Opcional
 
-5 - Para quem tiver interesse, o [Tutorial 12](https://github.com/thandarasantos/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-12.md), opcional, apresenta, com acompanhamento de vídeos curtos, as maneiras mais simples de como integrar R e Power BI.
+5 - Para quem tiver interesse, o [Tutorial 12](/tutorial/tutorial-12.md), opcional, apresenta, com acompanhamento de vídeos curtos, as maneiras mais simples de como integrar R e Power BI.
 
 ## Instalação do R e RStudio em sua máquina local
 
