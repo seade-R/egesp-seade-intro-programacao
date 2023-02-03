@@ -31,7 +31,7 @@ jornal <- c("El país",
 
 Execute a linha do vetor criado. Se você criou corretamente o vetor `jornal`, então nada aconteceu na tela do Console, ou seja, nenhum output foi impresso. Isso se deve ao fato de que criamos um novo **objeto**, chamado "jornal" e **atribuímos** a ele os valores coletados sobre os nomes dos veículos nos quais coletamos as notícias. O símbolo de **atribuição** em R é `<-`, como vimos anteriormente. Note que o símbolo lembra uma seta para a esquerda, indicando que o conteúdo do vetor será armazenado no objeto `jornal`.
 
-**Objetos** não são nada mais do que um nome usado para armazenar dados na memória RAM (temporária) do seu computador. No exemplo acima, `jornal` é o objeto e o vetor é a informação armazenada. Uma vez criado, o objeto está disponível para ser usado novamente, pois ele ficará disponível no **environment** (ambiente). Veremos adiante que podemos criar um *data frame* a partir de vários vetores armazenados na memória. Especificamente no RStudio, os objetos ficam disponíveis no painel **environment** (que provavelmente está no canto direito superior da sua tela).
+**Objetos** não são nada mais do que um nome usado para armazenar dados na memória RAM (temporária) do seu computador. No exemplo acima, `jornal` é o objeto e o vetor é a informação armazenada. Uma vez criado, o objeto está disponível para ser usado novamente, pois ele ficará disponível no **Environment** (ambiente). Veremos adiante que podemos criar um *data frame* a partir de vários vetores armazenados na memória. Especificamente no RStudio, os objetos ficam disponíveis no painel **Environment** (que provavelmente está no canto direito superior da sua tela).
 
 Eu poderia usar o símbolo `=` no lugar de `<-`? Sim. Regra geral, o `=` funciona. Mas nem sempre ele funciona como esperado, e esta substituição é uma fonte grande de confusão, pois há ambiguidade no uso do sinal de igualdade. Quando entendermos um pouco mais sobre a sintaxe da linguagem R, isso ficará claro. Por enquanto, quando for atribuir dados para um objeto, prefira `<-`.
 
@@ -48,7 +48,7 @@ Note que há quebras de linha no código. Não há problema algum quebrar linhas
 
 Dica: quebras de linha ajudam a vizualizar o código, sobretudo depois de uma vírgula, e com o tempo você também usará.
 
-Vamos seguir com nossa tarefa de criar vetores. Já temos o vetor `jornal` (que você pode observar no **environment**). Os demais vetores criados com as notícias que coletei estão abaixo.
+Vamos seguir com nossa tarefa de criar vetores. Já temos o vetor `jornal` (que você pode observar no **Environment**). Os demais vetores criados com as notícias que coletei estão abaixo.
 
 Obs: evite nomear os objetos com nomes de funções já existentes em R, como `data`.
 
@@ -81,7 +81,7 @@ investimento <- c(0, 1, 1, 0)
 sp <- c(FALSE, NA, FALSE, TRUE)
 ```
 
-Para onde vão os objetos de R criados? Para o **environment**. Se quisermos uma "fotografia" do nosso **Environment**, usamos a função `ls()`:
+Para onde vão os objetos de R criados? Para o **Environment**. Se quisermos uma "fotografia" do nosso **Environment**, usamos a função `ls()`:
 
 ``` r
 ls()
