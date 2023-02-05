@@ -50,7 +50,7 @@ Simples e muito útil para evitar escrevermos "labirintos de pastas" cada vez qu
 
 IMPORTANTE! Um detalhe fundamental para quem usa Windows: os caminhos devem ser escritos com duas barras (`\\`) no lugar de uma, como no exemplo acima.
 
-Se você preferir não se preocupar com as pastas, pode criar um projeto para armazenar toda a documentação em uma única pasta, como vimos no [vídeo](https://www.youtube.com/watch?v=ukU9iNkPX60&t=3s) e [capítulo de livro](https://curso-r.github.io/zen-do-r/rproj-dir.html) indicados anteriormente.
+Para não se preocupar com as pastas, você pode criar um projeto para armazenar toda a documentação em uma única pasta, como vimos no [vídeo](https://www.youtube.com/watch?v=ukU9iNkPX60&t=3s) e [capítulo de livro](https://curso-r.github.io/zen-do-r/rproj-dir.html) indicados anteriormente.
 
 ## readr
 
