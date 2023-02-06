@@ -205,7 +205,7 @@ E pode usá-la novamente quando quiser.
 tabela_racacor
 ```
 
-Uma curiosidade. Se invertermos o símbolo de atribuição, ou seja, se no lugar de `<-` usarmos `-\>` a operação de atribuição funciona?
+Uma curiosidade. Se invertermos o símbolo de atribuição, ou seja, se no lugar de `<-` usarmos `->` a operação de atribuição funciona?
 
 ``` r
 obitos_2021 %>% 
@@ -232,7 +232,7 @@ write_csv2(tabela_racacor, 'tabela_racacor.csv')
 
 O primeiro argumento é o objeto a ser exportado e o segundo é o nome do arquivo que será criado.
 
-Outra forma de escrever o mesmo comando é usando pipe (`%\>%`):
+Outra forma de escrever o mesmo comando é usando pipe (`%>%`):
 
 ``` r
 tabela_racacor %>% 
