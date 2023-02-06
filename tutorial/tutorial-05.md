@@ -105,7 +105,7 @@ piesp_tab <- read_delim(url_piesp_tab, delim = "\t")
 Repetindo os 2 primeiros exemplos usando `read_delim`:
 
 ``` r
-piesp <- read_delim(url_piesp, , delim = ";")
+piesp <- read_delim(url_piesp, delim = ";")
 piesp_virgula <- read_delim(url_piesp_virgula, delim = ",")
 ```
 
