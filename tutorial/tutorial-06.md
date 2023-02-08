@@ -12,7 +12,7 @@ Vamos carregar novamente os dados da pesquisa SEADE Investimentos:
 
 ``` r
 library(tidyverse)
-url_piesp <- "https://raw.githubusercontent.com/thandarasantos/egesp-seade-intro-programacao/main/data/piesp.csv"
+url_piesp <- "https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/main/data/piesp.csv"
 piesp <- read_csv2(url_piesp)
 ```
 

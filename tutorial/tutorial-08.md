@@ -293,7 +293,7 @@ obitos_2021 %>%
                alpha = 0.5)
 ```
 
-Dá par comparar as distribuições de idade por grupo? Certamente não. Podemos ter alguma ideia das diferenças, mas o gráfico é poluído demais.
+É possível para comparar as distribuições de idade por grupo? Certamente não. Podemos ter alguma ideia das diferenças, mas o gráfico é poluído demais.
 
 Uma alternativa sintética para representar distribuições de variáveis numéricas é utilizar boxplot. Vamos ver um exemplo que serve de alternativa ao gráfico anterior.
 
