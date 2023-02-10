@@ -2,7 +2,7 @@
 
 ## Objetivos Gerais
 
-Neste último encontro veremos como combinar data frames de diferentes origens que se relacionam por meio de uma ou mais variáveis chave. Utilizaremos novos verbos do dplyr, de sufixo "\_join" para trabalhar com bases de dados relacionais.
+Neste último encontro veremos como combinar data frames de diferentes origens que se relacionam por meio de uma ou mais variáveis chave. Utilizaremos novos verbos do dplyr, de sufixo `_join` para trabalhar com bases de dados relacionais.
 
 A seguir, veremos em pequenos vídeos como integrar R e Power BI. Finalmente, para quem estiver confortável com a linguagem, convém aprender um pouco da 'gramática' básica de R.
 
@@ -16,7 +16,7 @@ A seguir, veremos em pequenos vídeos como integrar R e Power BI. Finalmente, pa
 
 3 - Na sequência, vá para o [Tutorial 10](/tutorial/tutorial-10.md) que apresenta como trabalhar com bases de dados relacionais utilizando os verbos do `dplyr`.
 
-4 - O [Tutorial 11](/main/tutorial/tutorial-11.md) não traz nenhuma novidade em relação ao anterior, mas utiliza os verbos "\_join" para um tipo de combinação de dados bastante comum: tabelas de indivíduos e domicílios em uma pesquisa amostral domiciliar, a TICDOM, realizada pelo CETIC-NIC.
+4 - O [Tutorial 11](/tutorial/tutorial-11.md) não traz nenhuma novidade em relação ao anterior, mas utiliza os verbos `_join` para um tipo de combinação de dados bastante comum: tabelas de indivíduos e domicílios em uma pesquisa amostral domiciliar, a TICDOM, realizada pelo CETIC-NIC.
 
 ## Opcional
 
