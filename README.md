@@ -2,7 +2,7 @@
 
 Bem vindas e bem vindos ao curso de _Introdução à Programação e Ciência de Dados para a Gestão Pública_.
 
-Este é o repositório de instruções, tutoriais e atividades do curso. O material foi preparado para a primeira versão do curso por [Leonardo Barone](https://github.com/leobarone). Pequenas revisões foram feitas por [Thandara Santos](https://github.com/thandarasantos), [Lucas Gelape] (https://github.com/lgelape) e [Rebeca Carvalho](https://github.com/rebecacarvalho).
+Este é o repositório de instruções, tutoriais e atividades do curso. O material foi preparado para a primeira versão do curso por [Leonardo Barone](https://github.com/leobarone). Pequenas revisões foram feitas por [Thandara Santos](https://github.com/thandarasantos), [Lucas Gelape](https://github.com/lgelape) e [Rebeca Carvalho](https://github.com/rebecacarvalho).
 
 ## Informações básicas
 
