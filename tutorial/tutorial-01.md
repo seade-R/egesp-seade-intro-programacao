@@ -278,6 +278,8 @@ piesp <- piesp %>%
 
 Usando o operador %\>%, denominado *pipe*, retiramos de dentro da função `rename` o banco de dados cujas variáveis serão renomeadas. As quebras de linha depois do %\>% e dentro da função `rename` são opcionais. Porém, o padrão é 'verticalizar o código' e colocar os 'verbos' (no caso, o verbo `rename`) à esquerda, o que torna sua leitura mais confortável.
 
+DICA: O símbolo do operador *pipe*, %\>%, pode ser feito através de um atalho no teclado. Basta apertar ao mesmo tempo as teclas: CTRL + SHIFT + M. 
+
 Compare com o código que havíamos executado anteriormente:
 
 ``` r

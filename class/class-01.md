@@ -20,7 +20,7 @@ A instalação é bastante fácil e, em geral, basta seguir as instruções da t
 
 ## Roteiro
 
-0- Nos encontraremos em uma sala virtual (pelo Teams) às 08h30. Faremos uma breve apresentação das e dos participantes e conversaremos sobre o funcionamento do curso. Veremos como instalar e utilizar o software RStudio.
+0 - Nos encontraremos em uma sala virtual (pelo Teams) às 08h30. Faremos uma breve apresentação das e dos participantes e conversaremos sobre o funcionamento do curso. Veremos como instalar e utilizar o software RStudio.
 
 1 - Assista ao breve vídeo sobre como gerenciar projetos no RStudio: <https://www.youtube.com/watch?v=ukU9iNkPX60&t=3s>. Uma boa dica de leitura sobre o assunto (opcional e para o final da manhã de hoje: <https://curso-r.github.io/zen-do-r/rproj-dir.html#diret%C3%B3rio-de-trabalho>).
 
