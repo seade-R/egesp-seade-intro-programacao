@@ -7,7 +7,7 @@ No primeiro encontro trabalhamos com a gramática do pacote `dplyr` para manipul
 
 ## Roteiro
 
-0 - Às 08h30 faremos um encontro virtual (Teams) de 30 a 45 minutos para falarmos dos objetivos de hoje e tirarmos dúvidas sobre a aula passada. Hoje teremos duas aulas ao longo do dia. Esta, pela manhã, e seguiremos com a Aula 3 (parte 2) na parte da tarde. Tome fôlego e vamos juntos!
+0 - Às 08h30 faremos um encontro virtual (Teams) de 30 a 45 minutos para falarmos dos objetivos de hoje e tirarmos dúvidas sobre a aula passada.
 
 1 - Se deixou algum tutorial inacabado do encontro anterior, comece a ele. Caso contrário, prossiga.
 
@@ -15,9 +15,7 @@ No primeiro encontro trabalhamos com a gramática do pacote `dplyr` para manipul
 
 3 - A seguir vá para o [Tutorial 6](/tutorial/tutorial-06.md), que retoma o exemplo da Pesquisa SEADE Investimentos e discute um pouco sobre a produção de tabelas na gramática do `dplyr`. 
 
-4 - Se houver tempo, podemos começar o [Tutorial 7](/tutorial/tutorial-07.md), que apresenta o pacote `janitor` para confecção de tabelas de frequência em R de um jeito simples.
-
-5 - Faremos uma pausa às 12h30, para o almoço. Retornaremos às 13h30 para a segunda parte da aula.
+4 - Faremos uma nova discussão coletiva às 12h00 na sala do Teams.
 
 ## Dica de Leitura
 
