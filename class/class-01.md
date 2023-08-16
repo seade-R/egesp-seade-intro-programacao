@@ -1,4 +1,4 @@
-#  Aula 1 - Manipulação de dados no R e introdução
+#  Aula 1 - Introdução e manipulação de dados no R
 
 ## Objetivos Gerais
 
