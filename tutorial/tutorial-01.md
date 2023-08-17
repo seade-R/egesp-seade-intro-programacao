@@ -454,7 +454,7 @@ Agora que você tem acesso aos dados, é hora de começar.
 
 8. Combine as etapas 6 e 7 em um único código, utilizando o operador de encadeamento %>%.
 
-9. Salve seu script com o nome `tutorial01.R` no diretório do seu projeto no curso. Caso esteja em dúvida sobre como criar um diretório, volte à instrução 01 do arquivo de apresentação da [Aula 1](/class/class-01.md).
+9. Salve seu script com o nome `tutorial01.R` no diretório do seu projeto no curso. Caso esteja em dúvida sobre como criar um diretório, volte à instrução 1 do arquivo de apresentação da [Aula 1](/class/class-01.md).
 
 # Fim
 
