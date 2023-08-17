@@ -12,9 +12,9 @@ Podemos pensar na linguagem R como uma língua com diversos dialetos. Os dois di
 
 # Instalando e carregando pacotes no R
 
-Quando você abre R ou RStudio, diversas funções estão disponíveis para uso. Elas são parte do pacote "base", que é carregado automaticamente. "base" é a linguagem tal como ela foi desenhada originalmente.
+Quando você abre R ou RStudio, diversas funções estão disponíveis para uso. Elas são parte do pacote "base", que é carregado automaticamente. "Base" é a linguagem tal como ela foi desenhada originalmente.
 
-Se quiseremos utilizar funções de pacotes desenvolvidos na comunidade de R que não sejam parte do "base", precisamos instalar pacotes e carregá-los ao iniciar uma nova seção. Vamos ver como fazer isso.
+Se quiseremos utilizar funções de pacotes desenvolvidos na comunidade de R que não sejam parte do "base", precisamos instalar pacotes e carregá-los ao iniciar uma nova sessão. Vamos ver como fazer isso.
 
 Em primeiro lugar, vamos instalar um pacote. Começaremos com o `tidyverse`, do qual o pacote `dplyr` faz parte:
 
@@ -59,7 +59,7 @@ Note que em uma linha os elementos são de tipos de diferentes: na primeira colu
 
 Por outro lado, em cada coluna há somente elementos de um tipo. Por exemplo, há apenas números inteiros na coluna população. Colunas são variáveis e por isso aceitam registros de um único tipo. Se você já fez um curso de estatística básica ou de métodos quantitativos deve se lembrar que as variáveis são classificadas da seguinte maneira:
 
-1- Discretas
+1 - Discretas
 
 -   Nominais, que são categorias (normalmente texto) não ordenadas
 
@@ -67,11 +67,11 @@ Por outro lado, em cada coluna há somente elementos de um tipo. Por exemplo, h�
 
 -   Inteiros, ou seja, o conjunto dos números inteiros
 
-2- Contínuas, números que podem assumir valores não inteiros
+2 - Contínuas, números que podem assumir valores não inteiros
 
 Se destacamos uma coluna do nosso data frame, temos um **vetor**. Por exemplo, a variável "População" pode ser representada da seguinte maneira: {693.867, 812.086, 151.244, 404.477}. Um data frame é um conjunto de variáveis (vetores!) dispostos na vertical e combinados um ao lado do outro de forma pareada.
 
-Nota: guarde bem a definição de data frame acima, pois data frame é a principal classe de objetos no uso quotidiano da linguagem.
+Nota: guarde bem a definição de data frame acima, pois data frame é a principal classe de objetos no uso cotidiano da linguagem.
 
 Data frame e vetores são **objetos** na linguagem R.
 
@@ -79,13 +79,13 @@ Vamos ver como o R representa vetores e data frames na tela. Antes disso, é pre
 
 ## Pesquisa de Investimentos Anunciados no Estado de São Paulo (PIESP)
 
-Neste primeiro tutorial vamos trabalhar com dados de uma pesquisa do SEADE, a [SEADE Investimentos](https://investimentos.seade.gov.br), que capta anúncios de investimento realizados por empresas públicas e privadas no Estado de São Paulo. Vamos abrir os dados antes e depois examinar do que se trata exatamente.
+Neste primeiro tutorial vamos trabalhar com dados de uma pesquisa do SEADE, a [SEADE Investimentos](https://investimentos.seade.gov.br), que capta anúncios de investimento realizados por empresas públicas e privadas no Estado de São Paulo. Vamos abrir os dados e depois examinar do que se trata exatamente.
 
 Para este exercício, os dados estão armazenados em um arquivo de texto no formato .csv (comma separated values), ou seja, em cada linha os dados de cada coluna são separados por ponto e vírgula (;). Outros separadores, como vírgula ou tab são possíveis nesse formato.
 
 ## Abrindo dados em R com botão (aaaaaaargh!)
 
-Se você decidiu aprender a programar em R, provavelmente quer substituir a análise de dados com cliques no mouse que fazemos no editor de planilhas pela construção de scripts que documentam o passo a passo da análise. Daqui em diante estaremos num mundo sem botões. Exceto um, por enquanto, aí no canto direito superior chamado "Import Dataset".
+Se você decidiu aprender a programar em R, provavelmente quer substituir a análise de dados com cliques no mouse, tal como fazemos em um editor de planilhas, pela construção de scripts que documentam o passo a passo da análise. Daqui em diante estaremos num mundo sem botões. Exceto um, por enquanto, aí no canto direito superior chamado "Import Dataset".
 
 Clique no botão (aaaaaaargh!). Veja que temos a opção de importar arquivos de texto com duas bibliotecas diferentes, `base` e `readr` (que é o pacote de abertura de dados do `tidyverse`) e dados em alguns outros formatos, como MS Excel e outros softwares de análise estatística.
 
@@ -142,7 +142,7 @@ Vamos avançar.
 
 Ao utilizarmos o símbolo de atribuição criamos um *objeto*. R é uma linguagem voltada a objetos e, basicamente, tudo que você armazenar na memória do computador é um objeto.
 
-Ao 'importarmos' os dados da PIESP criamos um objeto com um nome arbitrário (escolhemos 'piesp' para facilitar) em nosso ambiente. Na aba 'Environment' do RStudio podemos visualizar todos os objetos existentes. 'piesp' está lá, com alguma informação sobre o que é e qual é o seu tamanho. Dê um clique (aaaaaaargh!) no botão azul ao lado do nome do objeto conseguimos ver um pouco de sua estrutura.
+Ao 'importarmos' os dados da PIESP criamos um objeto com um nome arbitrário (escolhemos 'piesp' para facilitar) em nosso ambiente. Na aba 'Environment' do RStudio podemos visualizar todos os objetos existentes. O objeto 'piesp' está lá, com alguma informação sobre o que é e qual é o seu tamanho. Dê um clique (aaaaaaargh!) no botão azul ao lado do nome do objeto e conseguiremos ver um pouco de sua estrutura.
 
 ### Explorando a matriz de dados sem olhar diretamente para ela
 
@@ -166,7 +166,7 @@ Podemos rapidamente olhar para uma "amostra" dos dados com a função `head()`, 
 head(piesp)
 ```
 
-Com apenas as 6 primeiras linhas do data frame temos noção dos dados.
+Com apenas as 6 primeiras linhas do data frame temos uma noção dos dados.
 
 Mas quantos investimentos há ao todo no conjunto de dados? Com `nrow()` descobrimos quantas linhas tem nosso data frame.
 
@@ -209,7 +209,7 @@ R é uma linguagem. Tem sintaxe, léxico e ortografia. Vamos falar um pouco sobr
 
 Note que em todas as funções que utilizamos até agora, *piesp* está dentro do parênteses que segue o nome da função. Esse é um aspecto característico da **sintaxe** das funções de R. O que vai entre parêntesis são os **argumentos** ou **parâmetros** da função, ou seja, os inputs que serão transformados.
 
-Uma função pode receber mais de um argumento. Pode também haver argumentos não obrigatórios, ou seja, para os quais não é necessário informar nada se você não quiser alterar os valores pré-definidos. Por exemplo, a função `head()` contém o argumento *n*, que se refere ao número de linhas a serem **impressas** na tela, pré-estabelecido em 6 (você pode conhecer os argumentos da função na documentação do R usando `?` antes do nome da função). Para alterar o parâmetro *n* para 20, por exemplo, basta fazer:
+Uma função pode receber mais de um argumento. Pode também haver argumentos não obrigatórios, ou seja, para os quais não é necessário informar nada se você não quiser alterar os valores pré-definidos. Por exemplo, a função `head()` contém o argumento *n*, que se refere ao número de linhas a serem **impressas** na tela, pré-estabelecido em 6 (você pode conhecer os argumentos da função na documentação do R usando `?` antes do nome da função e apertando CTRL + ENTER ou clicando em 'Run'). Para alterar o parâmetro *n* para 20, por exemplo, basta fazer:
 
 ``` r
 head(x = piesp, n = 20)
@@ -245,7 +245,7 @@ O símbolo `NA` em R quer dizer valor faltante (missing value). Na coluna de val
 
 ## Renomeando variáveis
 
-Quando trabalhamos com dados que não coletamos, em geral, não vamos gostar dos nomes das variáveis que quem produziu os dados escolheu. Mais ainda, com certa frequência, obtemos dados cujos nomes das colunas são compostos ou contêm acentuação, cedilha e demais caracteres especiais, como no caso da PIESP. Dá um tremendo trabalho usar nomes com tais característica, apesar de possível. O ideal é termos nomes sem espaço (você pode usar ponto ou subscrito para separar palavras em um nome composto, por exemplo) e que contenham preferencialmente letras minísculas sem acento e números.
+Quando trabalhamos com dados que não coletamos, em geral, não vamos gostar dos nomes das variáveis que quem produziu os dados escolheu. Mais ainda, com certa frequência, obtemos dados cujos nomes das colunas são compostos ou contêm acentuação, cedilha e demais caracteres especiais, como no caso da PIESP. Dá um tremendo trabalho usar nomes com tais características, apesar de possível. O ideal é termos nomes sem espaço (você pode usar ponto ou o subscrito '\_' para separar palavras em um nome composto, por exemplo) e que contenham preferencialmente letras minísculas sem acento e números.
 
 Vamos começar renomeando algumas variáveis no nosso banco de dados, cujos nomes vemos com o comando abaixo:
 
@@ -350,7 +350,7 @@ piesp <- read_csv2('https://raw.githubusercontent.com/seade-R/egesp-seade-intro-
          tipo)
 ```
 
-Em uma única sequência de operações, abrimos os dados a partir do url onde estão armazenados, alteramos os nomes das variáveis e selecionamos as que devem permanecer no conjunto de dados. Esta forma de programar, tenha certeza, é bastante mais econômica e mais fácil de ler.
+Em uma única sequência de operações, abrimos os dados a partir do url onde estão armazenados, alteramos os nomes das variáveis e selecionamos as que devem permanecer no conjunto de dados. Esta forma de programar, tenha certeza, é bastante econômica e mais fácil de ler.
 
 ## Filtrando linhas
 
@@ -390,7 +390,7 @@ piesp1518_implantacao <- piesp %>%
   filter(ano >= 2015 & ano <= 2018 & tipo == 'Implantacao')
 ```
 
-Ao usar duas variáveis diferentes para filter e a conjunção "e", podemos escrever o comando separando as condições por vírgula e dispensar o operador `&` (a quebra de linha é opcional):
+Ao usar duas variáveis diferentes na função filter e a conjunção "e", podemos escrever o comando separando as condições por vírgula e dispensar o operador `&` (a quebra de linha é opcional):
 
 ``` r
 piesp1518_implantacao <- piesp %>% 
@@ -401,7 +401,7 @@ piesp1518_implantacao <- piesp %>%
 
 Você pode combinar quantas condições precisar. Se houver ambiguidade quanto à ordem das condições, use parênteses.
 
-Se a seleção de linhas envolver excluir ou manter observações com NA, precisamos utilizar a função `is.na`. Por exemplo, para excluir todas os investimentos cujo tipo é desconhecido fazemos (o sinal de exclamação serve para inverter a operação):
+Se a seleção de linhas envolver excluir ou manter observações com NA, precisamos utilizar a função `is.na`. Por exemplo, para excluir todas os investimentos cujo tipo é desconhecido fazemos (use o sinal de exclamação '!' para inverter a operação):
 
 ``` r
 piesp <- piesp %>% 
@@ -412,20 +412,54 @@ piesp <- piesp %>%
 
 Vimos até agora 3 verbos do pacote `dplyr`: `rename()`, `select()` e `filter()`. Eles têm algumas características em comum:
 
--   O primeiro argumento é sempre o data frame que será transformado. Podemos retirar o primeiro argumento de dentro do parênteses se utilizamos o operador pipe (`%>%`).
+- O primeiro argumento é sempre o data frame que será transformado. Podemos retirar o primeiro argumento de dentro do parênteses se utilizamos o operador pipe (`%>%`).
 
--   Dentro do parênteses escrevemos uma lista de transformações utilizando vírgula para separá-las.
+- Dentro do parênteses escrevemos uma lista de transformações utilizando vírgula para separá-las.
 
--   O resultado é sempre um data frame modificado.
+- O resultado é sempre um data frame modificado.
 
 Há mais 3 outros verbos do `dplyr` com as mesmas características: `arrange()`, que serve para ordenar as linhas por uma ou mais variáveis; `mutate()`, utilizado para transformar variáveis ou criar novas; e `summarise()` que serve para reduzir/colapsar os dados a um sumário (por exemplo, calculando média ou outra estatística a partir de uma variável).
 
 Esse conjunto de verbos são os mais utilizados para a manipulação e transformação de dados na gramática do `dplyr`, ademais do `group_by()`, que veremos no tutorial seguinte.
 
-## Fim
+# Exercícios
+
+Para consolidar o conhecimento adquirido até aqui, vamos agora colocar em prática nossa aprendizagem por meio de alguns exercícios.
+
+No ambiente do R, estão disponíveis diversas bases de dados nativas que podem ser facilmente acessadas por qualquer usuário. Vamos usar uma base chamada *mtcars* como referência para as próximas atividades.
+
+A base de dados *mtcars* consiste em uma planilha disponibilizada no próprio R. Esses dados foram extraídos da revista "Motor Trend US" de 1974 e englobam informações referentes ao consumo de combustível, bem como as características físicas e de desempenho de 32 automóveis (modelos fabricados entre 1973-1974).
+
+Carregar esses dados é simples. Basta atribuir a função abaixo a um objeto no R:
+
+``` r
+mtcars <- mtcars
+```
+
+Agora que você tem acesso aos dados, é hora de começar.
+
+1. Quantas observações e variáveis estão presentes no data frame?
+
+2. Quais são os nomes das variáveis disponíveis?
+
+3. Exiba as 15 primeiras linhas do conjunto de dados no seu Console.
+
+4. Utilizando o operador de encadeamento %>%, renomeie três variáveis na base de dados.
+
+5. Explore o significado de cada variável no conjunto de dados. Lembre-se de que, apesar de ser uma base de dados, para o R o *mtcars* é tratado como uma função normal.
+
+6. Selecione as variáveis relacionadas à 'potência bruta' e ao 'peso' de cada carro, e salve essas informações em um novo data frame chamado 'mtcars2'.
+
+7. Elimine do conjunto 'mtcars2' os carros que apresentam 'potência bruta' inferior a 105. 
+
+8. Combine as etapas 6 e 7 em um único código, utilizando o operador de encadeamento %>%.
+
+9. Salve seu script com o nome `tutorial01.R` no diretório do seu projeto no curso. Caso esteja em dúvida sobre como criar um diretório, volte à instrução 01 do arquivo de apresentação da [Aula 1](/class/class-01.md).
+
+# Fim
 
 Chegamos ao final do primeiro tutorial. Espero que você tenha se habituado ao uso da interface e começado a assimilar um pouco a linguagem R.
 
-A ideia é começar a usar a linguagem tal como aplicada no quotidiano da análise de dados para depois darmos alguns passos atrás e aprendermos todos os seus fundamentos.
+A ideia é começar a usar a linguagem tal como aplicada no cotidiano da análise de dados para depois darmos alguns passos atrás e aprendermos todos os seus fundamentos.
 
-Não é preciso salvar ou exportar nada. Basta seguir para o tutorial seguinte.
+Se você não tem nenhuma dúvida, basta seguir para o tutorial seguinte.

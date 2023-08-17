@@ -46,7 +46,7 @@ covid <- read_csv2('https://raw.githubusercontent.com/seade-R/egesp-seade-intro-
 
 Antes de avançar, utilize as funções que você aprendeu no tutorial anterior para examinar os dados. São elas: `View()`, `head()`, `nrow()`, `ncol()`, `names()` e `glimpse()`. Se habitue aos dados antes de prosseguir.
 
-Dica: examine os últimos dias com `tail()`, que é a versão de `head()` para examinar as linhas finais do data frame. Há muitos 0 nas primeiras observações e, infelizmente, números maiores vão aparececendo em datas mais recentes, expressando o aumento de casos de Covid-19 no estado.
+Dica: examine os últimos dias com `tail()`, que é a versão de `head()` para examinar as linhas finais do data frame. Há muitos 0 nas primeiras observações e, infelizmente, números maiores vão aparecendo em datas mais recentes, expressando o aumento de casos de Covid-19 no estado.
 
 ## Transformando e criando variáveis com `mutate()`
 
@@ -210,7 +210,7 @@ covid %>%
   filter(datahora == '2020-08-01')
 ```
 
-Observe bem a estrutura dos resultados que obtivemos. Em primeiro lugar, o resultado é sempre um data frame. Sempre que estivermos preparando os dados para gerar tabelas ou com gráficos, como mais para frente, produziremos um data frame para servir de _input_ para o gráfico ou tabela.
+Observe bem a estrutura dos resultados que obtivemos. Em primeiro lugar, o resultado é sempre um data frame. Sempre que estivermos preparando os dados para gerar tabelas ou gráficos, como mais para frente, produziremos um data frame para servir de _input_ para o gráfico ou tabela.
 
 Em segundo, cada variável utilizada para agrupamento aparece como uma coluna diferente no novo data frame. Os dados estão "colapsados" ou "achatados" em um número de linhas que corresponde ao total de combinações de categorias das variáveis de agrupamento.
 
@@ -249,6 +249,32 @@ covid_drs %>%
 ```
 
 Simples e útil.
+
+# Exercícios
+
+Chegou a hora de aplicarmos o conhecimento que adquirimos. Desta vez, utilizaremos o conjunto de dados nativo do R chamado *iris*.
+
+O conjunto de dados Iris, apresentado por Ronald Fisher em seu artigo de 1936 _The use of multiple measurements in taxonomic problems_, contém três espécies de plantas (setosa, virginica, versicolor) e quatro características medidas para cada amostra. Estes quantificam a variação morfológica da flor da íris em suas três espécies, todas medidas dadas em centímetros
+
+Assim como fizemos com a base *mtcars*, carregar esses dados é simples. Basta atribuir a função a seguir a um objeto no R:
+
+``` r
+iris <- iris
+```
+
+Com base nas informações fornecidas, responda às questões a seguir:
+
+1. Transforme todas as letras da variável 'Species' em maiúsculas e armazene o resultado em uma nova variável. Dica: a função `str_to_upper` é útil para realizar essa alteração.
+
+2. Crie um novo data frame contendo apenas as flores da espécie 'virginica'.
+
+3. Realize uma operação de agrupamento nos dados por espécie e calcule a média do comprimento da pétala para cada uma delas. Certifique-se de salvar essa análise em um banco de dados.
+
+4. Além da média, calcule também o desvio-padrão e a mediana do comprimento da pétala para cada grupo. Use a função `sd` para o desvio padrão e a função `median` para a mediana.
+
+5. Ordene o conjunto de dados em ordem alfabética decrescente, usando a variável 'Species' como critério de ordenação.
+
+6. Guarde os seus progressos em um script chamado `tutorial02.R` no seu diretório.
 
 # Fim
 

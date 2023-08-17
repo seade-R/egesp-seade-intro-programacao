@@ -6,7 +6,7 @@ Neste primeiro encontro vamos conhecer o ambiente de programação de R e o soft
 
 ## Instalação do R e RStudio em sua máquina local
 
-Para acompanhar o curso na sua máquina local, seu desktop pessoal ou notebook, você precisa realizar a instação do R e RStudio.
+Para acompanhar o curso na sua máquina local, seu desktop pessoal ou notebook, você precisa realizar a instalação do R e RStudio.
 
 O R e RStudio funcionam juntos, portanto, precisamos instalar os dois. Pense que o R é o motor e RStudio é a lataria do carro (a parte visível). Ambos são inteiramente gratuitos e já vêm com distribuições compiladas para Windows, Mac e Linux.
 
@@ -16,7 +16,7 @@ A instalação é bastante fácil e, em geral, basta seguir as instruções da t
 
 2.  Para instalar o RStudio, baixe a versão adequada para seu computador em: <https://www.rstudio.com/products/rstudio/download/>
 
-3.  Uma vez instalados o R e o RStudio, basta abrir o RStudio e começar a criar seus projetos. Lembre-se que os pacotes que usaremos ao longo do curso vão precisar ser instalados em sua máquina. Esse processo vai acontecer uma única vez e, nas próximas vezes que for usar o R em sua máquina, basta carregas as bibliotecas.
+3.  Uma vez instalados o R e o RStudio, basta abrir o RStudio e começar a criar seus projetos. Lembre-se que os pacotes que usaremos ao longo do curso vão precisar ser instalados em sua máquina. Esse processo vai acontecer uma única vez e, nas próximas vezes que for usar o R em sua máquina, basta carregar as bibliotecas.
 
 ## Roteiro
 
