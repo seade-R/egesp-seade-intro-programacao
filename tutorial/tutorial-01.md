@@ -444,7 +444,7 @@ Agora que você tem acesso aos dados, é hora de começar.
 
 3. Exiba as 15 primeiras linhas do conjunto de dados no seu Console.
 
-4. Utilizando o operador de encadeamento %>%, renomeie três variáveis na base de dados.
+4. Utilizando o operador de encadeamento `%>%`, renomeie três variáveis na base de dados.
 
 5. Explore o significado de cada variável no conjunto de dados. Lembre-se de que, apesar de ser uma base de dados, para o R o *mtcars* é tratado como uma função normal.
 
@@ -452,7 +452,7 @@ Agora que você tem acesso aos dados, é hora de começar.
 
 7. Elimine do conjunto 'mtcars2' os carros que apresentam 'potência bruta' inferior a 105. 
 
-8. Combine as etapas 6 e 7 em um único código, utilizando o operador de encadeamento %>%.
+8. Combine as etapas 6 e 7 em um único código, utilizando o operador de encadeamento `%>%`.
 
 9. Salve seu script com o nome `tutorial01.R` no diretório do seu projeto no curso. Caso esteja em dúvida sobre como criar um diretório, volte à instrução 1 do arquivo de apresentação da [Aula 1](/class/class-01.md).
 
