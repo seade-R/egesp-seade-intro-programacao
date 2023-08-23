@@ -19,7 +19,7 @@ O curso oferece uma iniciação à lógica de programação e ao uso da linguage
 
 ## Programa
 
-[Aula 01](/class/class-01.md): **Manipulação de dados no R e introdução** - Na primeira aula do curso nos habituaremos à linguagem R trabalhando com uma das gramáticas mais populares de manipulação de dados em R, a do pacote *dplyr*. O curso começa, assim, não pelos elementos básicos da linguagem R, mas pelo seu uso mais comum. Dessa forma, nos habituaremos à linguagem observando seu uso a problemas concretos.
+[Aula 01](/class/class-01.md): **Introdução e manipulação de dados no R** - Na primeira aula do curso nos habituaremos à linguagem R trabalhando com uma das gramáticas mais populares de manipulação de dados em R, a do pacote *dplyr*. O curso começa, assim, não pelos elementos básicos da linguagem R, mas pelo seu uso mais comum. Dessa forma, nos habituaremos à linguagem observando seu uso a problemas concretos.
 
 [Aula 02](/class/class-02.md): **Do básico ao intermediário** - Após termos aprendido sobre data frames, vamos fazer um percurso das funcionalidades básicas da linguagem até alguns de seus usos intermediários. O objetivo do percurso é criar um repertório de funções e utilidades da linguagem que serão utilizados adiante.
 
