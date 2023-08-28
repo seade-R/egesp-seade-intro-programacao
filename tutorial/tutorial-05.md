@@ -251,8 +251,7 @@ url_arquivo <- "https://www.emtu.sp.gov.br/EMTU/pdf/Jan16%20a%20Ago18_cartoes%20
 Em seguida, utilizaremos `download.file()`. O primeiro argumento desta função é o URL e o segundo é o nome do arquivo que será salvo no seu computador (veja, ainda não estamos criando um objeto, só estamos fazendo download como se utilizássemos um navegador).
 
 ``` r
-download.file(url_arquivo, "bilhetagem_eletronica.xlsx", 
-mode = "wb")
+download.file(url_arquivo, "bilhetagem_eletronica.xlsx", mode = "wb")
 ```
 
 Temos agora o arquivo "bilhetagem_eletronica.xlsx" na nossa pasta de trabalho. Com a função `list.files()` você examina os arquivos que estão nesta pasta (sem precisar olhar dentro da pasta). O arquivo "bilhetagem_eletronica.xlsx" estará lá.
