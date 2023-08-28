@@ -155,7 +155,7 @@ No caso dos dados da pesquisa SEADE Investimentos, alguns números não são lid
 ``` r
 piesp <- read_delim(url_piesp, 
                     delim = ";", 
-                    col_types = 'iicccddiccccccc',
+                    col_types = 'iiccccccccccccc',
                     trim_ws = T,
                     locale = locale(decimal_mark = ",", grouping_mark = "."))
 ```
