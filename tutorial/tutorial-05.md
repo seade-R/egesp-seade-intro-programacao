@@ -240,18 +240,20 @@ library(readxl)
 
 ### Um pouco sobre download e manipulação de arquivos
 
-Nosso exemplo de arquivo em .xlsx será a tabela sobre "Cartões de Bilhetagem Eletrônica Ativos" produzida pela [EMTU](https://www.emtu.sp.gov.br/emtu/dados-abertos/dados-abertos-principal/bilhetagem-eletronica/arquivos-de-bilhetagem-eletronica.fss). Você consegue baixá-la por meio deste [link](https://www.emtu.sp.gov.br/EMTU/pdf/Jan16%20a%20Ago18_cartoes%20ativos%20BOM.xlsx).
+Nosso exemplo de arquivo em .xlsx será a tabela sobre "Cartões de Bilhetagem Eletrônica Ativos" produzida pela [EMTU](https://www.emtu.sp.gov.br/emtu/dados-abertos/dados-abertos-principal/bilhetagem-eletronica/arquivos-de-bilhetagem-eletronica.fss). Você consegue baixá-la por meio deste [link](https://www.emtu.sp.gov.br/EMTU/pdf/Jan16%20a%20Ago18_cartoes%20ativos%20BOM.xlsx) ou [deste](https://github.com/rebecacarvalho/egesp-seade-intro-programacao/blob/main/data/Jan16_a_%20Ago18_cartoes%20ativos%20BOM.xlsx), disponibilizado no GitHub.
 
 Porém, ao invés de baixarmos o arquivo manualmente, vamos fazer download em código com a função `download.file()`. Em primeiro lugar, vamos guardar o endereço URL do arquivo em um objeto e fazer o download:
 
 ``` r
 url_arquivo <- "https://www.emtu.sp.gov.br/EMTU/pdf/Jan16%20a%20Ago18_cartoes%20ativos%20BOM.xlsx"
+ou
+url_arquivo <- "https://github.com/rebecacarvalho/egesp-seade-intro-programacao/blob/main/data/Jan16_a_%20Ago18_cartoes%20ativos%20BOM.xlsx"
 ```
 
 Em seguida, utilizaremos `download.file()`. O primeiro argumento desta função é o URL e o segundo é o nome do arquivo que será salvo no seu computador (veja, ainda não estamos criando um objeto, só estamos fazendo download como se utilizássemos um navegador).
 
 ``` r
-download.file(url_arquivo, "bilhetagem_eletronica.xlsx")
+download.file(url_arquivo, "bilhetagem_eletronica.xlsx", mode = "w")
 ```
 
 Temos agora o arquivo "bilhetagem_eletronica.xlsx" na nossa pasta de trabalho. Com a função `list.files()` você examina os arquivos que estão nesta pasta (sem precisar olhar dentro da pasta). O arquivo "bilhetagem_eletronica.xlsx" estará lá.
