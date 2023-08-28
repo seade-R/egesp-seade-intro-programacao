@@ -199,7 +199,7 @@ Não era isso que esperávamos, certo? Seria mais legal receber algo assim (como
 table(piesp_2$divisao_desc, piesp_2$tipo)
 ```
 
-Repare com cuidado. As duas tabelas fornecem a mesma informação. _A diferença está no formato_. A segunda representa o "pivotamento da primeira"", que, apesar de termos chamado de tabela, é um data frame no formato _long_ (ou seja, "comprido").
+Repare com cuidado. As duas tabelas fornecem a mesma informação. _A diferença está no formato_. A segunda representa o "pivotamento da primeira"", que, apesar de termos chamado de tabela, é um _data frame_ no formato _long_ (ou seja, "comprido").
 
 _Long_ e _wide_ são as denominações que damos aos formatos acima, respectivamente. Na gramática do `dplyr` trabalharemos sempre com o formato _long_ e há uma boa razão para isso: fazer operações e, sobretudo, produzir gráficos com tabelas no formato _long_ é mais simples. Quando chegarmos à "gramática dos gráficos" isso ficará mais claro.
 
