@@ -20,7 +20,7 @@ A seguir, aprenderemos uma nova 'gramática' de R: a gramática de gráficos do 
 
 ## Opcional
 
-5 - Em algum momento do curso, ou após, seria interessante ter uma exposição à gramática básica do R. Se, e somente se, você estiver confortável com a gramática do `dplyr` e houver tempo, faça (ou pelo menos comece a fazer) o [Tutorial 9](/tutorial/tutorial-09.md)
+5 - Em algum momento do curso, ou após, seria interessante ter uma exposição à gramática básica do R. Se, e somente se, você estiver confortável com a gramática do `dplyr` e houver tempo, faça (ou pelo menos comece a fazer) o [Tutorial 9](/tutorial/tutorial-09.md).
 
 ## Dicas de Leitura
 
