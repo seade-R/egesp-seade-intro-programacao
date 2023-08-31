@@ -101,7 +101,7 @@ obitos_2021 <- obitos_2021 %>%
                        'M' = 'Masculino',                  
                        'I' = 'Ignorado'))
                        
-# Usando a função case_when:
+# Caso recode não esteja funcionando, use a função case_when:
 
 obitos_2021 <- obitos_2021 %>% 
   mutate(sexo = case_when(sexo == "Feminino" ~ "F",
