@@ -97,16 +97,16 @@ Em primeiro lugar, vamos recodificar a variável e escrever o nome das categoria
 ``` r
 obitos_2021 <- obitos_2021 %>% 
   mutate(sexo = recode(sexo,
-                       'Feminino' = 'F',
-                       'Masculino' = 'M',                  
-                       'Ignorado' = 'I'))
+                       'F' = 'Feminino',
+                       'M' = 'Masculino',                  
+                       'I' = 'Ignorado'))
                        
 # Ou usando a função case_when:
 
 obitos_2021 <- obitos_2021 %>% 
-  mutate(sexo = case_when(sexo == "Feminino" ~ "F",
-                          sexo == "Masculino" ~ "M",
-                          sexo == "Ignorado" ~ "I",
+  mutate(sexo = case_when(sexo == "F" ~ "Feminino",
+                          sexo == "M" ~ "Masculino",
+                          sexo == "I" ~ "Ignorado",
                           T ~ sexo))
 ```
 
