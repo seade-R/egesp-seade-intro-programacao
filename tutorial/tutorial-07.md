@@ -122,7 +122,7 @@ Para transformar texto em "factor" usamos a função `factor()`. E especificamos
 ``` r
 obitos_2021 <- obitos_2021 %>% 
   mutate(sexo_f = factor(sexo, 
-                         levels = c('F', 'M', 'I')))
+                         levels = c('Feminino', 'Masculino', 'Ignorado')))
 ```
 
 Produzindo a tabela com nossa nova variável temos:
