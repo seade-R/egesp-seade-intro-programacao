@@ -609,6 +609,6 @@ Agora, vamos aos exercícios, utilizando a combinação de `ggplot2` e `dplyr` p
 
 10. Utilize o `mutate()` para criar uma nova coluna chamada `price_log`, que contém o logaritmo natural dos preços (`price`) dos diamantes. Crie um gráfico de dispersão usando o `ggplot2`, onde o eixo x é o peso (`carat`) e o eixo y é o log do preço, colorindo os pontos pela clareza (`clarity`). Referência: Para obter mais informações sobre a função `log()` no R, você pode consultar a documentação oficial [aqui](https://www.statology.org/log-in-r/).
 
-Não hesite em explorar novos parâmetros, cores, formas e funções para personalizar suas visualizações. Um excelente recurso para aprender mais sobre as possibilidades do `ggplot2` e como criar visualizações impressionantes é o site [The R Graphics Cookbook](https://r-graphics.org/) de Winston Chang. Lá você encontrará muitos exemplos e dicas úteis para aprimorar suas habilidades em visualização de dados.
+Não hesite em explorar novos parâmetros, cores, formas e funções para personalizar suas visualizações. Um excelente recurso para aprender mais sobre as possibilidades do `ggplot2` e como criar visualizações impressionantes é o site [R Graphics Cookbook](https://r-graphics.org/) de Winston Chang. Lá você encontrará muitos exemplos e dicas úteis para aprimorar suas habilidades em visualização de dados.
 
 Bom trabalho!
