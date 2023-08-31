@@ -19,8 +19,8 @@ Comece instalando o pacote que vamos utilizar, `janitor`. Em seguida, carregue o
 ``` r
 install.packages('janitor')
 
-library(janitor)
 library(tidyverse)
+library(janitor)
 ```
 
 Agora, importamos os dados:
@@ -100,6 +100,14 @@ obitos_2021 <- obitos_2021 %>%
                        'F' = 'Feminino',
                        'M' = 'Masculino',                  
                        'I' = 'Ignorado'))
+                       
+# Usando a função case_when:
+
+obitos_2021 <- obitos_2021 %>% 
+  mutate(sexo = case_when(sexo == "Feminino" ~ "F",
+                          sexo == "Masculino" ~ "M",
+                          sexo == "Ignorado" ~ "I",
+                          T ~ sexo))
 ```
 
 Repetindo a tabela, vemos que os textos das categorias mudaram, mas a ordem continua inconveniente. Após a recodificação, **sexo** ainda é uma variável de texto.
