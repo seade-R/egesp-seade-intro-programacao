@@ -580,14 +580,14 @@ Encerramos aqui essa breve exposição do pacote `ggplot2` e vimos apenas uma pa
 
 ## Exercícios
 
-Nesta série de exercícios, continuaremos a explorar o pacote `ggplot2` no ambiente R, usando a base de dados `diamonds`, a mesma que utilizamos no [Tutorial 07](tutorial/tutorial-07.md).
+Nesta série de exercícios, continuaremos a explorar o pacote `ggplot2` no ambiente R, usando a base de dados `diamonds`, a mesma que utilizamos no [Tutorial 07](tutorial-07.md).
 
 Para carregar a base de dados, utilize o seguinte comando:
 
 ``` r
 data(diamonds)
 ```
-Agora, vamos aos exercícios, utilizando a combinação de `ggplot2`, `dplyr` e `janitor` para criar gráficos e explorar insights nos dados dos diamantes:
+Agora, vamos aos exercícios, utilizando a combinação de `ggplot2` e `dplyr` para criar gráficos e explorar insights nos dados dos diamantes:
 
 1. Utilize o `filter()` do `dplyr` para selecionar os diamantes de corte (`cut`) "Ideal". Crie um gráfico de barras (`bar plot`) usando o `ggplot2` para mostrar a contagem de diamantes por cor (`color`).
 
