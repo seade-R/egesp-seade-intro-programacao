@@ -250,7 +250,7 @@ covid_drs %>%
 
 Simples e útil.
 
-# Exercícios
+## Exercícios
 
 Chegou a hora de aplicarmos o conhecimento que adquirimos. Desta vez, utilizaremos o conjunto de dados nativo do R chamado *iris*.
 
@@ -276,6 +276,6 @@ Com base nas informações fornecidas, responda às questões a seguir:
 
 6. Guarde os seus progressos em um script chamado `tutorial02.R` no seu diretório.
 
-# Fim
+## Fim
 
 Paramos por aqui. Há muito mais sobre o `dplyr` a aprender, mas já vimos o essencial nestes dois primeiros tutoriais.

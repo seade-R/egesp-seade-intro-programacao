@@ -577,3 +577,40 @@ nv_2017_s %>%
 ```
 
 Encerramos aqui essa breve exposição do pacote `ggplot2` e vimos apenas uma parte pequena de suas funcionalidades. Se quiser aprender mais, procure os livros sobre o pacote na bibliografia indicada do curso.
+
+## Exercícios
+
+Nesta série de exercícios, continuaremos a explorar o pacote `ggplot2` no ambiente R, usando a base de dados `diamonds`, a mesma que utilizamos no [Tutorial 07](tutorial/tutorial-07.md).
+
+Para carregar a base de dados, utilize o seguinte comando:
+
+``` r
+data(diamonds)
+```
+Agora, vamos aos exercícios, utilizando a combinação de `ggplot2`, `dplyr` e `janitor` para criar gráficos e explorar insights nos dados dos diamantes:
+
+1. Utilize o `filter()` do `dplyr` para selecionar os diamantes de corte (`cut`) "Ideal". Crie um gráfico de barras (`bar plot`) usando o `ggplot2` para mostrar a contagem de diamantes por cor (`color`).
+
+2. Crie um histograma usando o `ggplot2` para visualizar a distribuição dos preços (`price`) dos diamantes, divididos por categoria de corte (`cut`). Use a função `facet_wrap` para deixar o gráfico menos poluído.
+
+3. Utilize o `mutate()` para criar uma nova coluna chamada `volume`, representando o volume do diamante calculado pela fórmula `x * y * z`. Crie um gráfico de dispersão usando o `ggplot2`, onde o eixo x é o volume e o eixo y é o preço (`price`), colorindo os pontos de acordo com a qualidade de corte (`cut`). Existe alguma relação entre volume e preço?
+
+4. Utilize o `group_by()` e `summarise()` do `dplyr` para calcular a média do preço por quilate para cada categoria de corte (`cut`). Crie um gráfico de barras (`bar plot`) usando o `ggplot2` para visualizar essas médias.
+
+5. Crie um gráfico de caixa (`box plot`) usando o `ggplot2` para comparar a distribuição dos preços (`price`) dos diamantes entre diferentes categorias de corte (`cut`).
+
+6. Utilize o `filter()` do `dplyr` para selecionar os diamantes com preço acima de $500. Crie um gráfico de dispersão usando o `ggplot2`, onde o eixo x é o peso (`carat`) e o eixo y é o preço por quilate (`price_per_carat`), colorindo os pontos pela coloração (`color`).
+
+7. Utilize o `mutate()` para criar uma nova coluna chamada `depth_category`, que categoriza a profundidade (`depth`) em "baixa" (abaixo de 60), "média" (entre 60 e 65) e "alta" (acima de 65). Crie um gráfico de barras (`bar plot`) usando o `ggplot2` para mostrar a contagem de diamantes em cada categoria de corte (`cut`), agrupados pela categoria de profundidade.
+
+8. Utilize o `filter()` para selecionar os diamantes com coloração (`color`) D, E ou F. Crie um gráfico de densidade usando o `ggplot2` para comparar a distribuição das proporções da variável tabela (`table`) entre essas diferentes cores. Use a função `facet_wrap` para o gráfico não ficar muito poluído.
+
+9. Utilize o `mutate()` para criar uma nova coluna chamada `carat_category`, que categoriza o peso (`carat`) em intervalos de 0.75 quilates. Crie um gráfico de barras (`bar plot`) usando o `ggplot2` para mostrar a contagem de diamantes em cada categoria de corte (`cut`), agrupados pela nova categoria de peso, `carat_category`.
+
+10. Utilize o `mutate()` para criar uma nova coluna chamada `price_log`, que contém o logaritmo natural dos preços (`price`) dos diamantes. Crie um gráfico de dispersão usando o `ggplot2`, onde o eixo x é o peso (`carat`) e o eixo y é o log do preço, colorindo os pontos pela clareza (`clarity`).
+
+Referência: Para obter mais informações sobre a função `log()` no R, você pode consultar a documentação oficial [aqui](https://www.statology.org/log-in-r/).
+
+Não hesite em explorar novos parâmetros, cores, formas e funções para personalizar suas visualizações. Um excelente recurso para aprender mais sobre as possibilidades do `ggplot2` e como criar visualizações impressionantes é o site [The R Graphics Cookbook](https://r-graphics.org/) de Winston Chang. Lá você encontrará muitos exemplos e dicas úteis para aprimorar suas habilidades em visualização de dados.
+
+Bom trabalho!

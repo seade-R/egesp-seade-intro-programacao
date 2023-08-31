@@ -333,7 +333,7 @@ Detalhes para observarmos:
 
 -   Você pode usar `TRUE` ou `T`, `FALSE` ou `F`, alternadamente. R entende o que você quer dizer. Lembre-se de sempre usar maiúsculas para informações do tipo _logical_.
 
-## Exercícios:
+## Diferentes tipos de dados e classes
 
 Qual é a classe dos vetores abaixo? Imprima o vetor com `print()` e tente advinhar. Use a função `class()` para descobrir a resposta.
 
@@ -515,3 +515,5 @@ litros_cafe[selecao]
 ```
 
 Para vetores pequenos, o procedimento adotado para gerar subconjuntos parece desnecessariamente trabalhoso. Mas imagine agora que você queira selecionar todos os municípios que atendam a determinada condição -- por exemplo, menos de 50 mil habitantes. Com uma variável (população) você pode gerar um vetor de seleção que permite gerar o subconjunto desejado de um _data frame_ completo. Nesse caso, com uma única linha de código, você conseguiria resolver seu problema!
+
+## Exercícios

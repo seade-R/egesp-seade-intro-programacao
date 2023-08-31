@@ -351,6 +351,10 @@ O procedimento para dados provenientes de Stata ou SAS é bastante similar e a g
 
 Podemos utilizar o botão "Import Dataset" para abrir planilhas ou arquivos de outros softwares. Pode testar, funciona (mas evite usar isso, e tente fazer via código!).
 
+## Exercícios
+
+
+
 ## Uau! Quanta coisa!
 
 Abrir dados em R é por vezes uma aventura. A grande vantagem é que podemos abrir qualquer tipo de dado de qualquer formato. Parece muita coisa agora, mas não precisamos memorizar nada. Use este tutorial como guia no futuro.

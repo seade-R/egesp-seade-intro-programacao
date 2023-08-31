@@ -390,5 +390,40 @@ obitos_2021 %>%
   adorn_pct_formatting()
 ```
 
-# Exercícios
+## Exercícios
 
+Agora nós iremos explorar os pacotes `janitor` e `dplyr`. Com foco na manipulação de dados, utilizaremos a base de dados `diamonds` para aplicar conceitos importantes e realizar tarefas de transformação e análise. 
+
+A base de dados `diamonds` fornece informações sobre características como o peso do diamante em quilates, a qualidade do corte, a coloração, a clareza, proporções, preço em dólares e dimensões físicas em milímetros. As colunas `carat`, `cut`, `color`, `clarity`, `depth`, `table`, `price` e `x`, `y`, `z` contêm dados valiosos sobre cada diamante. Para obter detalhes específicos sobre cada variável, recomendamos o uso do comando *?diamonds*.
+
+Para carregar a base de dados, utilize o seguinte comando:
+
+``` r
+data(diamonds)
+```
+
+Agora, prosseguiremos com os exercícios:
+
+1. Iniciaremos pela padronização dos nomes das colunas, utilizando a função `clean_names()` do pacote `janitor`.
+
+2. Selecione as colunas `carat`, `cut`, `color`, `depth` e `price` da base de dados.
+
+3. Utilize a função `cut()` para criar intervalos de peso dos diamantes (`carat`) e salve em uma nova variável. Os intervalos (`breaks`) você é que escolhe.
+
+4. Introduza a coluna `price_per_carat`, que deve exibir o preço por quilate de cada diamante.
+
+5. Realize uma análise agrupando os diamantes por categoria de corte (variável `cut`), calculando a média do preço por quilate para cada grupo.
+
+6. Acrescente a coluna `price_category`, a qual categorizará os preços por quilate em "baixo" (menor que 500), "médio" (entre 500 e 1000) ou "alto" (igual ou acima de 1000). Ordene as categorias de forma crescente e transforme a variável em um fator.
+
+Dica: use a função [`case_when`](https://dplyr.tidyverse.org/reference/case_when.html) para criar a nova variável.
+
+7. Calcule a contagem de diamantes em cada categoria de corte (`cut`) e exiba os resultados em ordem decrescente.
+
+8. Calcule a média e o desvio-padrão da profundidade (`depth`) dos diamantes para cada categoria de corte (`cut`).
+
+9. Produza um resumo estatístico que englobe a média, mediana, desvio padrão, mínimo e máximo do preço por quilate (`price_per_carat`) para cada combinação de corte (`cut`) e cor (`color`).
+
+10. Calcule a média e o desvio-padrão do preço por quilate (`price_per_carat`) para diamantes de diferentes tamanhos, arredondando os valores para duas casas decimais. Use a variável que você criou no exercício 3 como referência para os tamanhos.
+
+Agora que você possui as ferramentas necessárias, mãos à obra!

@@ -422,7 +422,7 @@ Há mais 3 outros verbos do `dplyr` com as mesmas características: `arrange()`,
 
 Esse conjunto de verbos são os mais utilizados para a manipulação e transformação de dados na gramática do `dplyr`, ademais do `group_by()`, que veremos no tutorial seguinte.
 
-# Exercícios
+## Exercícios
 
 Para consolidar o conhecimento adquirido até aqui, vamos agora colocar em prática nossa aprendizagem por meio de alguns exercícios.
 
@@ -456,7 +456,7 @@ Agora que você tem acesso aos dados, é hora de começar.
 
 9. Salve seu script com o nome `tutorial01.R` no diretório do seu projeto no curso. Caso esteja em dúvida sobre como criar um diretório, volte à instrução 1 do arquivo de apresentação da [Aula 1](/class/class-01.md).
 
-# Fim
+## Fim
 
 Chegamos ao final do primeiro tutorial. Espero que você tenha se habituado ao uso da interface e começado a assimilar um pouco a linguagem R.
 

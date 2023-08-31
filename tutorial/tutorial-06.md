@@ -245,3 +245,5 @@ piesp_2 %>%
 ```
 
 No próximo tutorial veremos como produzir tabelas semelhantes utilizando outro pacote que se tornou bastante popular recentemente, `janitor`, e faremos menos uso das combinações `group_by()` + `count()` e `group_by()` + `summarise()`.
+
+## Exercícios
