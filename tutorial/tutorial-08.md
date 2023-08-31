@@ -607,9 +607,7 @@ Agora, vamos aos exercícios, utilizando a combinação de `ggplot2`, `dplyr` e 
 
 9. Utilize o `mutate()` para criar uma nova coluna chamada `carat_category`, que categoriza o peso (`carat`) em intervalos de 0.75 quilates. Crie um gráfico de barras (`bar plot`) usando o `ggplot2` para mostrar a contagem de diamantes em cada categoria de corte (`cut`), agrupados pela nova categoria de peso, `carat_category`.
 
-10. Utilize o `mutate()` para criar uma nova coluna chamada `price_log`, que contém o logaritmo natural dos preços (`price`) dos diamantes. Crie um gráfico de dispersão usando o `ggplot2`, onde o eixo x é o peso (`carat`) e o eixo y é o log do preço, colorindo os pontos pela clareza (`clarity`).
-
-Referência: Para obter mais informações sobre a função `log()` no R, você pode consultar a documentação oficial [aqui](https://www.statology.org/log-in-r/).
+10. Utilize o `mutate()` para criar uma nova coluna chamada `price_log`, que contém o logaritmo natural dos preços (`price`) dos diamantes. Crie um gráfico de dispersão usando o `ggplot2`, onde o eixo x é o peso (`carat`) e o eixo y é o log do preço, colorindo os pontos pela clareza (`clarity`). Referência: Para obter mais informações sobre a função `log()` no R, você pode consultar a documentação oficial [aqui](https://www.statology.org/log-in-r/).
 
 Não hesite em explorar novos parâmetros, cores, formas e funções para personalizar suas visualizações. Um excelente recurso para aprender mais sobre as possibilidades do `ggplot2` e como criar visualizações impressionantes é o site [The R Graphics Cookbook](https://r-graphics.org/) de Winston Chang. Lá você encontrará muitos exemplos e dicas úteis para aprimorar suas habilidades em visualização de dados.
 

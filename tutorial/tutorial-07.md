@@ -414,9 +414,7 @@ Agora, prosseguiremos com os exercícios:
 
 5. Realize uma análise agrupando os diamantes por categoria de corte (variável `cut`), calculando a média do preço por quilate para cada grupo.
 
-6. Acrescente a coluna `price_category`, a qual categorizará os preços por quilate em "baixo" (menor que 500), "médio" (entre 500 e 1000) ou "alto" (igual ou acima de 1000). Ordene as categorias de forma crescente e transforme a variável em um fator.
-
-Dica: use a função [`case_when`](https://dplyr.tidyverse.org/reference/case_when.html) para criar a nova variável.
+6. Acrescente a coluna `price_category`, a qual categorizará os preços por quilate em "baixo" (menor que 500), "médio" (entre 500 e 1000) ou "alto" (igual ou acima de 1000). Ordene as categorias de forma crescente e transforme a variável em um fator. Dica: use a função [`case_when`](https://dplyr.tidyverse.org/reference/case_when.html) para criar a nova variável.
 
 7. Calcule a contagem de diamantes em cada categoria de corte (`cut`) e exiba os resultados em ordem decrescente.
 
