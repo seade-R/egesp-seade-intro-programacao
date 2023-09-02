@@ -6,6 +6,8 @@ Neste quarto encontro vamos seguir com a gramática do `dplyr` para transformar 
 
 A seguir, aprenderemos uma nova 'gramática' de R: a gramática de gráficos do pacote `ggplot2`. Este pacote é certamente uma das razões pelas quais o R se tornou popular (e uma das vantagens de R sobre Python). Trabalharemos algumas das inúmeros 'geometrias' do pacote, nos preocupando menos em colecionar funções e mais em compreender a estrutura dessa gramática.
 
+Finalmente, para quem estiver confortável com a linguagem, convém aprender mais um pouco da 'gramática' básica de R.
+
 ## Roteiro
 
 0 - Às 08h30 faremos um encontro virtual (Teams) para discutirmos os objetivos de hoje e tirarmos dúvidas sobre a aula passada.

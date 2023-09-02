@@ -413,3 +413,6 @@ fake
 ```
 
 Simples, porém um pouco chato.
+
+## Exercícios
+

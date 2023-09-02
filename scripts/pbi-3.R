@@ -1,5 +1,10 @@
+
+## Pacotes utilizados
+
 library(tidyverse)
 
-dataset %>% 
+## Gerando o gráfico
+
+dataset %>%
   ggplot(aes(x = mortalidade_homens, y = mortalidade_mulheres)) +
   geom_point()
