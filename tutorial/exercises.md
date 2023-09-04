@@ -1,6 +1,6 @@
 # Apresentação
 
-Aqui você encontrará um compilado das respostas dos exercícios disponibilizados ao final de cada tutorial. 
+Neste espaço, você encontrará um resumo das soluções para os exercícios apresentados ao final de cada tutorial.
 
 ## Tutorial 01
 
