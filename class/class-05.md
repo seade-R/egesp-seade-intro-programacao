@@ -12,7 +12,7 @@ Finalmente, veremos em pequenos vídeos como integrar R e Power BI.
 
 1 - Se deixou algum tutorial inacabado do encontro anterior, comece por ele. Caso contrário, prossiga.
 
-2 - Comece pelo tutorial no qual parou: [Tutorial 1](/tutorial/tutorial-01.md), [Tutorial 2](/tutorial/tutorial-02.md), [Tutorial 3](/tutorial/tutorial-03.md), [Tutorial 4](/tutorial/tutorial-04.md), [Tutorial 5](/tutorial/tutorial-05.md), [Tutorial 6](/tutorial/tutorial-06.md), [Tutorial 7](/tutorial/tutorial-07.md), [Tutorial 8](/tutorial/tutorial-08.md) e [Tutorial 9](/tutorial/tutorial-09.md)
+2 - Comece pelo tutorial no qual parou: [Tutorial 1](/tutorial/tutorial-01.md), [Tutorial 2](/tutorial/tutorial-02.md), [Tutorial 3](/tutorial/tutorial-03.md), [Tutorial 4](/tutorial/tutorial-04.md), [Tutorial 5](/tutorial/tutorial-05.md), [Tutorial 6](/tutorial/tutorial-06.md), [Tutorial 7](/tutorial/tutorial-07.md), [Tutorial 8](/tutorial/tutorial-08.md) e [Tutorial 9](/tutorial/tutorial-09.md).
 
 3 - Na sequência, vá para o [Tutorial 10](/tutorial/tutorial-10.md) que apresenta como trabalhar com bases de dados relacionais utilizando os verbos do `dplyr`.
 

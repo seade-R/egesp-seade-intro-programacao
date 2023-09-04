@@ -438,7 +438,7 @@ mtcars <- mtcars
 
 Agora que você tem acesso aos dados, é hora de começar.
 
-1. Quantas observações e variáveis estão presentes no data frame?
+1. Quantas observações e variáveis estão presentes no _data frame_?
 
 2. Quais são os nomes das variáveis disponíveis?
 

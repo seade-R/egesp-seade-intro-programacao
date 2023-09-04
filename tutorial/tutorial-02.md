@@ -264,15 +264,15 @@ iris <- iris
 
 Com base nas informações fornecidas, responda às questões a seguir:
 
-1. Transforme todas as letras da variável 'Species' em maiúsculas e armazene o resultado em uma nova variável. Dica: a função `str_to_upper` é útil para realizar essa alteração.
+1. Transforme todas as letras da variável `Species` em maiúsculas e armazene o resultado em uma nova variável. Dica: a função `str_to_upper` é útil para realizar essa alteração.
 
-2. Crie um novo data frame contendo apenas as flores da espécie 'virginica'.
+2. Crie um novo data frame contendo apenas as flores da espécie `virginica`.
 
 3. Realize uma operação de agrupamento nos dados por espécie e calcule a média do comprimento da pétala para cada uma delas. Certifique-se de salvar essa análise em um banco de dados.
 
 4. Além da média, calcule também o desvio-padrão e a mediana do comprimento da pétala para cada grupo. Use a função `sd` para o desvio padrão e a função `median` para a mediana.
 
-5. Ordene o conjunto de dados em ordem alfabética decrescente, usando a variável 'Species' como critério de ordenação.
+5. Ordene o conjunto de dados em ordem alfabética decrescente, usando a variável `Species` como critério de ordenação.
 
 6. Guarde os seus progressos em um script chamado `tutorial02.R` no seu diretório.
 
