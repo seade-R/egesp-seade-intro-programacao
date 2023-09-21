@@ -26,7 +26,7 @@ library(janitor)
 Agora, importamos os dados:
 
 ``` r
-obitos_2021 <- read_csv2("https://raw.githubusercontent.com/rebecacarvalho/egesp-seade-intro-programacao/main/data/microdados_obitos2021.csv")
+obitos_2021 <- read_csv2("https://raw.githubusercontent.com/seade/egesp-seade-intro-programacao/main/data/microdados_obitos2021.csv")
 ```
 
 ## Nomes bonitos para variáveis com `janitor`

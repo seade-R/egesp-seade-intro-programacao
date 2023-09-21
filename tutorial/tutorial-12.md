@@ -21,19 +21,19 @@ Existem alguns requisitos para se trabalhar com R e Power BI:
 
 ## Importando dados (já modelados) com R para o Power BI
 
-O script [Script-1-PBI](https://github.com/rebecacarvalho/egesp-seade-intro-programacao/blob/main/scripts/pbi-1.R) contém os passos de importação e transformação dos dados utilizados no tutorial sobre bases de dados relacionais. Acesse-o e leia o código. Execute-o em R e veja se compreendeu.
+O script [Script-1-PBI](https://github.com//egesp-seade-intro-programacao/blob/main/scripts/pbi-1.R) contém os passos de importação e transformação dos dados utilizados no tutorial sobre bases de dados relacionais. Acesse-o e leia o código. Execute-o em R e veja se compreendeu.
 
 A seguir, assista ao vídeo sobre como utilizar esse script integralmente no Power BI: [https://www.youtube.com/watch?v=EOp4FZHqFbc](https://www.youtube.com/watch?v=EOp4FZHqFbc)
 
 ## Transformando dados no Power BI
 
-Se os dados já estiverem carregados no Power BI, mas não houver possibilidade de transformá-los com as ferramentas padrão do Power BI (ou você tiver que fazer muitos passos documentados), convém utilizar R. Nesta segunda tarefa, faremos algumas transformações simples nos dados de óbitos do Registro Civil com R. O script que utilizaremos é este: [Script-2-PBI](https://github.com/rebecacarvalho/egesp-seade-intro-programacao/blob/main/scripts/pbi-2.R). Este código, por razões explicadas no vídeo, não funcionará se você executá-lo em R sem modificações, pois o _data frame_ a ser transformado não é gerado pelo próprio código.
+Se os dados já estiverem carregados no Power BI, mas não houver possibilidade de transformá-los com as ferramentas padrão do Power BI (ou você tiver que fazer muitos passos documentados), convém utilizar R. Nesta segunda tarefa, faremos algumas transformações simples nos dados de óbitos do Registro Civil com R. O script que utilizaremos é este: [Script-2-PBI](https://github.com//egesp-seade-intro-programacao/blob/main/scripts/pbi-2.R). Este código, por razões explicadas no vídeo, não funcionará se você executá-lo em R sem modificações, pois o _data frame_ a ser transformado não é gerado pelo próprio código.
 
 Assista ao vídeo: [https://www.youtube.com/watch?v=9XNhaqzb75A](https://www.youtube.com/watch?v=9XNhaqzb75A)
 
 ## Visuais com R
 
-Finalmente, utilizando os dados de mortalidade por município que importamos anteriormente, vamos fazer um gráfico de dispersão bastante simples, cujo código você encontra aqui: [Script-3-PBI](https://github.com/rebecacarvalho/egesp-seade-intro-programacao/blob/main/scripts/pbi-3.R). Pela mesma razão que o anterior, o código sozinho não funcionará em R.
+Finalmente, utilizando os dados de mortalidade por município que importamos anteriormente, vamos fazer um gráfico de dispersão bastante simples, cujo código você encontra aqui: [Script-3-PBI](https://github.com//egesp-seade-intro-programacao/blob/main/scripts/pbi-3.R). Pela mesma razão que o anterior, o código sozinho não funcionará em R.
 
 Assista ao vídeo sobre como utilizar esse código para gerar um gráfico no Power BI: [https://www.youtube.com/watch?v=ZITV2q6zLPM](https://www.youtube.com/watch?v=ZITV2q6zLPM)
 

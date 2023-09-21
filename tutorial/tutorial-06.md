@@ -134,7 +134,7 @@ piesp_2 %>%
 
 Lembre-se da usar o argumento `na.rm = T` para excluir os _missings_, pois há muitos deles na variável de valor em milhões de R$ que utilizamos acima.
 
-Dentro do `summarise()` cabem todas as estatísticas descritivas que vimos no [tutorial 3](https://github.com/rebecacarvalho/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-03.md):
+Dentro do `summarise()` cabem todas as estatísticas descritivas que vimos no [tutorial 3](https://github.com//egesp-seade-intro-programacao/blob/main/tutorial/tutorial-03.md):
 
 ``` r
 piesp_2 %>% 
