@@ -29,18 +29,18 @@ _Fakeland_ é uma democracia muito estável que realiza eleições presidenciais
 -   *kids*: número de filhos
 -   *party*: afiliação partidária
 -   *turnout*: intenção de votar nas próximas eleições
--   *vote_history*: número de eleições presidenciais votou desde as eleições de 2002
+-   *vote_history*: número de eleições presidenciais em que votou desde as eleições de 2002
 -   *economy*: opinião sobre o desempenho da economia nacional
 -   *incumbent*: opinião sobre o desempenho do presidente
 -   *candidate*: candidato preferido
 
 ## Exercício
 
-Utilize as funções que você já conhece -- `head()`, `dim()`, `names()`, `str()`, `glimpse()`, etc -- para conhecer os dados. Quantas linhas há no *data frame*? Quantas colunas? Como estão armazenadas cada variável (tipo de dados e classe dos vetores colunas)?
+Utilize as funções que você já conhece -- `head()`, `dim()`, `names()`, `str()`, `glimpse()`, etc -- para conhecer os dados. Quantas linhas há no *data frame*? Quantas colunas? Como estão armazenadas cada variável (tipo de dados e classe dos vetores / colunas)?
 
 ## Data frame como conjunto de vetores
 
-Anteriormente construímos um *data frame* a partir de vetores de mesmo tamanho e "pareados", ou seja, com as posições das informações representando cada observação. Para trabalhar com variáveis do *data frame* como vetores usamos o símbolo `$` separando o nome do *data frame* da variável. Por exemplo, escrevemos `fake$age` para indicar a variável **age** no *data frame* "fake":
+Anteriormente construímos um *data frame* a partir de vetores de mesmo tamanho e "pareados", ou seja, com as posições das informações representando cada observação. Para trabalhar com variáveis do *data frame* como vetores, usamos o símbolo `$` separando o nome do *data frame* do nome da variável. Por exemplo, escrevemos `fake$age` para indicar a variável **age** no *data frame* "fake":
 
 ``` r
 print(fake$age)
@@ -53,7 +53,7 @@ idade <- fake$age
 print(idade)
 ```
 
-Por que não podemos simplesmente usar "age" e precisamos colocar o nome do *data frame* seguido de `$` para indicar o vetor do conjunto de dados? Porque podemos ter mais de um *data frame* no mesmo **Environment** com uma variável de nome "age". Pense no *data frame* + nome da variável como um endereço composto da variável no seu Environment, que evita ambiguidade. Para quem está acostumado a trabalhar com SPSS, Stata ou SAS, ter que indicar qual é o *data frame* ao qual a variável pertence parece estranho, mas faz todo sentido para o R (se você está acostumado a esse outro formato, evite adaptá-lo ao R, pois ele pode trazer menos transparência/replicabilidade ao seu código).
+Por que não podemos simplesmente usar "age" e precisamos colocar o nome do *data frame* seguido de `$` para indicar o vetor do conjunto de dados? Porque podemos ter mais de um *data frame* no mesmo **Environment** com uma variável de nome "age". Pense no *data frame* + nome da variável como um endereço composto da variável no seu **Environment**, que evita ambiguidade. Para quem está acostumado a trabalhar com SPSS, Stata ou SAS, ter que indicar qual é o *data frame* ao qual a variável pertence parece estranho, mas faz todo sentido para o R (se você está acostumado a esse outro formato, evite adaptá-lo ao R, pois ele pode trazer menos transparência/replicabilidade ao seu código).
 
 Seguem abaixo exemplos simples de como usar variáveis de um *data frame* em outras funções (algumas das quais veremos adiante, mas você já pode ir se acostumando à linguagem).
 
@@ -134,7 +134,7 @@ fake[, 1:3]
 
 ## Exercício
 
-Qual é a idade do 17o. indivíduo? Qual é o candidato de preferência do 25o. indivíduo?
+Qual é a idade do 17º indivíduo? Qual é o candidato de preferência do 25º indivíduo?
 
 ## Seleção de colunas com nomes das variáveis
 
@@ -344,7 +344,7 @@ table(fake$college, fake$educ)
 
 ## Exercício
 
-Crie a variável **economia**, que os indivíduos que avaliam a economia (variável **economy**) como "Good" ou "Very good" recebem o valor "positivo" e os demais recebem "negativo".
+Crie a variável **economia**, na qual os indivíduos que avaliam a economia (variável **economy**) como "Good" ou "Very good" recebem o valor "positivo" e os demais recebem "negativo".
 
 ## Ordenar linhas e remover linhas duplicadas:
 
@@ -368,7 +368,7 @@ Poderíamos ter aplicado a função order diretamente dentro dos colchetes:
 fake_ordenado <- fake[order(fake$income), ]
 ```
 
-Para encerrar, vamos duplicar articialmente parte dos nossos dados (as 10 primeiras linhas) usando o comando `rbind()`, que "empilha" dois *data frames*:
+Para encerrar, vamos duplicar artificialmente parte dos nossos dados (as 10 primeiras linhas) usando o comando `rbind()`, que "empilha" dois *data frames*:
 
 ``` r
 fake_duplicado <- rbind(fake, fake[1:10, ])
@@ -390,7 +390,7 @@ Note que precisamos da exclamação (`!`, operador lógico "não") para ficar co
 
 ## Renomeando variáveis
 
-Já vimos em tutoriais anteriores como renomear variáveis de uma maneira bastante mais simples. Aqui, vamos aprender o jeito trabalhoso de renomear uma variável usando o R base.
+Já vimos em tutoriais anteriores como renomear variáveis de uma maneira bastante mais simples. Aqui, vamos aprender o jeito trabalhoso de renomear uma variável usando o R `base`.
 
 Podemos observar os nomes das variáveis de um *data frame* usando o comando `names()`:
 
@@ -409,6 +409,10 @@ Você não precisa de um vetor com todos os nomes sempre que precisar alterar al
 
 ``` r
 names(fake)[6] <- "casado"
+fake
 ```
 
 Simples, porém um pouco chato.
+
+## Exercícios
+

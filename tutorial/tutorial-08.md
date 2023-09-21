@@ -22,7 +22,7 @@ library(janitor)
 Vamos abrir e examinar os dados, que estão em formato .csv:
 
 ```r
-obitos_2021 <- read_csv2("https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/main/data/microdados_obitos2021.csv")
+obitos_2021 <- read_csv2("https://raw.githubusercontent.com/seade/egesp-seade-intro-programacao/main/data/microdados_obitos2021.csv")
 
 obitos_2021 %>% 
   glimpse()
@@ -59,9 +59,9 @@ O código é bastante estranho, não? Vamos olhar cada uma de suas partes.
 
 Comecemos pela primeira linha. A principal função do código é, como era de se esperar, `ggplot()` (sem o 2 mesmo). Note que não estamos fazendo uma atribuição, por enquanto, pois queremos apenas "imprimir" o gráfico (não no Console, mas aba **Plots** -- ao lado de **Files** e **Help**), e não guardá-lo como objeto.
 
-O argumento da função `ggplot()` é `data`, ou seja, o objeto que contém os dados a serem visualizados. No nosso caso, é o data frame `obitos_2021`.
+O argumento da função `ggplot()` é `data`, ou seja, o objeto que contém os dados a serem visualizados. No nosso caso, é o _data frame_ `obitos_2021`.
 
-Podemos colocar os dados no início do nosso código como "pipe"" (`%>%`) para não precisar inseri-lo dentro da função `ggplot()`. Você verá que isso será bem útil num futuro breve.
+Podemos colocar os dados no início do nosso código com o "pipe"" (`%>%`) para não precisar inseri-lo dentro da função `ggplot()`. Você verá que isso será bem útil num futuro breve.
 
 ``` r
 obitos_2021 %>% 
@@ -71,11 +71,11 @@ obitos_2021 %>%
 
 Ao usarmos a função `ggplot()` iniciamos um gráfico sem conteúdo, por enquanto.
 
-Para adicionarmos uma geometria, colocamos um símbolo de `+` após fecharmos o parêntesis da função `ggplot()`. Cada `+` nos permite adicionar mais uma camada em nosso gráfico. 
+Para adicionarmos uma geometria, colocamos um símbolo de `+` após fecharmos o parênteses da função `ggplot()`. Cada `+` nos permite adicionar mais uma camada em nosso gráfico. 
 
 Mas qual camada? Nós definimos um gráfico por sua _geometria_ - o tipo de representação visual dos nossos dados que queremos. `geom_bar` indica que queremos uma geometria de barras, como um "bar chart" em editores de planilha.
 
-A escolha da geometria depende do tipo de dados que você deseja visualizar em seu data frame. Como analisamos a distribuição de óbitos pela variável raça/cor, que é discreta ("factor"), utilizamos uma geometria adequada a dados discretos. A lógica de um gráfico de barras é representar a contagem de cada categoria discreta, então faz sentido usar a geometria `geom_bar`. Veremos exemplos de outras geometrias que correspondam a outros dados abaixo.
+A escolha da geometria depende do tipo de dados que você deseja visualizar em seu _data frame_. Como analisamos a distribuição de óbitos pela variável raça/cor, que é discreta ("factor"), utilizamos uma geometria adequada a dados discretos. A lógica de um gráfico de barras é representar a contagem de cada categoria discreta, então faz sentido usar a geometria `geom_bar`. Veremos exemplos de outras geometrias que correspondam a outros dados abaixo.
 
 Na linha de código da geometria, as 3 letrinhas `aes()` causam estranheza. `aes()` é a abreviação de _aesthetics_. Aqui definiremos quais variáveis de nosso data frame farão parte do gráfico. Estamos trabalhando por enquanto com apenas uma variável, representada no eixo horizontal, ou eixo "x". Por esta razão preenchemos o parâmetro `x` da _aesthetics_ e nada mais.
 
@@ -209,7 +209,7 @@ Dica: cuidado para não usar o pipe (`%>%`) no lugar de `+` ao construir gráfic
 
 Vamos dar alguns passos para trás e retornar aos histogramas. E se quisermos comparar as distribuições de idade por sexo ou raça/cor, por exemplo? Precisamos filtrar os dados e fazer um gráfico para cada categoria de sexo?
 
-Poderíamos. Mas mais interessante é comparar as distribuições em um mesmo gráfico. Para fazer isso, precisamos saber como visualizar duas variáveis do nosso data frame ao mesmo tempo. Como estamos separando uma distribuição de uma variável contínua (idade em anos) em duas, a partir de uma segunda variável discreta (sexo), precisamos adicionar essa nova variável à "aesthetics". Veja como:
+Poderíamos. Mas mais interessante é comparar as distribuições em um mesmo gráfico. Para fazer isso, precisamos saber como visualizar duas variáveis do nosso _data frame_ ao mesmo tempo. Como estamos separando uma distribuição de uma variável contínua (idade em anos) em duas, a partir de uma segunda variável discreta (sexo), precisamos adicionar essa nova variável à "aesthetics". Veja como:
 
 ``` r
 obitos_2021 %>% 
@@ -253,7 +253,7 @@ obitos_2021 %>%
                    color = sexo)) 
 ```
 
-Mesmo quando precisamos "remodelar" os dados para produzir um novo gráfico, não precisamos criar um novo data frame. Basta fazer todas as modificações necessárias com os verbos do `dplyr` e emendar, com o pipe, a função `ggplot()`.
+Mesmo quando precisamos "remodelar" os dados para produzir um novo gráfico, não precisamos criar um novo _data frame_. Basta fazer todas as modificações necessárias com os verbos do `dplyr` e emendar, com o pipe, a função `ggplot()`.
 
 Vamos adicionar cores no preenchimnento das curvas com `fill` para melhorar nosso gráfico:
 
@@ -282,7 +282,7 @@ Que belezura de gráfico! A comparação de distribuições de uma variável con
 
 ## Gráficos com uma variável contínua e uma variável discreta - Gráficos de boxplot
 
-Vamos repetir o gráfico acima, mas, em vez de separarmos as distribuições por sexo, vamos separar por uma variável com mais categorias: raça/cor.
+Vamos repetir o gráfico acima, mas em vez de separarmos as distribuições por sexo, vamos separar por uma variável com mais categorias: raça/cor.
 
 ``` r
 obitos_2021 %>% 
@@ -328,7 +328,7 @@ obitos_2021 %>%
                    fill = racacor_f))
 ```
 
-Ainda que com perda de informação, nessas duas geometrias conseguimos compara as distribuições de idade por raça/cor de forma bastante rápida. A mediana da idade das pessoas amarelas é maior que a de pessoas pardas, e a variação amplitude entre indígenas é grande, indicando mais óbitos infantis no grupo.
+Ainda que com perda de informação, nessas duas geometrias conseguimos comparar as distribuições de idade por raça/cor de forma bastante rápida. A mediana da idade das pessoas amarelas é maior que a de pessoas pardas, e a variação amplitude entre indígenas é grande, indicando mais óbitos infantis no grupo.
 
 ## Gráficos com uma variável contínua e duas variáveis discretas
 
@@ -392,7 +392,7 @@ obitos_2021 %>%
 
 ## Registro Civil: nascidos vivos em 2017
 
-Em matemática e a estatística somos frequentemente apresentados a variáveis contínuas. O mundo social, no entanto, é povoado por variáveis discretas. A seguir, vamos trabalhar com geometrias para duas variáveis contínuas, e portanto precisaremos de outra fonte de dados, pois o conjunto de óbitos de 2021 não tem um par de variáveis contínuas adequado ao que faremos.
+Em matemática e estatística somos frequentemente apresentados a variáveis contínuas. O mundo social, no entanto, é povoado por variáveis discretas. A seguir, vamos trabalhar com geometrias para duas variáveis contínuas, e portanto precisaremos de outra fonte de dados, pois o conjunto de óbitos de 2021 não tem um par de variáveis contínuas adequado ao que faremos.
 
 No lugar de óbitos, utilizaremos a base de nascidos vivos de 2017 do Registro Civil, também do SEADE. Repitamos o ritual para dados em formato .csv:
 
@@ -402,7 +402,7 @@ nv_2017 <- read_csv2("https://raw.githubusercontent.com/seade-R/egesp-seade-intr
 glimpse(nv_2017)
 ```
 
-Limpando nomes, transformando variáveis de interesse em numéricas (foram importadas como 'character') ou recodificando, e filtrando códigos numéricos utilizados para missing:
+Limpando nomes, transformando variáveis de interesse em numéricas (foram importadas como 'character') ou recodificando, e filtrando códigos numéricos utilizados para _missings_:
 
 ``` r
 nv_2017 <- nv_2017 %>% 
@@ -424,7 +424,7 @@ A essa altura do campeonato, você provavelmente consegue ler em R e saber as tr
 
 ## Gráficos de duas variáveis contínuas
 
-Até agora trabalhamos com distribuições de uma única variável ou com a distribuição conjunta de uma variável numérica (contínua) por outra discreta (em outras palavras, separados a distribuição de uma variável em várias a partir de um variável categórica).
+Até agora trabalhamos com distribuições de uma única variável ou com a distribuição conjunta de uma variável numérica (contínua) por outra discreta (em outras palavras, a distribuição de uma variável numérica em várias a partir de uma variável categórica).
 
 Como relacionar graficamente duas variáveis contínuas? O padrão é o uso da geometria de gráfico de dispersão, que apresenta cada par de informações como uma coordenada no espaço bidimensional. 
 
@@ -492,7 +492,7 @@ nv_2017_s %>%
 
 ## Gráficos de três ou mais variáveis
 
-Em geral, estamos limitados por papel e telas bidimensionais para exibir apenas geometrias de duas variáveis. Mas existe um truque que podemos usar para mostrar mais informações: incluir os outros parâmetros de uma geometria, tais como cores, tamanhos e formas, dentro de `aes()` com uma variável terceira variável em seu data frame. 
+Em geral, estamos limitados por papel e telas bidimensionais para exibir apenas geometrias de duas variáveis. Mas existe um truque que podemos usar para mostrar mais informações: incluir os outros parâmetros de uma geometria, tais como cores, tamanhos e formas, dentro de `aes()` com uma terceira variável em seu _data frame_. 
 
 Se, por exemplo, queremos representar uma terceira variável numérica, podemos colocá-la como tamanho dos pontos (raio do círculo, com o argumento `size`). Por exemplo, a idade do pai poderia ser adicionada da seguinte forma:
 
@@ -525,7 +525,7 @@ nv_2017_s %>%
   theme(legend.position = 'bottom')
 ```
 
-Nota: cada símbolo é representado por um número e uma lista deles está no [_Cheat Sheet_ do `ggplot2`](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf). 
+Nota: cada símbolo é representado por um número e uma lista deles está no [_Cheat Sheet_ do `ggplot2`](https://lscholtus.gitlab.io/mosaicdata/ggplot2-cheatsheet-2.0.pdf). 
 
 Agora, alteramos _simultaneamente_ cor (`color`) e forma (`shape`):
 
@@ -576,4 +576,39 @@ nv_2017_s %>%
             se = F)
 ```
 
-Encerramos aqui essa breve exposição ao pacote `ggplot2` e vimos apenas uma parte pequena de suas funcionalidades. Se quiser aprender mais, procure os livros sobre o pacote na bibliografia indicada do curso.
+Encerramos aqui essa breve exposição do pacote `ggplot2` e vimos apenas uma parte pequena de suas funcionalidades. Se quiser aprender mais, procure os livros sobre o pacote na bibliografia indicada do curso.
+
+## Exercícios
+
+Nesta série de exercícios, continuaremos a explorar o pacote `ggplot2` no ambiente R, usando a base de dados `diamonds`, a mesma que utilizamos no [Tutorial 07](tutorial-07.md).
+
+Para carregar a base de dados, utilize o seguinte comando:
+
+``` r
+data(diamonds)
+```
+Agora, vamos aos exercícios, utilizando a combinação de `ggplot2` e `dplyr` para criar gráficos e explorar insights nos dados dos diamantes:
+
+1. Utilize o `filter()` do `dplyr` para selecionar os diamantes de corte (`cut`) "Ideal". Crie um gráfico de barras (`bar plot`) usando o `ggplot2` para mostrar a contagem de diamantes por cor (`color`).
+
+2. Crie um histograma usando o `ggplot2` para visualizar a distribuição dos preços (`price`) dos diamantes, divididos por categoria de corte (`cut`). Use a função `facet_wrap` para deixar o gráfico menos poluído.
+
+3. Utilize o `mutate()` para criar uma nova coluna chamada `volume`, representando o volume do diamante calculado pela fórmula `x * y * z`. Crie um gráfico de dispersão usando o `ggplot2`, onde o eixo x é o volume e o eixo y é o preço (`price`), colorindo os pontos de acordo com a qualidade de corte (`cut`). Existe alguma relação entre volume e preço?
+
+4. Utilize o `group_by()` e `summarise()` do `dplyr` para calcular a média do preço por quilate para cada categoria de corte (`cut`). Crie um gráfico de barras (`bar plot`) usando o `ggplot2` para visualizar essas médias.
+
+5. Crie um gráfico de caixa (`box plot`) usando o `ggplot2` para comparar a distribuição dos preços (`price`) dos diamantes entre diferentes categorias de corte (`cut`).
+
+6. Utilize o `filter()` do `dplyr` para selecionar os diamantes com preço acima de $500. Crie um gráfico de dispersão usando o `ggplot2`, onde o eixo x é o peso (`carat`) e o eixo y é o preço por quilate (`price_per_carat`), colorindo os pontos pela coloração (`color`).
+
+7. Utilize o `mutate()` para criar uma nova coluna chamada `depth_category`, que categoriza a profundidade (`depth`) em "baixa" (abaixo de 60), "média" (entre 60 e 65) e "alta" (acima de 65). Crie um gráfico de barras (`bar plot`) usando o `ggplot2` para mostrar a contagem de diamantes em cada categoria de corte (`cut`), agrupados pela categoria de profundidade.
+
+8. Utilize o `filter()` para selecionar os diamantes com coloração (`color`) D, E ou F. Crie um gráfico de densidade usando o `ggplot2` para comparar a distribuição das proporções da variável tabela (`table`) entre essas diferentes cores. Use a função `facet_wrap` para o gráfico não ficar muito poluído.
+
+9. Utilize o `mutate()` para criar uma nova coluna chamada `carat_category`, que categoriza o peso (`carat`) em intervalos de 0.75 quilates. Crie um gráfico de barras (`bar plot`) usando o `ggplot2` para mostrar a contagem de diamantes em cada categoria de corte (`cut`), agrupados pela nova categoria de peso, `carat_category`.
+
+10. Utilize o `mutate()` para criar uma nova coluna chamada `price_log`, que contém o logaritmo natural dos preços (`price`) dos diamantes. Crie um gráfico de dispersão usando o `ggplot2`, onde o eixo x é o peso (`carat`) e o eixo y é o log do preço, colorindo os pontos pela clareza (`clarity`). Referência: Para obter mais informações sobre a função `log()` no R, você pode consultar a documentação oficial [aqui](https://www.statology.org/log-in-r/).
+
+Não hesite em explorar novos parâmetros, cores, formas e funções para personalizar suas visualizações. Um excelente recurso para aprender mais sobre as possibilidades do `ggplot2` e como criar visualizações impressionantes é o site [R Graphics Cookbook](https://r-graphics.org/) de Winston Chang. Lá você encontrará muitos exemplos e dicas úteis para aprimorar suas habilidades em visualização de dados.
+
+Bom trabalho!

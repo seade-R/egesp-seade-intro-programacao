@@ -1,6 +1,6 @@
 # `janitor`, `factor` e tabelas simples na gramática do dplyr
 
-No [tutorial anterior](/tutorial/tutorial-06.md) vimos que a produção de tabelas na gramática do tidyverse pode ser feita utilizando o verbo `group_` acompanhado de `count()` ou `summarise()`. As tabelas de frequência eram sempre novos data frames, menores, compactados.
+No [tutorial anterior](/tutorial/tutorial-06.md) vimos que a produção de tabelas na gramática do tidyverse pode ser feita utilizando o verbo `group_by` acompanhado de `count()` ou `summarise()`. As tabelas de frequência geradas eram sempre novos _data frames_, menores e compactados.
 
 Neste tutorial, vamos explorar um pouco mais a confecção de tabelas na gramática do `dplyr` utilizando um pacote que é uma baita mão na roda: `janitor`. Em vez de utilizarmos `group_by()` para produzirmos tabelas de frequência, teremos funções simples que entregam o mesmo resultado e, de quebra, formatam a tabela para seu uso em relatórios ou para exportação.
 
@@ -8,7 +8,7 @@ No processo de confecção de tabelas aprenderemos sobre um novo tipo de variáv
 
 _Factors_ são utilizados para variáveis categóricas. Até agora, mantivemos tais variáveis como texto. Entretanto, trabalhar variáveis categóricas como texto é incoveniente, sobretudo no caso de categorias ordenáveis, nas quais a ordem das categorias não corresponde à ordem alfabética. 
 
-Para quem vem de outros softwares de análise de dados, factors correspondem a variáveis categóricas armazenadas com códigos numéricos acompanhados de rótulos de valores.
+Para quem vem de outros softwares de análise de dados, _factors_ correspondem a variáveis categóricas armazenadas com códigos numéricos acompanhados de rótulos de valores.
 
 ## Dados de óbitos de 2021
 
@@ -19,25 +19,31 @@ Comece instalando o pacote que vamos utilizar, `janitor`. Em seguida, carregue o
 ``` r
 install.packages('janitor')
 
-library(janitor)
 library(tidyverse)
+library(janitor)
 ```
 
 Agora, importamos os dados:
 
 ``` r
-obitos_2021 <- read_csv2("https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/main/data/microdados_obitos2021.csv")
+obitos_2021 <- read_csv2("https://raw.githubusercontent.com/seade/egesp-seade-intro-programacao/main/data/microdados_obitos2021.csv")
 ```
 
 ## Nomes bonitos para variáveis com `janitor`
 
-Nesta versão do banco de dados de óbitos do registro civil, os nomes das variáveis estão razoavelmente dentro das convenções. Poderiam, porém, estar em minúscula. No pacote `janitor` há uma função excelente para lidar com nomes com espaços, acentos e maísculas: *clean_names()*. Por ora, vamos aplicá-la para tornar os nomes deste conjunto de dados mais próximos da convenção e conhecer a função:
+Nesta versão do banco de dados de óbitos do registro civil, os nomes das variáveis estão razoavelmente dentro das convenções. Poderiam, porém, estar em minúscula. No pacote `janitor` há uma função excelente para lidar com nomes com espaços, acentos e maiúsculas: *clean_names()*. Por ora, vamos aplicá-la para tornar os nomes deste conjunto de dados mais próximos da convenção e conhecer a função:
 
 ``` r
+# Verifica os nomes das variáveis
+
+names(obitos_2021)
+
+# Muda o formato dos nomes 
+
 obitos_2021 <- obitos_2021 %>% 
   clean_names() 
-```
 
+```
 Vamos usar novamente *glimpse()* para observar o resultado:
 
 ``` r
@@ -62,13 +68,23 @@ obitos_2021 %>%
   tabyl(sexo)
 ```
 
+ATENÇÃO: Se as informações percentuais foram impressas em forma de notação científica no seu RStudio, informe no início do seu script o seguinte argumento e rode o código acima novamente:
+
+``` r
+
+# Forçando o R a mostrar todas as casas decimais
+
+options(scipen = 999999)
+
+```
+
 Ademais de produzir a contagem, `tabyl()` produz também a _frequência relativa_ de cada categoria da variável escolhida.
 
 A tabela é, digamos, _feia_. Vamos melhorá-la. Porém, não começaremos pela estética da tabela, mas produzindo uma mudança na variável **sexo**, transformando-a de "character" em "factor".
 
 ## Factors em R
 
-"Factors" são certamente uma das maiores pedras no sapato em R (e por isso os evitamos até agora). A razão disso é que diversas funções da 'gramática do R base' convertem automaticamente texto em "factor".
+_Factors_ são certamente uma das maiores pedras no sapato em R (e por isso os evitamos até agora). A razão disso é que diversas funções da 'gramática do R base' convertem automaticamente texto em "factor".
 
 Entretanto, "factors" são muito úteis e, às vezes, inevitáveis. 
 
@@ -84,6 +100,14 @@ obitos_2021 <- obitos_2021 %>%
                        'F' = 'Feminino',
                        'M' = 'Masculino',                  
                        'I' = 'Ignorado'))
+                       
+# Ou usando a função case_when:
+
+obitos_2021 <- obitos_2021 %>% 
+  mutate(sexo = case_when(sexo == "F" ~ "Feminino",
+                          sexo == "M" ~ "Masculino",
+                          sexo == "I" ~ "Ignorado",
+                          T ~ sexo))
 ```
 
 Repetindo a tabela, vemos que os textos das categorias mudaram, mas a ordem continua inconveniente. Após a recodificação, **sexo** ainda é uma variável de texto.
@@ -98,7 +122,7 @@ Para transformar texto em "factor" usamos a função `factor()`. E especificamos
 ``` r
 obitos_2021 <- obitos_2021 %>% 
   mutate(sexo_f = factor(sexo, 
-                         levels = c('F', 'M', 'I')))
+                         levels = c('Feminino', 'Masculino', 'Ignorado')))
 ```
 
 Produzindo a tabela com nossa nova variável temos:
@@ -153,7 +177,7 @@ obitos_2021 %>%
          percentual = percent)
 ```
 
-No pacote `janitor`, há um conjunto de funções de prefixo `adorn_*` que serve para alterar a estética da tabela. `adorn_pct_formatting()` transforma a coluna **percent** em percentual, ou seja, multiplica por 100, delimita o número de casas decimais e adiciona o símbolo %.
+No pacote `janitor`, há um conjunto de funções de prefixo `adorn_*` que serve para alterar a estética da tabela. `adorn_pct_formatting()` transforma a coluna **percent** em percentual, ou seja, multiplica por 100, delimita o número de casas decimais e adiciona o símbolo _%_.
 
 ``` r
 obitos_2021 %>% 
@@ -169,7 +193,7 @@ obitos_2021 %>%
   adorn_rounding(digits = 2)
 ```
 
-Como adicionar totais? Com `adorn totals()`:
+Como adicionar totais? Com `adorn_totals()`:
 
 ``` r
 obitos_2021 %>% 
@@ -297,7 +321,7 @@ obitos_2021 %>%
   adorn_pct_formatting()
 ```
 
-Tal como na tabela para apenas uma variável, podemos adicionar a soma da linhas com `adorn totals()`:
+Tal como na tabela para apenas uma variável, podemos adicionar a soma da linhas com `adorn_totals()`:
 
 ``` r
 obitos_2021 %>% 
@@ -305,7 +329,7 @@ obitos_2021 %>%
   adorn_totals()
 ```
 
-Ou a soma de colunas se utilizarmos `where = 'col'` dentro de `adorn totals()`
+Ou a soma de colunas se utilizarmos `where = 'col'` dentro de `adorn_totals()`
 
 ``` r
 obitos_2021 %>% 
@@ -313,7 +337,7 @@ obitos_2021 %>%
   adorn_totals(where = 'col')
 ```
 
-Ou ainda a soma de linhas e colunas se a opção em `where` for o vetor `c('col', 'row')`.
+Ou aind,a a soma de linhas e colunas se a opção em `where` for o vetor `c('col', 'row')`.
 
 ``` r
 obitos_2021 %>% 
@@ -373,3 +397,39 @@ obitos_2021 %>%
   tabyl(idade_faixa) %>% 
   adorn_pct_formatting()
 ```
+
+## Exercícios
+
+Agora nós iremos explorar os pacotes `janitor` e `dplyr`. Com foco na manipulação de dados, utilizaremos a base de dados `diamonds` para aplicar conceitos importantes e realizar tarefas de transformação e análise. 
+
+A base de dados `diamonds` fornece informações sobre características como o peso do diamante em quilates, a qualidade do corte, a coloração, a clareza, proporções, preço em dólares e dimensões físicas em milímetros. As colunas `carat`, `cut`, `color`, `clarity`, `depth`, `table`, `price` e `x`, `y`, `z` contêm dados valiosos sobre cada diamante. Para obter detalhes específicos sobre cada variável, recomendamos o uso do comando *?diamonds*.
+
+Para carregar a base de dados, utilize o seguinte comando:
+
+``` r
+data(diamonds)
+```
+
+Agora, prosseguiremos com os exercícios:
+
+1. Iniciaremos pela padronização dos nomes das colunas, utilizando a função `clean_names()` do pacote `janitor`.
+
+2. Selecione as colunas `carat`, `cut`, `color`, `depth` e `price` da base de dados.
+
+3. Utilize a função `cut()` para criar intervalos de peso dos diamantes (`carat`) e salve em uma nova variável. Os intervalos (`breaks`) você é que escolhe.
+
+4. Introduza a coluna `price_per_carat`, que deve exibir o preço por quilate de cada diamante.
+
+5. Realize uma análise agrupando os diamantes por categoria de corte (variável `cut`), calculando a média do preço por quilate para cada grupo.
+
+6. Acrescente a coluna `price_category`, a qual categorizará os preços por quilate em "baixo" (menor que 500), "médio" (entre 500 e 1000) ou "alto" (igual ou acima de 1000). Ordene as categorias de forma crescente e transforme a variável em um fator. Dica: use a função [`case_when`](https://dplyr.tidyverse.org/reference/case_when.html) para criar a nova variável.
+
+7. Calcule a contagem de diamantes em cada categoria de corte (`cut`) e exiba os resultados em ordem decrescente.
+
+8. Calcule a média e o desvio-padrão da profundidade (`depth`) dos diamantes para cada categoria de corte (`cut`).
+
+9. Produza um resumo estatístico que englobe a média, mediana, desvio padrão, mínimo e máximo do preço por quilate (`price_per_carat`) para cada combinação de corte (`cut`) e cor (`color`).
+
+10. Calcule a média e o desvio-padrão do preço por quilate (`price_per_carat`) para diamantes de diferentes tamanhos, arredondando os valores para duas casas decimais. Use a variável que você criou no exercício 3 como referência para os tamanhos.
+
+Agora que você possui as ferramentas necessárias, mãos à obra!

@@ -31,7 +31,7 @@ piesp <- piesp %>%
 
 Vocês notaram a ausência de uma função simples de produção de tabela até agora nos tutoriais? Algo como "table"?
 
-Bom, existe a função `table()` no pacote base. Seu uso é um pouco estranho por conta de um símbolo que ainda não vimos, o `$`. Veremos esse símbolo quando aprendermos sobre a gramática de manipulação de dados do 'base'.
+Bom, existe a função `table()` no pacote base. Seu uso é um pouco estranho por conta de um símbolo que ainda não vimos, o `$`. Veremos esse símbolo quando aprendermos sobre a gramática de manipulação de dados do R 'base'.
 
 Veja uma tabela de contagem de investimentos por ano:
 
@@ -56,7 +56,7 @@ piesp %>%
   class()
 ```
 
-Quando falamos em tabulações, no contexto da gramática do `dplyr`, estamos falando em data frames reduzidos pelo uso do verbo de agrupamento.
+Quando falamos em tabulações, no contexto da gramática do `dplyr`, estamos falando em _data frames_ reduzidos pelo uso do verbo de agrupamento.
 
 Vamos produzir agora uma tabela com contagem de investimentos por CNAE e ordenada de forma decrescente pela contagem (variável **n**):
 
@@ -132,9 +132,9 @@ piesp_2 %>%
   summarise(media_valor = mean(valor, na.rm = T))
 ```
 
-Lembre-se da usar o argumento `na.rm = T` para excluir os missings, pois há muitos deles na variável de valor em milhões de R$ que utilizamos acima.
+Lembre-se da usar o argumento `na.rm = T` para excluir os _missings_, pois há muitos deles na variável de valor em milhões de R$ que utilizamos acima.
 
-Dentro do `summarise()` cabem todas as estatísticas descritivas que vimos no [tutorial 3](https://github.com/seade-R/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-03.md):
+Dentro do `summarise()` cabem todas as estatísticas descritivas que vimos no [tutorial 3](https://github.com//egesp-seade-intro-programacao/blob/main/tutorial/tutorial-03.md):
 
 ``` r
 piesp_2 %>% 
@@ -148,7 +148,7 @@ piesp_2 %>%
             maximo = max(valor, na.rm = T))
 ```
 
-Como temos que repetir muitas vezes o argumento de exclusão de missings, o mais simples é refazermos o código usando `filter` para eliminarmos os NAs da variável **valor** antes de fazermos o agrupamento:
+Como temos que repetir muitas vezes o argumento de exclusão de _missings_, o mais simples é refazermos o código usando `filter` para eliminarmos os NAs da variável **valor** antes de fazermos o agrupamento:
 
 ``` r
 piesp_2 %>% 
@@ -199,7 +199,7 @@ Não era isso que esperávamos, certo? Seria mais legal receber algo assim (como
 table(piesp_2$divisao_desc, piesp_2$tipo)
 ```
 
-Repare com cuidado. As duas tabelas fornecem a mesma informação. _A diferença está no formato_. A segunda representa o "pivotamento da primeira"", que, apesar de termos chamado de tabela, é um data frame no formato _long_ (ou seja, "comprido").
+Repare com cuidado. As duas tabelas fornecem a mesma informação. _A diferença está no formato_. A segunda representa o "pivotamento da primeira"", que, apesar de termos chamado de tabela, é um _data frame_ no formato _long_ (ou seja, "comprido").
 
 _Long_ e _wide_ são as denominações que damos aos formatos acima, respectivamente. Na gramática do `dplyr` trabalharemos sempre com o formato _long_ e há uma boa razão para isso: fazer operações e, sobretudo, produzir gráficos com tabelas no formato _long_ é mais simples. Quando chegarmos à "gramática dos gráficos" isso ficará mais claro.
 
@@ -245,3 +245,5 @@ piesp_2 %>%
 ```
 
 No próximo tutorial veremos como produzir tabelas semelhantes utilizando outro pacote que se tornou bastante popular recentemente, `janitor`, e faremos menos uso das combinações `group_by()` + `count()` e `group_by()` + `summarise()`.
+
+## Exercícios

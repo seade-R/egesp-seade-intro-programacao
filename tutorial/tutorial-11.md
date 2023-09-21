@@ -2,9 +2,9 @@
 
 Nesta seção, redundante em relação ao que já fizemos no tutorial anterior, veremos o uso dos _joins_ com dados de survey (TICDOM).
 
-Em pesquisa aplicada é bastante comum encontrarmos dados que têm natureza hierárquica. Por exemplo, em _surveys_ como a PNAD ou a TICDOM, no qual os indívuos estão dentro de domicílios, coleta-se dados tanto dos invíduos quanto do domicílios. Como é possível haver mais de um indivíduo em um determinado domicílio, os dados podem ser organizados de duas maneiras diferentes: (1) repetindo-se para cada indivíduo a informação referente ao domicílio; (2) separando as informações em dois arquivos diferentes, um para cada unidade de análise.
+Em pesquisa aplicada é bastante comum encontrarmos dados que têm natureza hierárquica. Por exemplo, em _surveys_ como a PNAD ou a TICDOM, no qual os indívuos estão dentro de domicílios, coleta-se dados tanto dos invíduos quanto dos domicílios. Como é possível haver mais de um indivíduo em um determinado domicílio, os dados podem ser organizados de duas maneiras diferentes: (1) repetindo-se para cada indivíduo a informação referente ao domicílio; (2) separando as informações em dois arquivos diferentes, um para cada unidade de análise.
 
-A segunda opção é bastante mais eficiente, pois evita a repetição de informações. Em pesquisas como PNAD ou Censo populacional, que resultam em arquivos grandes e que dificultam o armazenamento, transporte e abertura de dados, separar os dados em mais de um arquivo é certamente a melhor opção.
+A segunda opção é mais eficiente, pois evita a repetição de informações. Em pesquisas como PNAD ou Censo populacional, que resultam em arquivos grandes e que dificultam o armazenamento, transferência e abertura de dados, separar os dados em mais de um arquivo é certamente a melhor opção.
 
 Para combinar dados referentes a domicílios e seus respectivos indivíduos em uma mesma análise, é preciso combinar os dois arquivos a partir de um identificador comum a ambas. Essa é uma tarefa bastante simples de ser executada com a gramática do `dplyr` e esse é o nosso objetivo neste tutorial.
 
@@ -42,13 +42,13 @@ Há algo contra intuitivo nestas informações. Se cada domicílio pode conter m
 
 Certamente encontraremos domicílios que não estão associados a nenhum indivíduo da base carregada -- no caso da TICDOM, esses domicílios estão associados a outras pesquisas.
 
-É possível que encontremos indivíduos que não estão em nenhum domicílio, mas, por se tratar de uma pesquisa cujo desenho amostral faz a seleção de indivíduos após a seleção de domicílios, este caso seria anômalo.
+É possível que encontremos indivíduos que não estão em nenhum domicílio, mas por se tratar de uma pesquisa cujo desenho amostral faz a seleção de indivíduos após a seleção de domicílios, este caso seria anômalo.
 
 Vamos ver como combinar as duas bases e quais são as nossas opções.
 
 ## Combinando à direita e à esquerda
 
-O primeiro passo ao combinar bases de dados é localizar, em ambas os _data frames_, qual é a "chave" ou "identificador" que associa as unidades de uma base às de outra.
+O primeiro passo ao combinar bases de dados é localizar, em ambos os _data frames_, qual é a "chave" ou "identificador" que associa as unidades de uma base às de outra.
 
 No caso da TICDOM, o **id_domicilio** cumpre esse papel. Cada domicílio tem um identificador único que também é encontrado nos dados individuais, podendo ser repetido se houver mais de um indivíduo associado a um domicílio.
 
@@ -75,7 +75,7 @@ ticdom_all_ind <- ticdom_ind %>%
 
 Dentro do argumento `by` inserimos a chave -- ou um vetor de chaves -- que farão a "ligação" entre as bases.
 
-Note que, para os dados utilizados, encontramos uma base com o mesmo número de linhas que o _data frame_ posicionado à esquerda, como esperávamos. Podemos notar que as variáveis que são exclusivas do arquivo de domicílios -- como **AREA**, **radio** e **automovel** -- estão no novo _data frame_.
+Note que, para os dados utilizados, a nova base possui o mesmo número de linhas que o _data frame_ posicionado à esquerda, como esperávamos. Podemos notar que as variáveis que são exclusivas do arquivo de domicílios -- como **AREA**, **radio** e **automovel** -- estão no novo _data frame_.
 
 ``` r
 names(ticdom_all_ind)
@@ -99,7 +99,7 @@ ticdom_all_dom %>%
 
 ## Interseção de duas bases
 
-E se quiseremos trabalhar apenas com os casos completos, ou seja, somente os casos para os quais há correspondência em ambos _data frame_? Esta situação é a interseção entre as duas bases e é produzida pelo verbo `inner_join()`:
+E se quiseremos trabalhar apenas com os casos completos, ou seja, somente os casos para os quais há correspondência em ambos _data frames_? Esta situação é a interseção entre as duas bases e é produzida pelo verbo `inner_join()`:
 
 ``` r
 ticdom_inner <- ticdom_ind %>%
@@ -123,6 +123,8 @@ Novamente, não importa quais são os _data frames_ à direita ou à esquerda. A
 
 ## Uma representação visual
 
-O livro [R for Data Science](https://r4ds.had.co.nz/relational-data.html) tem um capítulo muito bom sobre bases relacionais, que trás uma representação visual dos diferentes tipos de joins possíveis. Talvez isso possa lhe ajudar a guardar as informações deste tutorial:
+O livro [R for Data Science](https://r4ds.had.co.nz/relational-data.html) tem um capítulo muito bom sobre bases relacionais, que traz uma representação visual dos diferentes tipos de joins possíveis. Talvez isso possa lhe ajudar a guardar as informações deste tutorial:
 
-![Representação visual de joins](join.png){width="213"}
+<p align="center" width="100%">
+    <img width="70%" heigth="70%" src=join.png>
+</p>

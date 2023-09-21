@@ -1,10 +1,10 @@
 # Bases relacionais com a gramática do `dplyr`
 
-Nos tutoriais anteriores trabalhamos quase que exclusivamente com um único _data frame_, produzindo transformações de colunas, mudando os nomes das variáveis, selecionando de linhas e colunas e agrupando para produzir tabelas e estatísticas descritivas. Neste tutorial vamos aprender a trabalhar com bases relacionais, ou seja, a combinar _data frames_ usando as funções de sufixo `_join` do `dplyr`.
+Nos tutoriais anteriores trabalhamos quase que exclusivamente com um único _data frame_, produzindo transformações de colunas, mudando os nomes das variáveis, selecionando linhas e colunas e agrupando para produzir tabelas e estatísticas descritivas. Neste tutorial vamos aprender a trabalhar com bases relacionais, ou seja, a combinar _data frames_ usando as funções de sufixo `_join` do `dplyr`.
 
-Combinar _data frames_ é necessário quando as informações que serão utilizadas na análise estão presentes em mais de um fonte de dados. Vamos trabalhar neste tutorial com 4 fontes de dados para exemplificar os diferentes tipos de combinação (_joins_): (1) uma base óbitos por município entre 2019 e 2021, produzida pelo SEADE; (2) a base de Informações dos Municípios Paulistas (IMP), da qual retiraremos a população dos municípios em 2019; (3) os dados de população dos municípios paulistas em 2020 do SEADE; e (4) os dados de casos e óbitos por COVID-19 nos municípios paulistas (fixados em 01 de maio de 2020 por razões didáticas).
+Combinar _data frames_ é necessário quando as informações que serão utilizadas na análise estão presentes em mais de uma fonte de dados. Vamos trabalhar neste tutorial com 4 fontes de dados para exemplificar os diferentes tipos de combinação (_joins_): (1) uma base de óbitos por município entre 2019 e 2021, produzida pelo SEADE; (2) a base de Informações dos Municípios Paulistas (IMP), da qual retiraremos a população dos municípios em 2019; (3) os dados de população dos municípios paulistas em 2020 do SEADE; e (4) os dados de casos e óbitos por COVID-19 nos municípios paulistas (fixados em 01 de maio de 2020 por razões didáticas).
 
-Note que as 4 fontes tem o mesmo "identificador", ou seja, todas elas contém uma informação que permite relacioná-la com as demais. No nosso caso, o indexador é o código do município fornecido pelo IBGE.
+Note que as 4 fontes tem o mesmo "identificador", ou seja, todas elas contém uma informação que permite relacioná-las com as demais. No nosso caso, o indexador é o código do município fornecido pelo IBGE.
 
 Antes de avançar, carregue os pacotes que utilizaremos nesta atividade:
 
@@ -17,7 +17,7 @@ library(janitor)
 
 Nosso primeiro objetivo será calcular a mortalidade (óbitos por 1.000 habitantes) por município do estado de São Paulo, para homens e mulheres, separadamente, no ano de 2021. Precisamos, pois, de duas informações para cada município: o total de óbitos para cada grupo de sexo por município; e a população do município.
 
-A primeira informação, óbitos para cada grupo de sexo por município, podem ser encontradas no [conjunto de dados "Óbitos"" do Repositório do SEADE](https://repositorio.seade.gov.br/dataset/obitos). Vamos abrir os dados, que são disponibilizados em .csv. Note que devemos incluir `locale=locale(encoding = "Latin2")` para identificar o _encoding_ do arquivo e os acentos utilizados no cabeçalho do arquivo sejam lidos corretamente:
+A primeira informação, óbitos para cada grupo de sexo por município, pode ser encontrada no [conjunto de dados "Óbitos"" do Repositório do SEADE](https://repositorio.seade.gov.br/dataset/obitos). Vamos abrir os dados, que são disponibilizados em .csv. Note que devemos incluir `locale=locale(encoding = "Latin2")` para identificar o _encoding_ do arquivo e permitir que os acentos utilizados no cabeçalho do arquivo sejam lidos corretamente:
 
 ``` r
 obitos_2021 <- read_csv2(
@@ -61,7 +61,7 @@ obitos_2021 %>%
   glimpse()
 ```
 
-Ótimo! Vamos agora abrir nossa segunda fonte de dados, o com informações sobre os [municípios paulistas](https://repositorio.seade.gov.br/dataset/municipios): 
+Ótimo! Vamos agora abrir nossa segunda fonte de dados, com informações sobre os [municípios paulistas](https://repositorio.seade.gov.br/dataset/municipios): 
 
 ``` r
 municipios_populacao <- read_csv2(
@@ -69,7 +69,7 @@ municipios_populacao <- read_csv2(
   locale=locale(encoding = "Latin2"))
 ```
 
-Veja que utilizamos novamente o argumento `locale`. Os dados do de municípios publicados pelo SEADE vêm com o encoding 'Latin2' e pode ser necessário informar esse parâmetro para que o dado seja lido corretamente.
+Veja que utilizamos novamente o argumento `locale`. Os dados de municípios publicados pelo SEADE vêm com o encoding 'Latin2' e pode ser necessário informar esse parâmetro para que o dado seja lido corretamente.
 
 Examine os dados:
 
@@ -196,7 +196,7 @@ df_inner %>%
 
 ## Exportando um _data frame_
 
-No tutorial anterior exportamos tabelas produzidas com `tabyl` com o comando `write_csv2`. Essa função vale para qualquer objeto da classe _data frame_ e a que vamos utilizar para exportar conjunto de dados para .csv. Veja o exemplo:
+No tutorial anterior exportamos tabelas produzidas com `tabyl` com o comando `write_csv2`. Essa função vale para qualquer objeto da classe _data frame_ e vamos utilizá-la para exportar o conjunto de dados para .csv. Veja o exemplo:
 
 ``` r
 write_csv2(df_inner, 'mortalidade_sexo_municipio.csv')
@@ -211,7 +211,7 @@ df_inner %>%
 
 Há um problema bastante sério com as funções de exportação do _readr_: elas não permitem exportar em outro encoding além de UTF-8. E, se você trabalhar com dados com caracteres especiais e em Windows, você terá problemas.
 
-A alternativa é utilizar a função equivalente do pacote base, cuja grafia leva `.` no lugar de `_`, para poder especificar o encoding do arquivo exportado no argumento `fileEncoding`:
+A alternativa é utilizar a função equivalente do pacote _base_, cuja grafia leva `.` no lugar de `_`, para poder especificar o _encoding_ do arquivo exportado no argumento `fileEncoding`:
 
 ``` r
 df_inner %>% 
@@ -222,12 +222,13 @@ Por padrão, as funções de exportação de `base` inserem uma coluna com a num
 
 ## Caso e óbitos covid por habitante
 
-Neste segundo exercício, vamos calcular o número de casos de COVID-19 por 100 mil habitantes para os municípios paulistas em 01 de maio de 2020. A data foi escolhida fortuitmente, pois à época a epidemia não havia chegado a todos os municípios do estado e, portanto, teremos conjuntos de dados -- a base de COVID-19 e a de população em 2020 -- sem correspondência completa entre suas observações para testarmos os diferentes tipos de joins.
+Neste segundo exercício, vamos calcular o número de casos de COVID-19 por 100 mil habitantes para os municípios paulistas em 01 de maio de 2020. A data foi escolhida fortuitamente, pois à época a epidemia não havia chegado a todos os municípios do estado e, portanto, teremos conjuntos de dados -- a base de COVID-19 e a de população em 2020 -- sem correspondência completa entre suas observações para testarmos os diferentes tipos de _joins_.
 
-Vamos começar obtendo dados sobre a projeção das populações municipais em 2020, disponível em arquivo disponíbilizado pelo SEADE em seu [repositório](https://repositorio.seade.gov.br/dataset/populacao-municipal-2010-2022/resource/4a05d680-ab13-428a-abef-3c6f69a6f800):
+Vamos começar obtendo dados sobre a projeção das populações municipais em 2020, disponível em arquivo disponibilizado pelo SEADE em seu [repositório](https://repositorio.seade.gov.br/dataset/populacao-municipal-2010-2022/resource/4a05d680-ab13-428a-abef-3c6f69a6f800):
 
 ``` r
-pop20 <- read_csv2('https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/main/data/populacao_municipal.csv')
+pop20 <- read_csv2('https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/main/data/populacao_municipal.csv',
+locale=locale(encoding = "Latin2"))
 ```
 
 Examinando os dados:
@@ -244,7 +245,7 @@ pop20 %>%
   tabyl(ano)
 ```
 
-Vamos, assim selecionar apenas as linhas correspondentes ao ano de 2020:
+Vamos selecionar apenas as linhas correspondentes ao ano de 2020:
 
 ``` r
 pop20 <- pop20 %>% 
@@ -301,14 +302,14 @@ df_left %>%
 
 Como "Ignorado" não existe em `pop20`, as variáveis para esta linha provenientes do _data frame_ de população recebem `NA`.
 
-A operação de `right_join()` é idêntica à de `left_join()` se trocarmos os _data frames_ de posição. Intuitivamente, faz mais sentido usar a combinação "esquerda"", pois em geral queremos acrescentar colunas de uma segunda fonte de dados àquela com a qual estamos trabalhando. Note que as variáveis que servem como chave dentro do argumento `by` também trocam de posição.
+A operação de `right_join()` é idêntica à de `left_join()` se trocarmos os _data frames_ de posição. Intuitivamente, faz mais sentido usar a combinação "esquerda", pois em geral queremos acrescentar colunas de uma segunda fonte de dados àquela com a qual estamos trabalhando. Note que as variáveis que servem como chave dentro do argumento `by` também trocam de posição.
 
 ``` r
 df_right <- pop20 %>% 
   right_join(covid_maio, by = c('cod_ibge' = 'codigo_ibge'))
 ```
 
-Com os dados combinados, podemos calcular a taxa por da população de cada município por 100 mil habitantes que teve confirmadamente COVID-19 (vamos aproveitar e excluir o município "Ignorado"):
+Com os dados combinados, podemos calcular a taxa da população de cada município por 100 mil habitantes que teve COVID-19 (vamos aproveitar e excluir o município "Ignorado"):
 
 ``` r
 df_left <- df_left %>% 
@@ -341,7 +342,7 @@ df_semi <- pop20 %>%
   semi_join(covid_maio, by = c('cod_ibge' = 'codigo_ibge'))
 ```
 
-O resultado é um _data frame_ igual a `pop20`, mas sem as linhas de municípios que não têm par em `covid_maio`. É como aplicassemos em `pop20` um filtro que, por extenso, seria lido como: "manter apenas os municípios também encontrados em `covid_maio`". O resultado, como esperávamos, tem 326 linhas.
+O resultado é um _data frame_ igual a `pop20`, mas sem as linhas de municípios que não têm par em `covid_maio`. É como aplicássemos em `pop20` um filtro que, por extenso, seria lido como: "manter apenas os municípios também encontrados em `covid_maio`". O resultado, como esperávamos, tem 326 linhas.
 
 O _anti join_ é a operação complementar à de _semi join_: são mantidas apenas as linhas do conjunto à esquerda que __não__ encontram par no _data frame_ à direita.
 
@@ -352,3 +353,66 @@ df_anti <- pop20 %>%
 
 Permanecem no resultado as linhas dos 319 municípios de 'pop20' que não estavam também em `covid_maio`.
 
+## Exercícios
+
+Agora exploraremos o uso de bases de dados relacionais com o pacote `nycflights13`. Este pacote contém informações sobre todos os voos que partiram de Nova York (por exemplo, EWR, JFK e LGA) para destinos nos Estados Unidos, Porto Rico e Ilhas Virgens Americanas em 2013. 
+
+Utilizaremos também os pacotes `tidyverse`, `janitor`, e `ggplot2` para realizar análises descritivas e visualizações dos dados. Certifique-se de ter esses pacotes instalados antes de prosseguir.
+
+A documentação oficial do pacote `nycflights13` pode ser encontrada [aqui](https://www.rdocumentation.org/packages/nycflights13/versions/1.0.1).
+
+### Exercício 1: Carregar Pacotes e Dados
+
+1.1. Carregue os pacotes `tidyverse`, `janitor`, e `nycflights13`.
+1.2. Carregue os seguintes conjuntos de dados: `flights`, `airlines`, `airports`, `planes`. Verifique a documentação de cada um deles.
+
+### Exercício 2: Explorar os Dados
+
+2.1. Quantos voos foram realizados em 2013?
+2.2. Qual é a companhia aérea mais popular em termos de voos?
+2.3. Qual é o aeroporto de origem mais movimentado?
+
+### Exercício 3: Transformação de Dados
+
+3.1. Crie uma nova coluna chamada `speed` que represente a velocidade média dos voos (distância/tempo).
+3.2. Adicione uma coluna `delayed` que contenha informações se um voo teve atraso (tempo de atraso maior que 0) ou não.
+
+### Exercício 4: Agregação de Dados
+
+4.1. Calcule o tempo médio de atraso por companhia aérea.
+4.2. Encontre o aeroporto com o maior atraso médio.
+4.3. Qual é o dia da semana com mais voos atrasados?
+
+### Exercício 5: Visualizações com ggplot2
+
+5.1. Crie um gráfico de barras que mostre o número de voos por companhia aérea.
+5.2. Crie um histograma que represente a distribuição dos atrasos de partida.
+
+### Exercício 6: Junção de Dados
+
+6.1. Crie um novo _dataframe_ que una os dados dos voos com informações sobre as companhias aéreas (`airlines`).
+6.2. Faça o mesmo com os dados dos aeroportos (`airports`).
+6.3. Combine os dados de voos com informações sobre os aviões (`planes`).
+
+### Exercício 7: Filtragem de Dados
+
+7.1. Filtre os voos que tiveram atraso na partida e chegaram atrasados no destino.
+7.2. Encontre voos que partiram do aeroporto JFK (John F. Kennedy International) para Los Angeles (LAX) e tiveram atraso na partida.
+
+### Exercício 8: Reshaping os Dados
+
+8.1. Use a função `pivot_longer` para transformar as colunas de atraso (`dep_delay`, `arr_delay`) em uma única coluna de atraso.
+8.2. Use a função `pivot_wider` para transformar a coluna `carrier` em colunas separadas para cada companhia aérea.
+
+### Exercício 9: Análise Temporal
+
+9.1. Crie um gráfico de linhas que mostre a variação do número de voos ao longo dos meses de 2013.
+9.2. Analise se existe uma tendência sazonal nos atrasos de partida ao longo do ano.
+
+### Exercício 10: Estatísticas Descritivas
+
+10.1. Calcule a distância média dos voos por aeroporto de origem.
+10.2. Encontre a companhia aérea com o maior atraso médio na chegada.
+10.3. Calcule a distância total de voo para cada companhia aérea.
+
+Bom trabalho!

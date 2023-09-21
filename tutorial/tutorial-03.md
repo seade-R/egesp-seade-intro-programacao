@@ -29,7 +29,9 @@ jornal <- c("El país",
             "O Estado de São Paulo")
 ```
 
-Execute a linha do vetor criado. Se você criou corretamente o vetor `jornal`, então nada aconteceu na tela do Console, ou seja, nenhum output foi impresso. Isso se deve ao fato de que criamos um novo **objeto**, chamado "jornal" e **atribuímos** a ele os valores coletados sobre os nomes dos veículos nos quais coletamos as notícias. O símbolo de **atribuição** em R é `<-`, como vimos anteriormente. Note que o símbolo lembra uma seta para a esquerda, indicando que o conteúdo do vetor será armazenado no objeto `jornal`.
+Execute a linha do vetor criado. Se você criou corretamente o vetor `jornal`, então nada aconteceu na tela do Console, ou seja, nenhum output foi impresso. Isso se deve ao fato de que criamos um novo **objeto**, chamado "jornal" e **atribuímos** a ele os nomes dos veículos nos quais coletamos as notícias. O símbolo de **atribuição** em R é `<-`, como vimos anteriormente. Note que o símbolo lembra uma seta para a esquerda, indicando que o conteúdo do vetor será armazenado no objeto `jornal`.
+
+DICA: O atalho ALT + - cria no script um sinal de atribuição (<-). 
 
 **Objetos** não são nada mais do que um nome usado para armazenar dados na memória RAM (temporária) do seu computador. No exemplo acima, `jornal` é o objeto e o vetor é a informação armazenada. Uma vez criado, o objeto está disponível para ser usado novamente, pois ele ficará disponível no **Environment** (ambiente). Veremos adiante que podemos criar um *data frame* a partir de vários vetores armazenados na memória. Especificamente no RStudio, os objetos ficam disponíveis no painel **Environment** (que provavelmente está no canto direito superior da sua tela).
 
@@ -54,30 +56,36 @@ Obs: evite nomear os objetos com nomes de funções já existentes em R, como `d
 
 ``` r
 # Data
+
 data_noticia <- c("07/08/2020",
                   "06/08/2020",
                   "10/08/2020",
                   "10/08/2020")
 
 # Titulo
+
 titulo <- c("Livros de Philip Roth voltam para 'casa', a biblioteca onde se formou leitor, em Newark",
             "Redução da biodiversidade favorece o surgimento de novas pandemias",
             "Mercado melhora previsão para o PIB em 2020 e passa a estimar queda de 5,62%",
             "Governo de São Paulo lança indicador para acompanhar retomada econômica no Estado")
 
 # Autor
+
 autor <- c("Pablo Guimón",
            "Daniel Mediavilla",
            "Eduardo Rodrigues",
            "João Ker")
 
 # Numero de caracteres
+
 caracteres <- c(10977, 5017, NA, 2561)
 
 # Contem a palavra investimento
+
 investimento <- c(0, 1, 1, 0)
 
 # Contem Sao Paulo
+
 sp <- c(FALSE, NA, FALSE, TRUE)
 ```
 
@@ -92,14 +100,18 @@ ls()
 Mais alguns detalhes importantes a serem notados no exemplo acima:
 
 -   O formato da data foi arbitrariamente escolhido. Por enquanto, R entende apenas como texto o que foi inserido. Aprenderemos a trabalhar com datas em outro momento utilizando o pacote `lubridate`, que é parte do `tidyverse`.
+
 -   Os textos foram inseridos entre aspas. Os números, não. Se números forem inseridos com aspas, R os entenderá como texto também e, nesse caso, você não poderá fazer operações matemáticas com essa informação.
+
 -   Além de textos e números, temos no vetor `sp` valores *lógicos*, `TRUE` e `FALSE`, que podem ser abrevidados para `T` e `F`. *logical* é um tipo de dado do R (e é particularmente importante).
+
 -   O texto do primeiro título que coletei contém aspas. Como colocar aspas dentro de aspas sem fazer confusão? Se você delimitou o texto com aspas duplas, use aspas simples no texto e vice-versa.
+
 -   O que são os `NA` no meio do vetor `caracteres` e `sp`? Quando coletei as notícias, não contei os caracteres da terceira notícia e não notei se a segunda notícia mencionava São Paulo. `NA` é o símbolo do R para **missing values**. Temos que lidar com eles o tempo todo na preparação de dados para análise.
 
 ## Criando um data frame a partir de vetores:
 
-*data frames* são um conjunto de vetores reunidos e na vertical. Se você introduziu os valores em cada vetor na ordem correta de coleta dos dados, então eles podem ser **pareados** e **combinados**. No meu exemplo, a primeira posição de cada vetor contém as informações sobre a primeira notícia, a segunda posição sobre a segunda notícia e assim por diante.
+*Data frames* são um conjunto de vetores reunidos na vertical. Se você introduziu os valores em cada vetor na ordem correta de coleta dos dados, então eles podem ser **pareados** e **combinados**. No meu exemplo, a primeira posição de cada vetor contém as informações sobre a primeira notícia, a segunda posição sobre a segunda notícia e assim por diante.
 
 Obviamente, se estiverem pareados, os vetores devem ter o mesmo comprimento. Há uma função bastante útil para checar o comprimento:
 
@@ -125,17 +137,21 @@ Usando as funções que aprendemos na aula anterior, podemos inspecionar o novo 
 # 6 primeiras (e unicas, no caso) linhas
 head(dados)
 
+
 # Estrutura do data frame
+
 str(dados)
 
 # Nome das variaveis (colunas)
+
 names(dados)
 
 # Dimensoes do data frame
+
 dim(dados)
 ```
 
-O que é, afinal, um data frame? É um conjunto de vetores de mesmo tamanho e pareados dispostos na vertical. Formalmente, é uma *lista* de vetores de mesmo tamanho e pareados.
+O que é, afinal, um data frame? É um conjunto de vetores pareados de mesmo tamanho e dispostos na vertical. Formalmente, é uma *lista* de vetores pareados de mesmo tamanho.
 
 # Tipos de dados em R e vetores
 
@@ -143,7 +159,7 @@ Há diversos tipos de dados que podem ser armazenados em vetores: *doubles*, *in
 
 ## Doubles
 
-*doubles* são utilizados para guardar números. Por exemplo, o vetor `caracteres`, que indica o número de caracteres em cada texto, é do tipo *double*. Vamos repetir o comando que cria este vetor (agora sem o NA, que foi substituído pelo valor coletado):
+*doubles* são utilizados para guardar números. Por exemplo, o vetor `caracteres`, que indica o número de caracteres em cada texto, é do tipo *double*. Vamos repetir o comando que cria este vetor (agora sem o 'NA', que foi substituído pelo valor coletado):
 
 ``` r
 caracteres <- c(10977, 5017, 2980, 2561)
@@ -196,7 +212,7 @@ Veremos em momento oportuno que os objetos em R também têm um atributo denomin
 
 # Voltando ao zero - O básico do R
 
-Começamos em data frames, passamos por vetores e agora "voltaremos ao zero"" para aprender sobre os aspectos elementares da linguagem R.
+Começamos em data frames, passamos por vetores e agora "voltaremos ao zero" para aprender sobre os aspectos elementares da linguagem R.
 
 ## Operações matemáticas em R
 
@@ -273,7 +289,7 @@ z2 <- x + y
 z3 <- ((x / 5 ) * 9) + z1
 ```
 
-Veja que na última operação utilizamos diversos parênteses. As regras para o uso de parênteses em R nas operações matemáticas são semelhantes às da aritmética "de papel e caneta". Os parênteses são executados sempre de dentro para fora. Aliás, essa regra vale em geral no R, ou seja, para aplicação de quaisquer funções, e não apenas para as operações matemáticas.
+Note que na última operação utilizamos diversos parênteses. As regras para o uso de parênteses em R nas operações matemáticas são semelhantes às da aritmética "de papel e caneta". Os parênteses são executados sempre de dentro para fora. Aliás, essa regra vale em geral no R, ou seja, para aplicação de quaisquer funções, e não apenas para as operações matemáticas.
 
 ## Classes dos vetores atômicos
 
@@ -312,10 +328,12 @@ class(vetor_logico)
 Detalhes para observarmos:
 
 -   No caso do vetor numérico, não importa se usamos números com casas decimais ou negativos.
--   Para vetores do tipo "character", não importa o que há dentro das aspas. Tudo é texto. E não importa se utilizamos _aspas simples ou duplas_.
--   Você pode usar `TRUE` ou `T`, `FALSE` ou `F`, alternadamente. R entende o que você quer dizer. Lembre-se de sempre usar maiúsculas para informações do tipo logical'.
 
-## Exercícios:
+-   Para vetores do tipo "character", não importa o que há dentro das aspas. Tudo é texto. E não importa se utilizamos _aspas simples ou duplas_.
+
+-   Você pode usar `TRUE` ou `T`, `FALSE` ou `F`, alternadamente. R entende o que você quer dizer. Lembre-se de sempre usar maiúsculas para informações do tipo _logical_.
+
+## Diferentes tipos de dados e classes
 
 Qual é a classe dos vetores abaixo? Imprima o vetor com `print()` e tente advinhar. Use a função `class()` para descobrir a resposta.
 
@@ -353,7 +371,7 @@ Veja que as operações são aplicadas a todos os elementos do vetor sem precisa
 
 ## Operações entre vetores
 
-Criemos dois vetores, cada um registrando os gastos com sorvete e café de um pessoa de segunda a sexta, na ordem:
+Criemos dois vetores, cada um registrando os gastos com sorvete e café de uma pessoa de segunda a sexta, na ordem:
 
 ``` r
 cafe <- c(12, 4, 0, 8, 12)
@@ -497,3 +515,5 @@ litros_cafe[selecao]
 ```
 
 Para vetores pequenos, o procedimento adotado para gerar subconjuntos parece desnecessariamente trabalhoso. Mas imagine agora que você queira selecionar todos os municípios que atendam a determinada condição -- por exemplo, menos de 50 mil habitantes. Com uma variável (população) você pode gerar um vetor de seleção que permite gerar o subconjunto desejado de um _data frame_ completo. Nesse caso, com uma única linha de código, você conseguiria resolver seu problema!
+
+## Exercícios

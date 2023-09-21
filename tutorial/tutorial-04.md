@@ -2,7 +2,7 @@
 
 ## Operadores relacionais
 
-Uma das especialidades do computador é verificar se proposições simples são verdadeiras ou falsas. __Operadores relacionais__ servem para verificar se objetos são iguais, diferentes, maiores ou menores. São seis operadores relacionais e a tabela abaixo apresenta os seus símbolos.
+Uma das especialidades do computador é verificar se proposições simples são verdadeiras ou falsas. __Operadores relacionais__ servem para verificar se objetos são iguais, diferentes, maiores ou menores, etc. São seis operadores relacionais e a tabela abaixo apresenta os seus símbolos.
 
   | Operador       | Símbolo |
   | -------------- |:-------:| 
@@ -185,7 +185,7 @@ print(x)
 
 A condição que o `if` deve atender vem entre parênteses. A instrução a ser atendida caso a cláusula seja verdadeira vem dentro das chaves. Aliás, é boa prática (na maioria dos casos) abrir as chaves em uma linha, escrever as instruções em outra, e fechar as chaves na linha seguinte ao final das instruções, como no exemplo. Também é boa prática "indentar", ou seja, desalinhar à esquerda com espaços, as instruções do restante do código. Falaremos sobre "estilo" em algum momento do curso. Por enquanto, apenas observe e não se assuste. Diferentemente de outras linguagens, R não requer identação para funcionar corretamente.
 
-Vamos agora trabalhar com um exemplo diferente. No Plano SP, que o governo do Estado de São Paulo elaborou para reabertura durante a pandemia, a taxa ocupação de leitos de UTI é um dos indicadores que determina o estágio de abertura das cidades e Departamentos Regionais de Saúde do Estado (DRS). Em nosso exemplo fictício, se a ocupação de leitos estiver acima de 80%, o DRS entra na fase vermelha.
+Vamos agora trabalhar com um exemplo diferente. No Plano SP, que o governo do Estado de São Paulo elaborou para reabertura durante a pandemia, a taxa ocupação de leitos de UTI é um dos indicadores que determina o estágio de abertura das cidades e dos Departamentos Regionais de Saúde do Estado (DRS). Em nosso exemplo fictício, se a ocupação de leitos estiver acima de 80%, o DRS entra na fase vermelha.
 
 ``` r
 ocupacao_leitos_uti <- 84
@@ -209,7 +209,7 @@ if (ocupacao_leitos_uti >= 80){
 print(status)
 ```
 
-Por fim, vamos imaginar um regra mais complexa. Se a taxa de ocupação for maior que 80%, então o DRS estará na fase vermelha. Se estiver entre 80% (exclusive) e 70% (inclusive), o `status` será igual a "amarelo". Com menos de 70% o status será "verde".
+Por fim, vamos imaginar uma regra mais complexa. Se a taxa de ocupação for maior que 80%, então o DRS estará na fase vermelha. Se estiver entre 80% (exclusive) e 70% (inclusive), o `status` será igual a "amarelo". Com menos de 70% o status será "verde".
 
 Veja como traduzir a regra acima em código usando `if`, `else if` e `else`.
 
@@ -272,7 +272,7 @@ Veja que temos agora um código "aninhado", pois colocamos um condicional dentro
 
 ## Repetindo tarefas - `for` loop
 
-E se em vez de repetirmos uma tarefa até atingir uma condição já soubermos quantas vezes queremos repeti-la? Neste caso, podemos usar o `for` loop. 
+E se em vez de repetirmos uma tarefa até atingir uma condição, nós já soubermos quantas vezes queremos repeti-la? Neste caso, podemos usar o `for` loop. 
 
 O loop não será mais do tipo "enquanto (condição) faça (instrução)" mas "para todo i 'em' a até b faça (instrução)". Veja como o exemplo de contar até 42 ficaria com `for` loop:
   
@@ -310,7 +310,7 @@ for (regiao in vetor_regioes){
 }
 ```
 
-Se você já trabalhou com pesquisas repetidas com alguma periodicidade, você certamente teve de abrir diversos arquivos semelhantes, um para cada período. Ou ainda, se você já obteve informações na internet talvez tenha precisado "passar" por diversas páginas semelhantes. Loops resolvem problemas desse tipo: eles repetem procedimentos variando apenas um índice. Aprender a usar loops economiza um tempo enorme, pois conseguimos automatizar tarefas ou, pelo menos, escrever um código mais curto para aplicar o mesmo comando inúmeras vezes.
+Se você já trabalhou com pesquisas repetidas com alguma periodicidade, você certamente teve de abrir diversos arquivos semelhantes, um para cada período. Ou ainda, se você já obteve informações na internet talvez tenha precisado "passar" por diversas páginas semelhantes. _Loops_ resolvem problemas desse tipo: eles repetem procedimentos variando apenas um índice. Aprender a usar _loops_ economiza um tempo enorme, pois conseguimos automatizar tarefas ou, pelo menos, escrever um código mais curto para aplicar o mesmo comando inúmeras vezes.
 
 Vamos parar por aqui com _loops_ e voltaremos a eles para fazermos exercícios.
 
@@ -352,7 +352,8 @@ quadrado(17)
 
 Seguindo a mesma lógica:
 
-- Crie uma função que recebe um valor em reais e retorna o valor em dólares (use a 3.9 como cotação do dólar)
+- Crie uma função que recebe um valor em reais e retorna o valor em dólares (use 4.85 como cotação do dólar)
+
 - Crie uma função que recebe um valor em reais e uma cotação do dólar e retorna o valor em dólares (ou seja, que contém 2 parâmetros).
 
 ## Paramos por aqui
