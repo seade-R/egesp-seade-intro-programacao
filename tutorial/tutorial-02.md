@@ -1,4 +1,4 @@
-# A gramática do `dplyr`: mutate, summarise e group_by
+# A gramática do `dplyr`: `mutate()`, `summarise()` e `group_by()`
 
 ## Novos verbos e dados de survey
 

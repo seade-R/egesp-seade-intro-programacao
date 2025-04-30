@@ -1,4 +1,4 @@
-# `janitor`, `factor` e tabelas simples na gramática do dplyr
+# `janitor`, `factor` e tabelas simples na gramática do `dplyr`
 
 No [tutorial anterior](/tutorial/tutorial-06.md) vimos que a produção de tabelas na gramática do tidyverse pode ser feita utilizando o verbo `group_` acompanhado de `count()` ou `summarise()`. As tabelas de frequência eram sempre novos data frames, menores, compactados.
 

@@ -24,7 +24,7 @@ install.packages('tidyverse')
 
 Pronto. Seu computador (ou seu usuário no servidor RStudio) tem o pacote `tidyverse` instalado (e ele contém o pacote `dplyr`).
 
-Lembre-se de colocar aspas no nome do pacote, pois, até agora, `tidyverse` é um nome desconhecido para a linguagem R no seu computador. E qualquer texto arbitrário em R deve vir entre aspas, não importa se simples ou duplas.
+Lembre-se de colocar aspas no nome do pacote, pois, até agora, `tidyverse` é um nome desconhecido para a linguagem R no seu computador. E qualquer texto arbitrário em R deve vir entre aspas, não importa se simples ('') ou duplas ("").
 
 A partir da instalação, sempre que quisermos utilizar o pacote `tidyverse` devemos carregá-lo com a função `tidyverse`. Você deve fazer isso toda vez que abrir o RStudio. É importante notar que você só precisará instalar os pacotes uma vez em sua máquina ou em seu servidor remoto, mas precisará carregá-los toda vez que for iniciar uma nova sessão.
 
@@ -34,7 +34,7 @@ library(tidyverse)
 
 Pronto!
 
-Antes de avançar, treine com mais outro pacote: `magrittr`, que é um pacote de operadores em R, que ajudam a estruturar seu código. Não vamos usar este pacote agora, mas ele serve para testarmos os procedimentos de instalação.
+Antes de avançar, treine com outro pacote: `haven`, que é uma biblioteca em R para importar e exportar arquivos de dados externos, como aqueles produzidos pelo SPSS, Stata e SAS. Não vamos utilizá-lo imediatamente, mas ele é útil para testarmos os procedimentos de instalação.
 
 # Introdução ao pacote `dplyr`: rename, select e filter
 
@@ -71,7 +71,7 @@ Por outro lado, em cada coluna há somente elementos de um tipo. Por exemplo, h�
 
 Se destacamos uma coluna do nosso data frame, temos um **vetor**. Por exemplo, a variável "População" pode ser representada da seguinte maneira: {693.867, 812.086, 151.244, 404.477}. Um data frame é um conjunto de variáveis (vetores!) dispostos na vertical e combinados um ao lado do outro de forma pareada.
 
-Nota: guarde bem a definição de data frame acima, pois data frame é a principal classe de objetos no uso quotidiano da linguagem.
+**Nota**: guarde bem a definição de data frame acima, pois data frame é a principal classe de objetos no uso quotidiano da linguagem.
 
 Data frame e vetores são **objetos** na linguagem R.
 
@@ -95,13 +95,13 @@ Note que você pode escolher um arquivo na pasta local ou um URL, ou seja, um ar
 
 Cole o URL no campo "File/URL" e clique em 'Update'.
 
-A seguir, no campo "Name" digite 'piesp' (minísculo), que é um nome arbitrário que daremos aos nossos dados.
+A seguir, no campo "Name" digite 'piesp' (minúsculo), que é um nome arbitrário que daremos aos nossos dados.
 
 Finalmente, no campo "Delimiter" escolha 'Semicolon' (Ponto e vírgula). Clique em "Import".
 
 Esses são os únicos parâmetros que precisamos alterar ou informar para abrir a PIESP. Para outras bases pode ser necessário fazer outras modificações.
 
-Se tiver dúvidas, você pode assistir a um vídeo sobre como utilizar o botão 'Import Dataset': <https://www.youtube.com/watch?v=6y-9%60h7okH4>
+Se tiver dúvidas, você pode assistir a um vídeo (em inglês) sobre como utilizar o botão 'Import Dataset': <https://www.youtube.com/watch?v=WWY8VPh6ryo>. Alternativamente, veja este vídeo, em português, que ensina como importar arquivos Excel (lembre-se estamos usando CSVs!) para abrir arquivos através da interface de usuário: <https://www.youtube.com/watch?v=U6ksXvvY6Q0>.
 
 ## Abrindo dados em R (com script)
 
@@ -119,7 +119,7 @@ Repetindo o procedimento, para abrir os dados da PIESP basta fazer:
 piesp <- read_csv2('https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv')
 ```
 
-Em R, as funções "read." são as funções de abertura de dados do `base` e as funções *read* são as análogas do pacote `readr`, parte do `tidyverse`. Há funções *read* para abrir todos os tipos de dados, de arquivos de texto a páginas em HTML.
+Em R, as funções "read." são as funções de abertura de dados do `base` e as funções *read_* são as análogas do pacote `readr`, parte do `tidyverse`. Há funções *read_* para abrir todos os tipos de dados, de arquivos de texto a páginas em HTML.
 
 No nosso caso, utilizamos a função `read_csv2()` para abrir um arquivo de texto cujos valores das colunas são separados por ponto e vírgula. Veremos no futuro e com mais calma outras possibilidades para carregar dados em R.
 
@@ -197,6 +197,8 @@ Podemos fazer comentários no meio do código. Basta usar `#` e tudo que seguir 
 names(piesp)
 
 names(piesp) # Repetindo o comando acima com comentario em outro lugar
+
+# Se colocamos o comentário a esquerda deixamos de rodar a linha toda. O código a seguir não será rodado: names(piesp)
 ```
 
 Comentários são extremamente úteis para documentar seu código. Use e abuse. Documentar é parte de programar e você deve pensar nas pessoas com as quais vai compartilhar o código e no fato de que com certeza não se lembrará do que fez em pouco tempo (garanto, você vai esquecer).
@@ -241,7 +243,7 @@ Vamos agora renomear os dados.
 
 ## NA quer dizer 'missing'
 
-O símbolo `NA` em R quer dizer valor faltante (missing value). Na coluna de valores dos investimentos há diversos NA. Isso quer dizer que não temos a informação daquela variável para aquela observação.
+O símbolo `NA` (_Not Avaliable_) em R quer dizer valor faltante (_missing value_). Na coluna de valores dos investimentos há diversos `NA`. Isso quer dizer que não temos a informação daquela variável para aquela observação.
 
 ## Renomeando variáveis
 
@@ -276,7 +278,7 @@ piesp <- piesp %>%
          tipo = `Tipo Investimento`)
 ```
 
-Usando o operador %\>%, denominado *pipe*, retiramos de dentro da função `rename` o banco de dados cujas variáveis serão renomeadas. As quebras de linha depois do %\>% e dentro da função `rename` são opcionais. Porém, o padrão é 'verticalizar o código' e colocar os 'verbos' (no caso, o verbo `rename`) à esquerda, o que torna sua leitura mais confortável.
+Usando o operador `%>%`, denominado *pipe*, retiramos de dentro da função `rename()` o banco de dados cujas variáveis serão renomeadas. As quebras de linha depois do `%>%` e dentro da função `rename()` são opcionais. Porém, o padrão é 'verticalizar o código' e colocar os 'verbos' (no caso, o verbo `rename()`) à esquerda, o que torna sua leitura mais confortável.
 
 Compare com o código que havíamos executado anteriormente:
 
@@ -326,13 +328,24 @@ piesp <- piesp %>%
 
 Agora nosso data frame contém apenas "ano", "valor" e "tipo". As demais colunas foram descartadas.
 
+E se quisermos selecionar todas as colunas EXCETO uma? Para isso, podemos incluir o sinal negativo ('-') antes da variável que queira excluir:
+
+``` r
+piesp %>%
+  select(-ano,
+         -valor
+         )
+```
+
+Note que podemos excluir mais de uma variável simultaneamente.
+
 ## Operador %>% para "emendar" tarefas
 
 O que o operador **pipe** faz é simplesmente colocar o primeiro argumento da função (no caso acima, o *data frame*), fora e antes da própria função. Ele permite lermos o código (informalmente) da seguinte maneira: "pegue o data frame x e aplique a ele esta função". Veremos abaixo que podemos fazer uma cadeia de operações ("pipeline"), que pode ser lida (informalmente) como: "pegue o data frame x e aplique a ele esta função, e depois essa, e depois essa outra, etc".
 
 A grande vantagem de trabalharmos com o operador `%>%` é não precisar repetir o nome do *data frame* diversas vezes ao aplicarmos a ele um conjunto de operações.
 
-Vejamos agora como usamos o operador `%\>%` para "emendar" tarefas, começando da abertura dos dados, passando pela ação de renomear as variáveis e, enfim, pela seleção de variáveis. Note que o primeiro input (entrada de dados) é o url da base de dados e, que, uma vez carregada, vai sendo transformada a cada novo verbo.
+Vejamos agora como usamos o operador `%>%` para "emendar" tarefas, começando da abertura dos dados, passando pela ação de renomear as variáveis e, enfim, pela seleção de variáveis. Note que o primeiro input (entrada de dados) é o url da base de dados e, que, uma vez carregada, vai sendo transformada a cada novo verbo.
 
 ``` r
 piesp <- read_csv2('https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/piesp.csv') %>% 
@@ -376,23 +389,23 @@ Outra maneira de escrever a mesma condição seria:
 
 ``` r
 piesp1518 <- piesp %>% 
-  filter(ano >= 2015 & ano <= 2018)
+  filter(ano > 2015 & ano <= 2018)
 ```
 
-Neste caso, utilizamos `&`, que é o símbolo da conjunção "e". Dizemos, então, que queremos filtrar os anos maiores ou iguais a 2015 e menores ou iguais a 2018.
+Neste caso, utilizamos `&`, que é o símbolo da conjunção "e". Dizemos, então, que queremos filtrar os anos maiores ou iguais a 2016 e menores ou iguais a 2018.
 
 Vamos supor que queremos estabelecer agora condições para a seleção de linhas a partir de duas variáveis. Por exemplo, queremos apenas os investimentos cujo tipo é 'Implantacao' para os anos de 2016 a 2018. Novamente, precisaremos da conjunção `&`.
 
 ``` r
 piesp1518_implantacao <- piesp %>% 
-  filter(ano >= 2015 & ano <= 2018 & tipo == 'Implantacao')
+  filter(ano >= 2016 & ano <= 2018 & tipo == 'Implantacao')
 ```
 
 Ao usar duas variáveis diferentes para filter e a conjunção "e", podemos escrever o comando separando as condições por vírgula e dispensar o operador `&` (a quebra de linha é opcional):
 
 ``` r
 piesp1518_implantacao <- piesp %>% 
-  filter(ano >= 2015,
+  filter(ano >= 2016,
          ano <= 2018,
          tipo == 'Implantacao')
 ```

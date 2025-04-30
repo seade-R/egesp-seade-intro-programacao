@@ -2,7 +2,7 @@
 
 Bem vindas e bem vindos ao curso de _Introdução à Programação e Ciência de Dados para a Gestão Pública_ do SEADE.
 
-Este é o repositório de instruções, tutoriais e atividades do curso. O material foi preparado para a primeira versão do curso por [Leonardo Barone](https://github.com/leobarone). Pequenas revisões foram feitas por [Thandara Santos](https://github.com/thandarasantos).
+Este é o repositório de instruções, tutoriais e atividades do curso. O material foi preparado para a primeira versão do curso por [Leonardo Barone](https://github.com/leobarone). Pequenas revisões foram feitas por [Thandara Santos](https://github.com/thandarasantos) e e [Lucas Mingardo](https://github.com/lumardi).
 
 ## Informações básicas
 
@@ -10,6 +10,7 @@ Este é o repositório de instruções, tutoriais e atividades do curso. O mater
 
 * **Primeira edição**: Leonardo Barone
 * **Segunda edição**: Thandara Santos
+* **Terceira edição**: Lucas Mingardo
 
 ## Apresentação
 
@@ -23,9 +24,9 @@ O curso oferece uma iniciação à lógica de programação e ao uso da linguage
 
 [Aula 03](/class/class-03.md): **Tidyverse para manipulação de dados** - No terceiro encontro, faremos o camninho de volta ao nosso ponto de partida do curso: a manipulação de dados com a gramática do *dplyr*. Exploraremos agora aspectos diversos da manipulação de dados com mais profundidade.
 
-[Aula 04](/class/class-03pt2.md): **ggplot2: Gramática de gráficos** - Na segunda parte do nosso terceiro dia de curso, seguiremos com a produção de tabelas em R, agora explorando o pacote *janitor*. A seguir, e considerando que temos muitos recursos para manipular dados em R, veremos como produzir gráficos com a gramática de gráficos do pacote *ggplot2*.
+[Aula 04](/class/class-04.md): **ggplot2: Gramática de gráficos** - Na segunda parte do nosso terceiro dia de curso, seguiremos com a produção de tabelas em R, agora explorando o pacote *janitor*. A seguir, e considerando que temos muitos recursos para manipular dados em R, veremos como produzir gráficos com a gramática de gráficos do pacote *ggplot2*.
 
-[Aula 05](/class/class-04.md): **Bases de dados relacionais** - Neste último encontro veremos como utilizar a gramática do *dplyr* para trabalharmos com dados relacionais. Finalmente, em um tutorial com vídeos, veremos maneiras simples de integrarmos R e Microsoft Power BI, uma ferramenta bastante utilizada na gestão pública.
+[Aula 05](/class/class-05.md): **Bases de dados relacionais** - Neste último encontro veremos como utilizar a gramática do *dplyr* para trabalharmos com dados relacionais. Finalmente, em um tutorial com vídeos, veremos maneiras simples de integrarmos R e Microsoft Power BI, uma ferramenta bastante utilizada na gestão pública.
 
 ## Referências bibliográficas
 
@@ -37,3 +38,5 @@ O curso oferece uma iniciação à lógica de programação e ao uso da linguage
 -   James, Gareth; Witten, Daniela; Hastie, Trevor; e Tibshirani, Rob (2021). _An Introduction to Statistical Learning with Applications in R_. 2 ed. Ed. Springer. Disponível gratuitamente [aqui](https://hastie.su.domains/ISLR2/ISLRv2_website.pdf).
 
 [The Big Book of R](https://www.bigbookofr.com/index.html) é um livro sobre os muitos livros gratuitos em R que você encontra na internet sobre temas variados e vale muito a pena dar uma olhada.
+
+[The R Graph Library](https://r-graph-gallery.com/) é uma coleção de gráficos feitos em R, sempre com o código reprodutível disponível. Ótima fonte para pensar como melhor criar visualizações de seus dados. A galeria tem um foco no tidyverse e ggplot2.

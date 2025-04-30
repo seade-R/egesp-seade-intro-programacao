@@ -268,7 +268,7 @@ while (contador <= 42) {
 }
 ```
 
-Veja que temos agora um código "aninhado", pois colocamos um condicional dentro de um loop. Novamente, combinar estruturas de código é mais um problema de lógica do que de linguagem e, se você consegue fazer no papel, consegue traduzir para R.
+Veja que temos agora um código "aninhado" (em inglês, _nested_), pois colocamos um condicional dentro de um loop. Novamente, combinar estruturas de código é mais um problema de lógica do que de linguagem e, se você consegue fazer no papel, consegue traduzir para R.
 
 ## Repetindo tarefas - `for` loop
 

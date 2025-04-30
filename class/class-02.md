@@ -27,3 +27,6 @@ No primeiro encontro trabalhamos com a gramática do pacote *dplyr* para manipul
 ## Dica de Leitura
 
 Uma boa leitura para acompanhar este pedaço do curso são as partes II e III do livro [*Hands-on Programming With R*](https://rstudio-education.github.io/hopr/), de Garret Grolemund.
+
+Em seguida, para aprender boas práticas na redação de códigos é sugerido o [capítulo 4](https://r4ds.had.co.nz/workflow-basics.html) do livro *R for Data Science*.
+

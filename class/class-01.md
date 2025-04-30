@@ -2,7 +2,7 @@
 
 ## Objetivos Gerais
 
-Neste primeiro encontro vamos conhecer o ambiente de programação de R e o software RStudio, bem como seu uso no servidor RStudio do SEADE. A seguir, começaremos o estudo da linguagem R pelo seu uso mais comum: a manipulação de dados. Vamos nos habituar à linguagem da melhor maneira possível, usando.
+Neste primeiro encontro vamos conhecer o ambiente de programação de R e o software RStudio, bem como seu uso no servidor RStudio do SEADE. A seguir, começaremos o estudo da linguagem R pelo seu uso mais comum: a manipulação de dados. Vamos nos habituar à linguagem da melhor maneira possível, usando-a.
 
 ## Roteiro
 
@@ -29,4 +29,12 @@ Traga seus desafios para nossos momentos de discussão coletiva.
 Um dos principais livros para aprender a programar em R é [_Hands-on Programming With R_](https://rstudio-education.github.io/hopr/), de Garret Grolemund. Após o encontro de hoje, você pode ler o Prefácio e os Capítulos 1 e 2, que compõem a Part I.
 
 Durante a leitura, não se preocupe se você sentir dificuldade em algum tópico. Os primeiros tutoriais que faremos no curso lidam com a maior parte dos assuntos do livro.
+
+
+## Opcional
+
+**Uma forma eficiente de aprender línguas:** aprender uma nova língua (inclusive linguagens de programação!) pode parecer uma tarefa difícil ou intimidadora no começo. Entretanto, usando a lógica da eficiência de Pareto, você pode rapidamente dominar o essencial. Para entender melhor essa abordagem, confira os vídeos [Fastest Way to Learn ANY Programming Language: 80-20 rule](https://www.youtube.com/watch?v=14BL_FwQCpM&si=CcEPRASj438IfAXi) e [Learn Any Programming Language In 3 Hours!](https://www.youtube.com/watch?v=7SKVQyA4TjU).  
+
+Lembre-se: o fundamental é dominar bem o núcleo básico da língua, usando-o como base para expandir gradualmente seu conhecimento através da prática contínua.
+_Para pensar_: caso você queira, no final da aula, veja este [tutorial](/tutorial/tutorial-atribuicao-variavel.md) para entender por que preferimos em R o símbolo '<-' para a criação de objetos, ao invés de '='. 
 

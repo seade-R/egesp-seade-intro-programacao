@@ -12,7 +12,7 @@ Vamos carregar novamente os dados da pesquisa SEADE Investimentos:
 
 ``` r
 library(tidyverse)
-url_piesp <- "https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/main/data/piesp.csv"
+url_piesp <- "https://raw.githubusercontent.com/thandarasantos/egesp-seade-intro-programacao/main/data/piesp.csv"
 piesp <- read_csv2(url_piesp)
 ```
 
@@ -64,7 +64,7 @@ Vamos produzir agora uma tabela com contagem de investimentos por CNAE e ordenad
 piesp %>% 
   group_by(cnae) %>% 
   count() %>% 
-  arrange(-n) 
+  arrange(desc(n)) 
 ```
 
 Voltaremos a falar sobre tabelas. Vamos parar agora para fazer algumas transformações na variável **cnae**.
@@ -89,7 +89,7 @@ Vamos produzir uma tabela com a nova variável:
 piesp %>% 
   group_by(divisao) %>% 
   count() %>% 
-  arrange(-n) 
+  arrange(desc(n)) 
 ```
 
 Encontramos 76 divisões nos dados de investimentos. Vamos restringir nossa análise às duas divisões com mais investimentos, 47 (comércio varejista) e 56 (alimentação). Criaremos, assim, uma nova versão dos dados apenas com as linhas de investimentos dessas duas divisões. Note que precisamos fazer uma nova atribuição para gerar essa cópia reduzida dos nossos dados.
@@ -148,7 +148,7 @@ piesp_2 %>%
             maximo = max(valor, na.rm = T))
 ```
 
-Como temos que repetir muitas vezes o argumento de exclusão de missings, o mais simples é refazermos o código usando `filter` para eliminarmos os NAs da variável **valor** antes de fazermos o agrupamento:
+Como temos que repetir muitas vezes o argumento de exclusão de missings, o mais simples é refazermos o código usando `filter()` para eliminarmos os NAs da variável **valor** antes de fazermos o agrupamento:
 
 ``` r
 piesp_2 %>% 
@@ -232,6 +232,17 @@ Não precisamos trabalhar apenas com contagens ao combinarmos duas ou mais vari�
 piesp_2 %>% 
   group_by(divisao_desc, tipo) %>% 
   summarise(media_valor = mean(valor, na.rm = T))
+```
+
+Note que podemos criar quantas variáveis quiser dentro do `summarise()`:
+
+``` r
+piesp_2 %>% 
+  group_by(divisao_desc, tipo) %>% 
+  summarise(media_valor = mean(valor, na.rm = T),
+            mediana_valor = median(valor, na.rm = T),
+            desvio_padrao_valor = sd(valor, na.rm = T)
+  )
 ```
 
 O pivoteamento da tabela para chegarmos a uma variável na margem funciona do mesmo jeito:
