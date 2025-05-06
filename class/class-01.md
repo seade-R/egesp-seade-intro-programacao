@@ -36,5 +36,6 @@ Durante a leitura, não se preocupe se você sentir dificuldade em algum tópico
 **Uma forma eficiente de aprender línguas:** aprender uma nova língua (inclusive linguagens de programação!) pode parecer uma tarefa difícil ou intimidadora no começo. Entretanto, usando a lógica da eficiência de Pareto, você pode rapidamente dominar o essencial. Para entender melhor essa abordagem, confira os vídeos [Fastest Way to Learn ANY Programming Language: 80-20 rule](https://www.youtube.com/watch?v=14BL_FwQCpM&si=CcEPRASj438IfAXi) e [Learn Any Programming Language In 3 Hours!](https://www.youtube.com/watch?v=7SKVQyA4TjU).  
 
 Lembre-se: o fundamental é dominar bem o núcleo básico da língua, usando-o como base para expandir gradualmente seu conhecimento através da prática contínua.
+
 _Para pensar_: caso você queira, no final da aula, veja este [tutorial](/tutorial/tutorial-atribuicao-variavel.md) para entender por que preferimos em R o símbolo '<-' para a criação de objetos, ao invés de '='. 
 
