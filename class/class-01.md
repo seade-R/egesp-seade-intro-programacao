@@ -30,7 +30,7 @@ Um dos principais livros para aprender a programar em R é [_Hands-on Programmin
 
 Durante a leitura, não se preocupe se você sentir dificuldade em algum tópico. Os primeiros tutoriais que faremos no curso lidam com a maior parte dos assuntos do livro.
 
-Nosso curso será inteiramente feito via Github. Caso não esteja acostumado com plataformas de versionamento e compartilhamento de código, recomendo as seguintes leituras adicionais: [Documentação de introdução ao GitHub](https://docs.github.com/pt/get-started), [Noções Básicas de Github](https://docs.github.com/pt/get-started/git-basics). Se preferir algo mais didático, recomendo o seguinte [curso da Microsoft](https://learn.microsoft.com/pt-br/training/modules/intro-to-git/0-introduction).
+Nosso curso será inteiramente feito via Github. Caso não esteja acostumado com plataformas de versionamento e compartilhamento de código, recomendo as seguintes leituras adicionais: [Documentação de introdução ao GitHub](https://docs.github.com/pt/get-started) e [Noções Básicas de Github](https://docs.github.com/pt/get-started/git-basics). Se preferir algo mais didático, recomendo o seguinte [curso da Microsoft](https://learn.microsoft.com/pt-br/training/modules/intro-to-git/0-introduction).
 
 
 ## Opcional
