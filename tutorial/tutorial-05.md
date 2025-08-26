@@ -161,7 +161,7 @@ piesp <- read_delim(url_piesp,
 
 Também podemos usar `locale` para especificar o formato da hora, o formato da data e o encoding do arquivo que estamos lendo.
 
-É comum termos problemas para abrir arquivos que contenham caracteres especiais, pois há diferentes formas do computador transformar 0 e 1 em vogais acentuadas, cecedilha, etc. O "encoding" de cada arquivo varia de acordo com o sistema operacional e aplicativo no qual foi gerado.
+É comum termos problemas para abrir arquivos que contenham caracteres especiais, pois há diferentes formas do computador transformar 0 e 1 em vogais acentuadas, cê-cedilha, etc. O "encoding" de cada arquivo varia de acordo com o sistema operacional e aplicativo no qual foi gerado.
 
 No servidor do SEADE utilizamos como encoding nativo "UTF-8", pois o servidor é Linux. Sistemas MacOS também costumam usar UTF-8. O Windows, por sua vez, costuma usar outros encodings, como 'Latin1'. Vamos abrir um arquivo sobre casos e óbitos relacionados à epidemia de COVID-19 em São Paulo cujo encoding é 'Latin1' sem informar o parâmetro do encoding:
 
