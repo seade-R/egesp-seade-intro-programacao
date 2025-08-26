@@ -188,7 +188,7 @@ Finalmente, você pode escolher "pular"" algumas linhas do arquivo (por exemplo,
 
 Isso pode ser importante se estiver lidando com bases muito grandes. Nesses casos, convém abrir apenas as primeiras para acertar todos os parâmetros da abertura e depois excluir o limite para abrir o arquivo completo.
 
-Recomendo que você leia a ajuda (`?`) das funções com as quais trabalhamos para aprender um pouco mais:
+Recomendo que você leia a ajuda (escreva `?` antes da função desejada) das funções com as quais trabalhamos para aprender um pouco mais:
 
 ``` r
 ?read_delim
