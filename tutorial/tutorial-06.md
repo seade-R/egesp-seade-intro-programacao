@@ -12,7 +12,7 @@ Vamos carregar novamente os dados da pesquisa SEADE Investimentos:
 
 ``` r
 library(tidyverse)
-url_piesp <- "https://raw.githubusercontent.com/thandarasantos/egesp-seade-intro-programacao/main/data/piesp.csv"
+url_piesp <- "https://raw.githubusercontent.com/thandarasantos/seade-intro-programacao/main/data/piesp.csv"
 piesp <- read_csv2(url_piesp)
 ```
 
@@ -134,7 +134,7 @@ piesp_2 %>%
 
 Lembre-se da usar o argumento `na.rm = T` para excluir os missings, pois há muitos deles na variável de valor em milhões de R$ que utilizamos acima.
 
-Dentro do `summarise()` cabem todas as estatísticas descritivas que vimos no [tutorial 3](https://github.com/seade-R/egesp-seade-intro-programacao/blob/main/tutorial/tutorial-03.md):
+Dentro do `summarise()` cabem todas as estatísticas descritivas que vimos no [tutorial 3](https://github.com/seade-R/seade-intro-programacao/blob/main/tutorial/tutorial-03.md):
 
 ``` r
 piesp_2 %>% 
