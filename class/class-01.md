@@ -59,7 +59,6 @@ Escolha uma base de dados utilizada em seu ambiente profissional e realize as se
   - Renomeie variáveis para tornar seus nomes mais claros e informativos.
   - Crie pelo menos duas variáveis derivadas usando mutate().
   - Utilize filter() para criar subconjuntos específicos dos dados.
-  - Produza uma tabela com agrupamentos e resumos usando group_by() e summarise().    
   - Ordene os resultados com a função arrange().
     
 ### Atividade Opcional
