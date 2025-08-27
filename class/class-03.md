@@ -21,7 +21,7 @@ No primeiro encontro trabalhamos com a gramática do pacote `dplyr` para manipul
 
 <!--- 5 - Faremos uma pausa às 12h30, para o almoço. Retornaremos às 13h30 para a segunda parte da aula. --->
 
-5 - Como esta aula está dividida em duas partes, seguiremos com o conteúdo na próxima semana, caso não dê tempo de terminar tudo hoje.
+<!--- 5 - Como esta aula está dividida em duas partes, seguiremos com o conteúdo na próxima semana, caso não dê tempo de terminar tudo hoje. --->
 
 ## Dica de Leitura
 
