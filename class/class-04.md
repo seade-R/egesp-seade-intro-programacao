@@ -12,7 +12,7 @@ A seguir, aprenderemos uma nova 'gramática' de R: a gramática de gráficos do 
 
 1 - Se deixou algum tutorial inacabado até aqui, comece por ele. Caso contrário, prossiga.
 
-2 - Comece pelo tutorial no qual parou: [Tutorial 1](/tutorial/tutorial-01.md), [Tutorial 2](/tutorial/tutorial-02.md), [Tutorial 3](/tutorial/tutorial-03.md), [Tutorial 4](/tutorial/tutorial-04.md), [Tutorial 5](/tutorial/tutorial-05.md) e [Tutorial 6](/tutorial/tutorial-06.md)
+2 - Comece pelo tutorial no qual parou: [Tutorial 1](/tutorial/tutorial-01.md), [Tutorial 2](/tutorial/tutorial-02.md), [Tutorial 3](/tutorial/tutorial-03.md), [Tutorial 4](/tutorial/tutorial-04.md), [Tutorial 5](/tutorial/tutorial-05.md) e [Tutorial 6](/tutorial/tutorial-06.md).
 
 3 - Na sequência, vá para o [Tutorial 7](/tutorial/tutorial-07.md), que apresenta o pacote `janitor` para limpeza de dados e construção de tabelas, simples e de duas entradas.
 
