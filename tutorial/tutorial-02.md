@@ -36,12 +36,12 @@ Cada linha contém, portanto, a infomação de uma combinação de município e 
 
 ## Abrindo os dados de COVID-19 em São Paulo
 
-Sua primeira tarefa é carregar os dados utilizando o botão (aaaaaargh!) "Import Dataset". Os dados estão no URL: <https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/dados_covid_sp.csv>. O separador (delimiter) é ponto e vírgula (semicolon) e você pode dar o nome de `covid` ao objeto que guardará esta base.
+Sua primeira tarefa é carregar os dados utilizando o botão (aaaaaargh!) "Import Dataset". Os dados estão no URL: <https://raw.githubusercontent.com/seade-R/seade-intro-programacao/master/data/dados_covid_sp.csv>. O separador (delimiter) é ponto e vírgula (semicolon) e você pode dar o nome de `covid` ao objeto que guardará esta base.
 
 Melhor do que o botão é utilizar a função `read_csv2()`, que vimos anteriormente:
 
 ``` r
-covid <- read_csv2('https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/dados_covid_sp.csv') 
+covid <- read_csv2('https://raw.githubusercontent.com/seade-R/seade-intro-programacao/master/data/dados_covid_sp.csv') 
 ```
 
 Antes de avançar, utilize as funções que você aprendeu no tutorial anterior para examinar os dados. São elas: `View()`, `head()`, `nrow()`, `ncol()`, `names()` e `glimpse()`. Se habitue aos dados antes de prosseguir.
