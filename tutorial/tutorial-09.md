@@ -14,7 +14,7 @@ Abra o banco de dados usando `read_delim()`:
 
 ``` r
 library(tidyverse)
-url_fake_data <- "https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/master/data/fake_data.csv"
+url_fake_data <- "https://raw.githubusercontent.com/seade-R/seade-intro-programacao/master/data/fake_data.csv"
 fake <- read_delim(url_fake_data, delim = ";", col_names = T)
 ```
 
