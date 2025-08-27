@@ -22,7 +22,7 @@ library(janitor)
 Vamos abrir e examinar os dados, que estão em formato .csv:
 
 ```r
-obitos_2021 <- read_csv2("https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/main/data/microdados_obitos2021.csv")
+obitos_2021 <- read_csv2("https://raw.githubusercontent.com/seade-R/seade-intro-programacao/main/data/microdados_obitos2021.csv")
 
 obitos_2021 %>% 
   glimpse()
@@ -397,7 +397,7 @@ Em matemática e a estatística somos frequentemente apresentados a variáveis c
 No lugar de óbitos, utilizaremos a base de nascidos vivos de 2017 do Registro Civil, também do SEADE. Repitamos o ritual para dados em formato .csv:
 
 ``` r
-nv_2017 <- read_csv2("https://raw.githubusercontent.com/seade-R/egesp-seade-intro-programacao/main/data/nv_2017.csv")
+nv_2017 <- read_csv2("https://raw.githubusercontent.com/seade-R/seade-intro-programacao/main/data/nv_2017.csv")
 
 glimpse(nv_2017)
 ```
