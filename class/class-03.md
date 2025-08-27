@@ -11,7 +11,7 @@ No primeiro encontro trabalhamos com a gramática do pacote `dplyr` para manipul
 
 0 - Como na aula passada, começaremos com a discussão dos desafios e o esclarecimento de dúvidas que ainda possam ter ficado.
 
-1 - Se deixou algum tutorial inacabado do encontro anterior, comece a ele. Caso contrário, prossiga.
+1 - Sabemos que a última aula foi um pouco mais desafiadora, então vá com calma. Se deixou algum tutorial inacabado do encontro anterior, comece por ele para retomar o ritmo. Caso contrário, prossiga para o próximo conteúdo.
 
 2 - Comece pelo [Tutorial 5](/tutorial/tutorial-05.md) que trata da importação de dados em R.
 
