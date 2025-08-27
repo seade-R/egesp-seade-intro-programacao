@@ -8,7 +8,7 @@ A seguir, aprenderemos uma nova 'gramática' de R: a gramática de gráficos do 
 
 ## Roteiro
 
-0 - Retomaremos a segunda parte da Aula 3, começando pela análise dos desafios e esclarecimento de dúvidas.
+<!--- 0 - Retomaremos a segunda parte da Aula 3, começando pela análise dos desafios e esclarecimento de dúvidas. --->
 
 1 - Se deixou algum tutorial inacabado até aqui, comece por ele. Caso contrário, prossiga.
 
