@@ -2,7 +2,7 @@
 
 ## Objetivos Gerais
 
-Na parte da tarde vamos seguir com a gramática do `dplyr` para transformar os dados e produzir tabelas. Utilizaremos um pacote chamado `janitor`. No meio do caminho, aprenderemos um pouco sobre `factors`, que é a estrutura de dados utilizada em R para variáveis categóricas, e pode ser muito útil para o dia-a-dia de trabalho com dados na gestão pública.
+Vamos seguir com a gramática do `dplyr` para transformar os dados e produzir tabelas. Utilizaremos um pacote chamado `janitor`. No meio do caminho, aprenderemos um pouco sobre `factors`, que é a estrutura de dados utilizada em R para variáveis categóricas, e pode ser muito útil para o dia-a-dia de trabalho com dados na gestão pública.
 
 A seguir, aprenderemos uma nova 'gramática' de R: a gramática de gráficos do pacote `ggplot2`. Este pacote é certamente uma das razões pelas quais R se tornou popular (e uma das vantagens de R sobre Python). Trabalharemos algumas das inúmeros 'geometrias' do pacote, nos preocupando menos em colecionar funções e mais em compreender a estrutura dessa gramática.
 
