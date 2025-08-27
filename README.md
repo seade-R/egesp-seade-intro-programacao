@@ -24,7 +24,7 @@ O curso oferece uma iniciação à lógica de programação e ao uso da linguage
 
 [Aula 03](/class/class-03.md): **Tidyverse para manipulação de dados** - No terceiro encontro, faremos o camninho de volta ao nosso ponto de partida do curso: a manipulação de dados com a gramática do *dplyr*. Exploraremos agora aspectos diversos da manipulação de dados com mais profundidade.
 
-[Aula 04](/class/class-04.md): **ggplot2: Gramática de gráficos** - Na segunda parte do nosso terceiro dia de curso, seguiremos com a produção de tabelas em R, agora explorando o pacote *janitor*. A seguir, e considerando que temos muitos recursos para manipular dados em R, veremos como produzir gráficos com a gramática de gráficos do pacote *ggplot2*.
+[Aula 04](/class/class-04.md): **ggplot2: Gramática de gráficos** - No quarto encontro, seguiremos com a produção de tabelas em R, agora explorando o pacote *janitor*. A seguir, e considerando que temos muitos recursos para manipular dados em R, veremos como produzir gráficos com a gramática de gráficos do pacote *ggplot2*.
 
 [Aula 05](/class/class-05.md): **Bases de dados relacionais** - Neste último encontro veremos como utilizar a gramática do *dplyr* para trabalharmos com dados relacionais. Em seguida, você poderá explorar tutoriais opcionais sobre integração com SQL, Power BI e geração de relatórios automatizados com RMarkdown.
 
