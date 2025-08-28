@@ -40,6 +40,10 @@ A partir da Aula 02, começaremos cada encontro acompanhando o material de apoio
 
 Como este é um curso baseado na prática, nas demais aulas esperamos que os participantes assumam um papel ativo na leitura dos tutoriais e no desenvolvimento dos exercícios. Estaremos sempre disponíveis para esclarecer dúvidas, auxiliar com dificuldades específicas e orientar no desenvolvimento das atividades, mas o ritmo de aprendizado será conduzido pela autonomia de cada participante.
 
+## Ritmo de Aprendizado
+
+É fundamental não se estressar e seguir o curso no seu próprio ritmo. O conteúdo foi estruturado em uma sequência pedagógica específica, onde cada tutorial constrói sobre o anterior, por isso é importante não pular etapas mesmo quando o progresso parecer lento. Se você está sentindo dificuldade em algum conceito, dedique o tempo necessário para assimilá-lo antes de avançar - é melhor dominar bem os fundamentos do que acelerar e ficar com lacunas de conhecimento. Lembre-se: cada pessoa tem seu tempo de aprendizado e isso é completamente normal.
+
 ## Referências bibliográficas
 
 -   Grolemund, Garrett (2014). _Hands-On Programming with R_. Ed: O'Reilly Media. Disponível gratuitamente [aqui](https://rstudio-education.github.io/hopr/).
