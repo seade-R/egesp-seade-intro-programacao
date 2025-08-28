@@ -28,10 +28,17 @@ O curso oferece uma iniciação à lógica de programação e ao uso da linguage
 
 [Aula 05](/class/class-05.md): **Bases de dados relacionais** - Neste último encontro veremos como utilizar a gramática do *dplyr* para trabalharmos com dados relacionais. Em seguida, você poderá explorar tutoriais opcionais sobre integração com SQL, Power BI e geração de relatórios automatizados com RMarkdown.
 
-## Desafios e Handouts
 
-Ao final de cada aula há um desafio prático para consolidar o aprendizado. Em caso de dificuldades, consulte os handouts integrados disponíveis na pasta [Material de Apoio](https://github.com/seade-R/seade-intro-programacao/tree/main/material-de-apoio), que além de conterem um exemplo de resposta comentada, fazem uma revisão do conteúdo da aula da semana anterior e apresentam um avanço da próxima aula.
+## Desafios e Materiais de Apoio
 
+Ao final de cada aula há um desafio prático para consolidar o aprendizado. Em caso de dificuldades, consulte os materiais de apoio disponíveis na pasta Material de Apoio, que além de conterem um exemplo de resposta comentada, fazem uma revisão do conteúdo da aula da semana anterior e apresentam um avanço da próxima aula.
+Os materiais de apoio funcionam como um acréscimo às recomendações de leitura sugeridas ao final de cada aula, oferecendo uma ponte prática entre os encontros e consolidando a sequência de aprendizado.
+
+## Dinâmica das Aulas
+
+A partir da aula 2, começaremos cada encontro acompanhando o material de apoio correspondente para retomarmos a discussão dos conceitos e revisarmos o conteúdo anterior. Além do exemplo de solução que apresentamos no material, esperamos discutir as diferentes abordagens e soluções desenvolvidas pelos participantes em seus desafios, promovendo o aprendizado colaborativo e o esclarecimento de dúvidas práticas.
+
+Como este é um curso baseado na prática, nas demais aulas esperamos que os participantes assumam um papel ativo na leitura dos tutoriais e no desenvolvimento dos exercícios. Estaremos sempre disponíveis para esclarecer dúvidas, auxiliar com dificuldades específicas e orientar no desenvolvimento das atividades, mas o ritmo de aprendizado será conduzido pela autonomia de cada participante.
 
 ## Referências bibliográficas
 
