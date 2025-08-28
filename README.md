@@ -36,7 +36,7 @@ Os materiais de apoio funcionam como um acréscimo às recomendações de leitur
 
 ## Dinâmica das Aulas
 
-A partir da aula 2, começaremos cada encontro acompanhando o material de apoio correspondente para retomarmos a discussão dos conceitos e revisarmos o conteúdo anterior. Além do exemplo de solução que apresentamos no material, esperamos discutir as diferentes abordagens e soluções desenvolvidas pelos participantes em seus desafios, promovendo o aprendizado colaborativo e o esclarecimento de dúvidas práticas.
+A partir da Aula 02, começaremos cada encontro acompanhando o material de apoio correspondente para retomarmos a discussão dos conceitos e revisarmos o conteúdo anterior. Além do exemplo de solução que apresentamos no material, esperamos discutir as diferentes abordagens e soluções desenvolvidas pelos participantes em seus desafios, promovendo o aprendizado colaborativo e o esclarecimento de dúvidas práticas.
 
 Como este é um curso baseado na prática, nas demais aulas esperamos que os participantes assumam um papel ativo na leitura dos tutoriais e no desenvolvimento dos exercícios. Estaremos sempre disponíveis para esclarecer dúvidas, auxiliar com dificuldades específicas e orientar no desenvolvimento das atividades, mas o ritmo de aprendizado será conduzido pela autonomia de cada participante.
 
