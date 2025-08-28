@@ -1,0 +1,255 @@
+# ============================================================================
+# Handout Integrado — Aula 1 (Desafio) + Aula 2 
+# Dataset: COVID-19 São Paulo (SEADE)
+# ============================================================================
+# ----------------------------------------------------------------------------
+# 0) Preparação e dados -------------------------------------------------------
+# ----------------------------------------------------------------------------
+
+library(tidyverse)                     # pacote principal para manipulação de dados
+
+# Carregando dados de COVID-19 dos municípios de SP
+url_covid <- 'https://raw.githubusercontent.com/seade-R/seade-intro-programacao/master/data/dados_covid_sp.csv'
+covid <- read_csv2(url_covid)
+
+
+# ----------------------------------------------------------------------------
+# 1) Resumo — Aula 1: Primeiros passos com R e dplyr -------------------------
+# ----------------------------------------------------------------------------
+
+# 1.1 RStudio e conceitos fundamentais ---------------------------------------
+# Na primeira aula aprendemos:
+# - Interface do RStudio: Console, Environment, Files, Plots
+# - Data frames: estrutura retangular (linhas = observações, colunas = variáveis)
+# - Pipe (%>%): operador que "passa" o resultado de uma função para a próxima
+# - Objetos e atribuição (<-): como armazenar dados na memória
+# - Instalação e carregamento de pacotes: install.packages() e library()
+
+
+# 1.2 Os verbos básicos do dplyr ---------------------------------------------
+
+# 1.2.1 Explorando os dados inicialmente
+head(covid)        # primeiras 6 linhas
+tail(covid)        # últimas 6 linhas  
+nrow(covid)        # número de linhas
+ncol(covid)        # número de colunas
+names(covid)       # nomes das variáveis
+glimpse(covid)     # visão geral estruturada
+
+
+# 1.2.2 rename(): renomear variáveis para facilitar o trabalho
+covid <- covid %>% 
+  rename(municipio = nome_munic,
+         drs = nome_drs,
+         data = datahora,
+         populacao = pop)
+
+
+# 1.2.3 select(): selecionar colunas de interesse
+covid %>%
+  select(municipio, data, casos, obitos, populacao) %>%
+  head(3)
+
+# Também funciona para excluir colunas (com -)
+covid %>%
+  select(-codigo_ibge) %>%
+  head(3)
+
+
+# 1.2.4 filter(): filtrar linhas baseado em condições
+# Apenas município de São Paulo
+covid %>%
+  filter(municipio == "Sao Paulo") %>%
+  head(3)
+
+# Apenas data específica  
+covid %>%
+  filter(data == "2020-08-03") %>%
+  head(3)
+
+# Combinando condições (E)
+covid %>%
+  filter(municipio == "Sao Paulo" & data == "2020-08-03")
+
+# Combinando condições (OU)
+covid %>%
+  filter(municipio == "Sao Paulo" | municipio == "Campinas") %>%
+  head(3)
+
+
+# 1.2.5 mutate(): criar ou transformar variáveis
+covid <- covid %>%
+  mutate(
+    obitos_pc = (obitos / populacao) * 100000,      # óbitos por 100 mil hab
+    casos_pc = (casos / populacao) * 100000,        # casos por 100 mil hab  
+    letalidade = obitos / casos                     # taxa de letalidade
+  )
+
+
+# 1.2.6 arrange(): ordenar linhas
+covid %>%
+  arrange(desc(obitos_pc)) %>%          # maiores taxas de óbitos primeiro
+  head(3)
+
+covid %>%
+  arrange(municipio, data) %>%          # ordenar por município e depois data
+  head(3)
+
+
+# 1.2.7 group_by() + summarise(): agregações por grupos
+covid %>%
+  group_by(drs) %>%
+  summarise(
+    obitos_totais = sum(obitos_novos),
+    casos_totais = sum(casos_novos),
+    municipios = n_distinct(municipio)   # quantos municípios únicos por DRS
+  ) %>%
+  arrange(desc(obitos_totais))
+
+
+# ----------------------------------------------------------------------------
+# 2) DESAFIO — Aula 1: Manipulação de dados com dplyr ------------------------
+# ----------------------------------------------------------------------------
+
+# 2.1 Análise dos municípios com maior impacto da COVID-19 ------------------
+
+# Vamos criar diferentes perspectivas de análise dos dados:
+
+# A) Top 10 municípios por óbitos totais no dia 03/08/2020
+top_obitos_absolutos <- covid %>%
+  filter(data == "2020-08-03") %>%
+  select(municipio, obitos, populacao, obitos_pc) %>%
+  arrange(desc(obitos)) %>%
+  head(10)
+
+print("Top 10 municípios por óbitos absolutos:")
+print(top_obitos_absolutos)
+
+# B) Top 10 municípios por óbitos per capita no dia 03/08/2020  
+top_obitos_per_capita <- covid %>%
+  filter(data == "2020-08-03") %>%
+  select(municipio, obitos, populacao, obitos_pc) %>%
+  arrange(desc(obitos_pc)) %>%
+  head(10)
+
+print("Top 10 municípios por óbitos per capita:")
+print(top_obitos_per_capita)
+
+
+# 2.2 Categorização de municípios por porte populacional --------------------
+covid_categorizado <- covid %>%
+  mutate(
+    porte_municipio = ifelse(populacao < 20000, "Pequeno",
+                      ifelse(populacao < 100000, "Médio", 
+                      ifelse(populacao < 500000, "Grande", "Metrópole"))),
+    
+    gravidade_obitos = ifelse(obitos_pc < 50, "Baixa",
+                       ifelse(obitos_pc < 100, "Moderada", "Alta"))
+  )
+
+# Análise por porte de município na data final
+covid_categorizado %>%
+  filter(data == "2020-08-03") %>%
+  group_by(porte_municipio) %>%
+  summarise(
+    quantidade_municipios = n(),
+    obitos_totais = sum(obitos),
+    casos_totais = sum(casos),
+    obitos_pc_media = round(mean(obitos_pc), 1),
+    letalidade_media = round(mean(letalidade, na.rm = TRUE), 4)
+  )
+
+
+# 2.3 Evolução temporal em grandes centros -----------------------------------
+# Analisando a evolução da pandemic nos 5 maiores municípios por população
+
+maiores_municipios <- covid %>%
+  filter(data == "2020-08-03") %>%
+  arrange(desc(populacao)) %>%
+  head(5) %>%
+  pull(municipio)  # extraindo apenas os nomes para filtrar depois
+
+# Evolução semanal nestes municípios (usando only algumas datas)
+evolucao_grandes_centros <- covid %>%
+  filter(
+    municipio %in% maiores_municipios,
+    data %in% c("2020-03-15", "2020-04-15", "2020-05-15", 
+                "2020-06-15", "2020-07-15", "2020-08-03")
+  ) %>%
+  select(municipio, data, casos, obitos, casos_pc, obitos_pc) %>%
+  arrange(municipio, data)
+
+print("Evolução da pandemia nos 5 maiores municípios:")
+print(evolucao_grandes_centros)
+
+
+# 2.4 Análise por região (DRS) -----------------------------------------------
+# Comparando desempenho das regiões de saúde
+resumo_drs <- covid %>%
+  filter(data == "2020-08-03") %>%
+  group_by(drs) %>%
+  summarise(
+    municipios = n(),                                    # número de municípios
+    populacao_total = sum(populacao),
+    casos_totais = sum(casos),
+    obitos_totais = sum(obitos),
+    casos_pc_regiao = (casos_totais / populacao_total) * 100000,
+    obitos_pc_regiao = (obitos_totais / populacao_total) * 100000,
+    letalidade_regiao = obitos_totais / casos_totais
+  ) %>%
+  arrange(desc(obitos_pc_regiao))
+
+print("Análise por Departamento Regional de Saúde:")
+print(resumo_drs)
+
+
+# ----------------------------------------------------------------------------
+# PONTOS IMPORTANTES DA AULA 1:
+# 1. PIPE (%>%): fundamental para encadear operações de forma legível
+# 2. Data frames: estrutura básica (linhas = observações, colunas = variáveis) 
+# 3. rename(): tornar nomes das variáveis mais convenientes
+# 4. select(): escolher colunas relevantes (ou excluir com -)
+# 5. filter(): selecionar linhas baseado em condições (==, >, <, &, |)
+# 6. mutate(): criar/transformar variáveis com cálculos
+# 7. group_by() + summarise(): agregar dados por grupos
+# 8. arrange(): ordenar dados (crescente ou decrescente com -)
+# 9. Exploração inicial: head(), tail(), nrow(), ncol(), names(), glimpse()
+# ----------------------------------------------------------------------------
+
+
+# ----------------------------------------------------------------------------
+# 3) PREVIEW — Aula 2: Do básico ao intermediário ----------------------------
+# ----------------------------------------------------------------------------
+# A Aula 2 dará alguns passos para trás para entendermos os fundamentos da linguagem R.
+# Aprenderemos sobre:
+
+# 3.1 Vetores e tipos de dados -----------------------------------------------
+# R trabalha fundamentalmente com vetores
+# Tipos principais: character, numeric (double), logical
+# Como criar vetores manualmente e data frames a partir deles
+# Exemplo preview:
+exemplo_numerico <- c(1, 2, 3, 4, 5)
+exemplo_texto <- c("a", "b", "c", "d", "e")  
+exemplo_logico <- c(TRUE, FALSE, TRUE, FALSE, TRUE)
+
+# 3.2 Operações matemáticas e relacionais ------------------------------------
+# Operações vetorizadas: aplicadas a todos os elementos automaticamente
+# Operadores relacionais: ==, !=, >, <, >=, <=
+# Operadores lógicos: &, |, !
+# Coerção de tipos e valores especiais (NA, Inf, NaN)
+
+# 3.3 Estruturas de controle -------------------------------------------------
+# if/else: decisões condicionais para valores únicos
+# ifelse(): versão vetorizada para data frames
+# for loops: repetição de tarefas determinadas  
+# while loops: repetição até condição ser atendida
+# Funções personalizadas: encapsular código reutilizável
+
+# 3.4 Data frames como coleções de vetores -----------------------------------
+# Entenderemos que data frames são listas de vetores de mesmo comprimento
+# Como acessar elementos com [] e $ (gramática base)
+# Estatísticas descritivas: mean(), sum(), sd(), max(), min()
+# Subconjuntos de vetores e data frames
+
+# Na Aula 2, voltaremos aos fundamentos para entender como o R realmente funciona
+# "por baixo dos panos", o que nos dará uma base sólida para manipulações avançadas!
