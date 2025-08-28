@@ -28,7 +28,9 @@ O curso oferece uma iniciação à lógica de programação e ao uso da linguage
 
 [Aula 05](/class/class-05.md): **Bases de dados relacionais** - Neste último encontro veremos como utilizar a gramática do *dplyr* para trabalharmos com dados relacionais. Em seguida, você poderá explorar tutoriais opcionais sobre integração com SQL, Power BI e geração de relatórios automatizados com RMarkdown.
 
-No final de cada Aula traremos um desafio para vocês resolverem. Caso sinta dificuldades, veja nosso exemplo de resposta na pasta [Respostas](https://github.com/seade-R/seade-intro-programacao/tree/main/respostas).
+## Desafios e Handouts
+
+Ao final de cada aula há um desafio prático para consolidar o aprendizado. Em caso de dificuldades, consulte os handouts integrados disponíveis na pasta [Material de Apoio](https://github.com/seade-R/seade-intro-programacao/tree/main/material-de-apoio), que além de conterem um exemplo de resposta comentada, fazem uma revisão do conteúdo da aula da semana anterior e apresentam um avanço da próxima aula.
 
 
 ## Referências bibliográficas
