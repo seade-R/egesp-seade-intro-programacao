@@ -145,6 +145,9 @@ piesp %>%
   select(where(is.character)) %>%  # apenas colunas de texto
   head(3)
 
+piesp %>%
+select(-c(Ano, Trimestre, CNAE)) %>% # ao invés de usar "-" cada vez que quiser remover uma variável, podemos escrevê-las dentro de um vetor
+head(3)
 
 # 1.4.4 Dicas para filter() --------------------------------------------------
 # Múltiplas condições de forma mais clara
