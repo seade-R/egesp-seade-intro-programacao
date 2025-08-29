@@ -83,6 +83,145 @@ piesp_limpo %>%
 
 
 # ----------------------------------------------------------------------------
+# 1.4) DICAS PRÁTICAS                           ------------------------------
+# ----------------------------------------------------------------------------
+
+# 1.4.1 Gerenciamento do ambiente de trabalho --------------------------------
+# Salvar todos os objetos criados na sessão atual:
+save(list = ls(), file = "minha_sessao.RData")
+
+# Carregar objetos salvos de volta:
+load("minha_sessao.RData")
+
+# Limpar todos os objetos do ambiente (útil para "começar limpo"):
+rm(list = ls())
+# ATENÇÃO: Não coloque rm(list = ls()) no início dos seus scripts!
+# É má etiqueta, pois interfere no ambiente de quem vai rodar seu código.
+# Use apenas quando necessário para limpeza durante desenvolvimento.
+
+# Ver objetos no ambiente atual:
+ls()
+
+
+# 1.4.2 Reordenando variáveis com select() ----------------------------------
+# select() não serve só para escolher colunas, mas também para reordená-las:
+
+# Colocar variáveis específicas primeiro, depois o resto
+piesp %>%
+  select(Ano, Municipio, `Real (em milhoes)`, everything()) %>%
+  head(3)
+
+# Mover uma variável para o final
+piesp %>%
+  select(-Municipio, Municipio) %>%  # remove e adiciona no final
+  head(3)
+
+# Reordenar usando números de posição
+piesp %>%
+  select(1, 3, 2, 4:ncol(.)) %>%    # coluna 1, depois 3, depois 2, depois resto
+  head(3)
+
+
+# 1.4.3 Outras funções úteis do select() ------------------------------------
+# Seleção por padrão de nome
+piesp %>%
+  select(starts_with("Real")) %>%   # colunas que começam com "Real"
+  head(3)
+
+piesp %>%
+  select(ends_with("milhoes")) %>%  # colunas que terminam com "milhoes"
+  head(3)
+
+piesp %>%
+  select(contains("Empresa")) %>%  # colunas que contêm "Empresa"
+  head(3)
+
+# Seleção por tipo de dados
+piesp %>%
+  select(where(is.numeric)) %>%    # apenas colunas numéricas
+  head(3)
+
+piesp %>%
+  select(where(is.character)) %>%  # apenas colunas de texto
+  head(3)
+
+
+# 1.4.4 Dicas para filter() --------------------------------------------------
+# Múltiplas condições de forma mais clara
+piesp %>%
+  filter(
+    Ano >= 2018,                   # ano recente
+    !is.na(`Real (em milhoes)`),   # valor não faltante
+    `Real (em milhoes)` > 100      # valor alto
+  ) %>%
+  head(3)
+
+# Filtrar por lista de valores (alternativa ao |)
+municipios_interesse <- c("Sao Paulo", "Campinas", "Santos")
+piesp %>%
+  filter(Municipio %in% municipios_interesse) %>%
+  head(3)
+
+# Filtrar strings com detecção de padrões
+piesp %>%
+  filter(str_detect(Municipio, "Sao|Santo")) %>%  # contém "Sao" OU "Santo"
+  head(3)
+
+
+# 1.4.5 Truques úteis com mutate() --------------------------------------------
+# Múltiplas transformações da mesma variável em sequência
+piesp %>%
+  mutate(
+    Municipio = str_to_title(Municipio),        # primeira letra maiúscula
+    Municipio = str_replace(Municipio, "De", "de"),  # corrige "De" para "de"
+    Municipio = str_replace(Municipio, "Do", "do")   # corrige "Do" para "do"
+  ) %>%
+  head(3)
+
+# Criar variáveis condicionais com case_when() (mais claro que ifelse aninhado)
+piesp %>%
+  mutate(
+    porte_investimento = case_when(
+      `Real (em milhoes)` >= 500 ~ "Grande",
+      `Real (em milhoes)` >= 100 ~ "Médio", 
+      `Real (em milhoes)` >= 10  ~ "Pequeno",
+      .default = "Micro"  # equivale ao "else"
+    )
+  ) %>%
+  head(3)
+
+
+# 1.4.6 Combinando verbos de forma eficiente ---------------------------------
+# Pipeline típico de limpeza e análise
+resultado_completo <- piesp %>%
+  # Limpeza inicial
+  clean_names() %>%
+  filter(!is.na(real_em_milhoes)) %>%
+  
+  # Transformações
+  mutate(
+    valor_categoria = case_when(
+      real_em_milhoes >= 200 ~ "Alto",
+      real_em_milhoes >= 50  ~ "Médio",
+      .default = "Baixo"
+    ),
+    municipio = str_to_title(municipio)
+  ) %>%
+  
+  # Análise
+  group_by(ano, valor_categoria) %>%
+  summarise(
+    investimentos = n(),
+    valor_total = sum(real_em_milhoes, na.rm = TRUE),
+    valor_medio = round(mean(real_em_milhoes, na.rm = TRUE), 1),
+    .groups = "drop"  # remove agrupamento após summarise
+  ) %>%
+  
+  # Organização final
+  arrange(ano, desc(valor_total))
+
+
+# ----------------------------------------------------------------------------
 # 2) DESAFIO — Aula 3: Importação, limpeza e análise exploratória básica ----
 # ----------------------------------------------------------------------------
 
