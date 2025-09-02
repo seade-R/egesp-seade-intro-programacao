@@ -593,7 +593,14 @@ meu_grafico <- nv_2017_s %>%
                 y = peso, 
                 color = sexo), 
             method = "lm", 
-            se = F)
+            se = F) +
+  labs(
+     title = "Relação entre idade da mãe, peso ao nascer e sexo do recém-nascido",
+     subtitle = "Registro Civil 2017",
+     caption = "Fonte: SEADE",
+     x = "Idade da mãe (anos)",
+     y = "Peso ao nascer (g)"
+   )
 ```
 
 Vamos testar agora alguns temas já incluídos com o `ggplot2`:
@@ -615,26 +622,50 @@ Também podemos criar uma personalização manual usando `theme()`, alterando pr
 
 meu_grafico +
   theme(
-    # Título e subtítulo
-    plot.title = element_text(face = "bold", size = 18, hjust = 0.5),
-    plot.subtitle = element_text(size = 12, face = "italic", hjust = 0.5),
+    # Títulos
+    plot.title = element_text(
+      face = "bold",
+      size = 18,
+      hjust = 0.5,
+      color = "#222222"
+    ),
+    plot.subtitle = element_text(
+      size = 12,
+      face = "italic",
+      hjust = 0.5,
+      color = "grey30"
+    ),
+    plot.caption = element_text(
+      size = 10,
+      hjust = 1,
+      face = "italic",
+      color = "grey40"
+    ),
 
     # Eixos
-    axis.title.x = element_text(size = 14, face = "bold"),
-    axis.title.y = element_text(size = 14, face = "bold"),
+    axis.title.x = element_text(size = 14, face = "bold", color = "#333333"),
+    axis.title.y = element_text(size = 14, face = "bold", color = "#333333"),
     axis.text.x  = element_text(size = 12, angle = 20, vjust = 1, hjust = 1),
     axis.text.y  = element_text(size = 11, color = "black"),
+    axis.ticks   = element_line(size = 0.4, color = "grey50"),
+    axis.ticks.length = unit(4, "pt"),
 
     # Legenda
     legend.title = element_text(size = 12, face = "bold"),
     legend.text  = element_text(size = 11),
     legend.position = "top",  # "bottom", "left", "right" ou "none"
+    legend.background = element_rect(fill = "white", color = "grey80"),
+    legend.key = element_rect(fill = "white"),
 
     # Painel e fundo
     panel.background = element_rect(fill = "#F8F9FA"),
+    panel.border = element_rect(fill = NA, color = "grey80", size = 0.6),
     panel.grid.major = element_line(color = "grey85", linetype = "dashed"),
-    panel.grid.minor = element_blank(),
-    plot.background  = element_rect(fill = "#F0F3F5")
+    panel.grid.minor = element_line(color = "grey90", linetype = "dotted"),
+
+    # Fundo geral
+    plot.background = element_rect(fill = "#F0F3F5"),
+    plot.margin = margin(10, 15, 10, 15)
   )
 
 
@@ -642,4 +673,5 @@ meu_grafico +
 
 Com `theme()`, praticamente tudo pode ser modificado: títulos, rótulos, legendas, grades, fundo, cores e margens. Aproveite para experimentar diferentes ajustes até encontrar o estilo que mais combina com a análise. Bacana, não?
 
-Encerramos aqui essa breve exposição ao pacote `ggplot2` e vimos apenas uma parte pequena de suas funcionalidades. Se quiser aprender mais, procure os livros sobre o pacote na bibliografia indicada do curso.
+
+Ufa! Encerramos aqui essa breve exposição ao pacote `ggplot2` e vimos apenas uma parte pequena de suas funcionalidades. É importante lembrar também que diferentes tipos de gráficos são mais adequados para diferentes tipos de dados: variáveis contínuas, discretas ou categóricas exigem abordagens distintas. Entender essa relação ajuda a escolher a visualização mais clara e informativa para cada situação. Se quiser aprender mais, procure os livros sobre o pacote na bibliografia indicada do curso.
