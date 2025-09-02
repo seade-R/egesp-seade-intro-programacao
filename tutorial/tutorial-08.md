@@ -576,4 +576,70 @@ nv_2017_s %>%
             se = F)
 ```
 
+E se quisermos mexer na temática geral do gráfico? Para isso, basta configurar a função `theme()` (e suas variantes!), como já vimos brevemente e veremos com mais detalhes adiante.
+
+Primeiro, vamos salvar nossa manipulação dos dados em um objeto para facilitar nossa demonstração:
+
+
+``` r
+
+meu_grafico <- nv_2017_s %>% 
+  ggplot() + 
+  geom_point(aes(x = idademae,
+                 y = peso,
+                 color = sexo))  +
+  facet_wrap(~sexo) +
+  geom_smooth(aes(x = idademae, 
+                y = peso, 
+                color = sexo), 
+            method = "lm", 
+            se = F)
+```
+
+Vamos testar agora alguns temas já incluídos com o `ggplot2`:
+
+``` r
+
+meu_grafico + theme_minimal()       # visual limpo, bom para relatórios
+meu_grafico + theme_classic()       # visual tradicional, fundo branco
+meu_grafico + theme_light()         # similar ao minimal, mas com grades suaves
+meu_grafico + theme_dark()          # fundo escuro, ideal para apresentações
+meu_grafico + theme_bw()            # preto e branco, excelente para impressão
+
+```
+
+Também podemos criar uma personalização manual usando `theme()`, alterando praticamente todos os elementos visuais do gráfico. É um ótimo momento para experimentar bastante e testar diferentes combinações:
+
+
+``` r
+
+meu_grafico +
+  theme(
+    # Título e subtítulo
+    plot.title = element_text(face = "bold", size = 18, hjust = 0.5),
+    plot.subtitle = element_text(size = 12, face = "italic", hjust = 0.5),
+
+    # Eixos
+    axis.title.x = element_text(size = 14, face = "bold"),
+    axis.title.y = element_text(size = 14, face = "bold"),
+    axis.text.x  = element_text(size = 12, angle = 20, vjust = 1, hjust = 1),
+    axis.text.y  = element_text(size = 11, color = "black"),
+
+    # Legenda
+    legend.title = element_text(size = 12, face = "bold"),
+    legend.text  = element_text(size = 11),
+    legend.position = "top",  # "bottom", "left", "right" ou "none"
+
+    # Painel e fundo
+    panel.background = element_rect(fill = "#F8F9FA"),
+    panel.grid.major = element_line(color = "grey85", linetype = "dashed"),
+    panel.grid.minor = element_blank(),
+    plot.background  = element_rect(fill = "#F0F3F5")
+  )
+
+
+```
+
+Com `theme()`, praticamente tudo pode ser modificado: títulos, rótulos, legendas, grades, fundo, cores e margens. Aproveite para experimentar diferentes ajustes até encontrar o estilo que mais combina com a análise. Bacana, não?
+
 Encerramos aqui essa breve exposição ao pacote `ggplot2` e vimos apenas uma parte pequena de suas funcionalidades. Se quiser aprender mais, procure os livros sobre o pacote na bibliografia indicada do curso.
