@@ -359,60 +359,85 @@ vendas_com_faixas %>%
 
 
 # ----------------------------------------------------------------------------
-# 3) PREVIEW — Aula 4: ggplot2: Gramática de gráficos -----------------------
+# 3) PREVIEW — Aula 4: ggplot2: filosofia e gramática em poucas linhas -------
 # ----------------------------------------------------------------------------
-# A Aula 4 introduzirá uma das especialidades do R: visualização de dados com ggplot2.
+# Ideia central: um gráfico no ggplot2 é declarado por uma gramática:
+# dados + mapeamentos estéticos (aes) + geometrias (geom_*) + estatísticas (stat)
+# + escalas (scale_*) + facetas (facet_*) + tema (theme_*).
+# O gráfico "cresce" por camadas usando o operador "+".
 
-# 3.1 Estrutura básica do ggplot2 --------------------------------------------
-# ggplot2 segue uma "gramática de gráficos" com estrutura consistente:
-# ggplot(data) + geom_*() + elementos adicionais
-
-# Exemplo básico (preview):
+# 3.1 Estrutura mínima -------------------------------------------------------
+# ggplot(dados) + geom_*(aes(...))
 vendas %>%
   ggplot() +
-  geom_bar(aes(x = performance_f))
+  geom_bar(aes(x = performance_f))   # conta categorias de 'performance_f'
 
-# 3.2 Geometrias principais --------------------------------------------------
-# Cada tipo de dados tem geometrias apropriadas:
-
-# Para variáveis categóricas:
-# geom_bar() - gráficos de barras
-
-# Para variáveis contínuas:  
-# geom_histogram() - histogramas
-# geom_density() - curvas de densidade
-
-# Para duas variáveis contínuas:
-# geom_point() - gráficos de dispersão  
-# geom_smooth() - linhas de tendência
-
-# Para contínua + categórica:
-# geom_boxplot() - boxplots por grupo
-# geom_violin() - gráficos de violino
-
-
-# 3.3 Aesthetics (aes) -------------------------------------------------------
+# 3.2 Aesthetics (aes): mapeamento vs. valor fixo ----------------------------
 # Dentro de aes() mapeamos variáveis para elementos visuais:
-# x, y: posição nos eixos
-# fill: preenchimento  
-# color: contorno/borda
-# size: tamanho
-# shape: forma (pontos)
+# x, y → posição | fill → preenchimento | color → contorno | size → tamanho | shape → forma.
+# Valores fixos ficam FORA de aes().
+vendas %>%
+  ggplot(aes(x = performance_f)) +
+  geom_bar(fill = "steelblue")       # cor fixa fora de aes()
 
-# Exemplo de preview:
 vendas %>%
   ggplot() +
-  geom_point(aes(x = vendas_r_mil, 
+  geom_point(aes(x = vendas_r_mil,
                  y = unidades_vendidas,
-                 color = regiao,
-                 size = receita_por_unidade))
+                 color = regiao))    # color mapeado cria legenda
 
+# 3.3 Geometrias principais --------------------------------------------------
+# Categóricas:      geom_bar()
+# Contínuas:        geom_histogram(), geom_density()
+# Duas contínuas:   geom_point(), geom_smooth()
+# Contínua + cat.:  geom_boxplot(), geom_violin()
+vendas %>% ggplot(aes(x = performance_f)) + geom_bar()
+vendas %>% ggplot(aes(x = vendas_r_mil)) + geom_histogram(binwidth = 50)
+vendas %>% ggplot(aes(x = vendas_r_mil)) + geom_density()
+vendas %>% ggplot(aes(vendas_r_mil, unidades_vendidas)) + geom_point()
+vendas %>% ggplot(aes(vendas_r_mil, unidades_vendidas)) + geom_smooth(se = FALSE)
+vendas %>% ggplot(aes(x = regiao, y = vendas_r_mil)) + geom_boxplot()
+vendas %>% ggplot(aes(x = regiao, y = vendas_r_mil)) + geom_violin()
 
-# 3.4 Elementos de customização ----------------------------------------------
-# + facet_wrap(): múltiplos gráficos por categoria
-# + labs(): títulos, legendas, eixos
-# + theme(): aparência geral
-# + scale_*(): controle de escalas e cores
+# 3.4 Geometria x Estatística ------------------------------------------------
+# geom_bar() aplica contagem por padrão. Se já houver y agregado, use stat="identity"
+# ou, de forma idiomática, geom_col().
+vendas %>%
+  count(performance_f, name = "n") %>%
+  ggplot(aes(performance_f, n)) +
+  geom_col()
 
-# Na Aula 4, aprenderemos a construir visualizações profissionais que revelem
-# padrões nos dados de forma clara e atrativa!
+# 3.5 Duas contínuas e tendência ---------------------------------------------
+# Dispersão para relação entre variáveis numéricas; geom_smooth adiciona tendência.
+vendas %>%
+  ggplot(aes(x = vendas_r_mil, y = unidades_vendidas)) +
+  geom_point(alpha = 0.7) +
+  geom_smooth(se = FALSE)
+
+# 3.6 Escalas e percentuais --------------------------------------------------
+# Scales formatam rótulos/transformações sem mexer nos dados.
+library(scales)
+vendas %>%
+  ggplot(aes(x = performance_f)) +
+  geom_bar(aes(y = after_stat(count / sum(count)))) +
+  scale_y_continuous(labels = percent_format(accuracy = 1)) +
+  labs(y = "Percentual")
+
+# 3.7 Facetas para comparar subgrupos ----------------------------------------
+# Pequenos múltiplos para comparação direta entre categorias.
+vendas %>%
+  ggplot(aes(x = vendas_r_mil)) +
+  geom_histogram(binwidth = 50) +
+  facet_wrap(~ regiao)
+
+# 3.8 Aparência separada do conteúdo -----------------------------------------
+# labs() rotula; theme() define aparência. Troque a "roupa" sem tocar nos dados.
+vendas %>%
+  ggplot(aes(x = performance_f)) +
+  geom_bar(fill = "grey40") +
+  labs(title = "Distribuição de performance",
+       x = "Categoria", y = "Frequência") +
+  theme_minimal()
+
+# Na aula, vamos praticar essa gramática: começar simples, somar camadas e usar
+# escalas, facetas e tema para comunicar melhor com o mínimo de código.
