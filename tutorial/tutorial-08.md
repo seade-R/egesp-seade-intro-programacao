@@ -576,6 +576,8 @@ nv_2017_s %>%
             se = F)
 ```
 
+## Visualização: manipulando temas
+
 E se quisermos mexer na temática geral do gráfico? Para isso, basta configurar a função `theme()` (e suas variantes!), como já vimos brevemente e veremos com mais detalhes adiante.
 
 Primeiro, vamos salvar nossa manipulação dos dados em um objeto para facilitar nossa demonstração:
@@ -673,5 +675,162 @@ meu_grafico +
 
 Com `theme()`, praticamente tudo pode ser modificado: títulos, rótulos, legendas, grades, fundo, cores e margens. Aproveite para experimentar diferentes ajustes até encontrar o estilo que mais combina com a análise. Bacana, não?
 
+
+## Erros comuns com ao usar o `ggplot2`
+
+Esses são alguns erros frequentes ao criar gráficos com ggplot2. Os exemplos mostram o que costuma dar errado e como corrigir, ajudando a entender a lógica por trás da construção dos gráficos.
+
+### 1. Estética constante dentro de `aes()`
+
+Quando definimos uma cor, tamanho ou forma fixa **dentro de `aes()`**, o `ggplot2` interpreta esse valor como se fosse uma **variável** e cria uma legenda desnecessária.
+
+```r
+obitos_2021 %>%
+  ggplot(aes(x = racacor_f, fill = "red")) +
+  geom_bar()
+```
+
+Correto: para valores **fixos**, como cores e tamanhos definidos manualmente, colocamos fora de `aes()`.
+
+```r
+obitos_2021 %>%
+  ggplot(aes(x = racacor_f)) +
+  geom_bar(fill = "red")
+```
+
+### 2. Usar `geom_bar()` com y agregado sem `stat = "identity"`
+
+O `geom_bar()` conta automaticamente o número de linhas. Se você já tem um valor agregado, precisa informar explicitamente que o `ggplot2` deve **usar o valor fornecido**.
+
+```r
+agregado <- obitos_2021 %>%
+  count(racacor_f, name = "n")
+
+agregado %>%
+  ggplot(aes(x = racacor_f, y = n)) +
+  geom_bar()  # ignora "n" e volta a contar linhas
+```
+
+Correto: usar `stat = "identity"` para dizer ao `geom_bar()` que já temos os valores.
+
+```r
+agregado %>%
+  ggplot(aes(x = racacor_f, y = n)) +
+  geom_bar(stat = "identity")
+```
+
+Alternativa: `geom_col()` já assume automaticamente `stat = "identity"`.
+
+```r
+agregado %>%
+  ggplot(aes(x = racacor_f, y = n)) +
+  geom_col()
+```
+
+### 3. Confundir `+` com `%>%`
+
+O operador pipe (`%>%`) **não serve para encadear camadas do gráfico**. Ele só é usado para passar o resultado de uma operação para a próxima função. Para adicionar geometrias, devemos sempre usar `+`.
+
+```r
+# Errado
+# obitos_2021 %>% ggplot(aes(x = racacor_f)) %>% geom_bar()
+
+# Correto
+obitos_2021 %>%
+  ggplot(aes(x = racacor_f)) +
+  geom_bar()
+```
+
+### 4. Mapeamento no `ggplot()` vs no `geom_*()`
+
+O que colocamos em `aes()` dentro do `ggplot()` é **herdado por todas as camadas** do gráfico. Isso geralmente é útil, mas pode gerar resultados inesperados se quisermos usar variáveis diferentes em cada camada.
+
+```r
+nv_2017_s %>%
+  ggplot(aes(x = idademae, y = peso)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(se = FALSE)  # usa os mesmos x e y
+```
+
+Se quisermos que o `geom_smooth()` use outra variável para o eixo y, precisamos redefinir o `aes()` dentro dele.
+
+```r
+nv_2017_s %>%
+  ggplot(aes(x = idademae, y = peso)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(aes(y = idadepai), se = FALSE)
+```
+
+### 5. Linhas sem `group` quando não há cor por grupo
+
+O `geom_line()` precisa saber quais pontos pertencem à mesma linha. Se não indicarmos isso com `group` ou `color`, o `ggplot2` liga todos os pontos em uma única linha.
+
+```r
+serie <- obitos_2021 %>%
+  filter(sexo_f != "Ignorado") %>%
+  count(idadeanos, sexo_f)
+
+# Errado: tudo vira uma única linha
+serie %>%
+  ggplot(aes(x = idadeanos, y = n)) +
+  geom_line()
+```
+
+Correto: agrupar explicitamente por categoria ou colorir para distinguir os grupos.
+
+```r
+serie %>%
+  ggplot(aes(x = idadeanos, y = n, group = sexo_f, color = sexo_f)) +
+  geom_line()
+```
+
+### 6. Fatores desordenados gerando gráficos incorretos
+
+Por padrão, o `ggplot2` exibe fatores em **ordem alfabética**, o que pode prejudicar a leitura do gráfico. Para ordenar categorias com base em valores numéricos, usamos `fct_reorder()`.
+
+```r
+medias_raca <- obitos_2021 %>%
+  group_by(racacor_f) %>%
+  summarise(media = mean(idadeanos, na.rm = TRUE), .groups = "drop")
+
+# Errado: ordem alfabética, mesmo que as médias não sigam essa sequência
+medias_raca %>%
+  ggplot(aes(x = racacor_f, y = media)) +
+  geom_col()
+```
+
+Correto: reordenar as categorias de acordo com os valores.
+
+```r
+medias_raca %>%
+  ggplot(aes(x = forcats::fct_reorder(racacor_f, media), y = media)) +
+  geom_col()
+```
+
+### 7. Sobrescrever `data` sem perceber
+
+Se definirmos `data=` dentro de um `geom`, o `ggplot2` **ignora o data frame definido no `ggplot()`** para aquela camada. Isso pode ser útil, mas também causa confusão se for feito sem querer.
+
+```r
+base1 <- obitos_2021 %>% filter(sexo_f == "Feminino")
+base2 <- obitos_2021 %>% filter(sexo_f == "Masculino")
+
+ggplot(base1, aes(x = racacor_f)) +
+  geom_bar(fill = "grey80") +
+  geom_bar(data = base2, fill = "steelblue", alpha = 0.7)
+```
+
+### 8. Erros silenciosos com nomes incorretos
+
+Se você usar um nome de coluna errado, o gráfico pode simplesmente aparecer vazio, sem nenhuma mensagem de erro. Sempre verifique os nomes com `names()`.
+
+```r
+names(obitos_2021)
+```
+
+Por exemplo, usar `aes(x = idade_anos)` em vez de `idadeanos` não gera aviso, mas o gráfico não exibirá nada.
+
+
+---
 
 Ufa! Encerramos aqui essa breve exposição ao pacote `ggplot2` e vimos apenas uma parte pequena de suas funcionalidades. É importante lembrar também que diferentes tipos de gráficos são mais adequados para diferentes tipos de dados: variáveis contínuas, discretas ou categóricas exigem abordagens distintas. Entender essa relação ajuda a escolher a visualização mais clara e informativa para cada situação. Se quiser aprender mais, procure os livros sobre o pacote na bibliografia indicada do curso.
