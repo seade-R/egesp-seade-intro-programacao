@@ -81,9 +81,9 @@ Em primeiro lugar, vamos recodificar a variável e escrever o nome das categoria
 ``` r
 obitos_2021 <- obitos_2021 %>% 
   mutate(sexo = recode(sexo,
-                       'F' = 'Feminino',
-                       'M' = 'Masculino',                  
-                       'I' = 'Ignorado'))
+                       'Feminino' = 'F',
+                       'Masculino' = 'M',                  
+                       'Ignorado' = 'M'))
 ```
 
 Repetindo a tabela, vemos que os textos das categorias mudaram, mas a ordem continua inconveniente. Após a recodificação, **sexo** ainda é uma variável de texto.
