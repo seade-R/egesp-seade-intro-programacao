@@ -44,6 +44,21 @@ Como este é um curso baseado na prática, nas demais aulas esperamos que os par
 
 É fundamental não se estressar e seguir o curso no seu próprio ritmo. O conteúdo foi estruturado em uma sequência pedagógica específica, onde cada tutorial constrói sobre o anterior, por isso é importante não pular etapas mesmo quando o progresso parecer lento. Se você está sentindo dificuldade em algum conceito, dedique o tempo necessário para assimilá-lo antes de avançar - é melhor dominar bem os fundamentos do que acelerar e ficar com lacunas de conhecimento. Lembre-se: cada pessoa tem seu tempo de aprendizado e isso é completamente normal.
 
+## Instalação do R e RStudio em sua máquina local
+
+Trabalharemos, ao longo de todo o curso, com RStudio instalado no servidor do SEADE. Agora, para que você possa seguir usando R em sua vida, você vai precisar instalar a ferramenta na sua máquina local, seu desktop pessoal ou notebook.
+
+O R e RStudio funcionam juntos, portanto, precisamos instalar os dois. Pense que o R é o motor e RStudio é a lataria do carro (a parte visível). Ambos são inteiramente gratuitos e já vêm com distribuições compiladas para Windows, Mac e Linux.
+
+A instalação é bastante fácil e, em geral, basta seguir as instruções da tela.
+
+1.  Para instalar o R, baixe a versão adequada para seu computador em: <https://cloud.r-project.org/>
+
+2.  Para instalar o RStudio, baixe a versão adequada para seu computador em: <https://www.rstudio.com/products/rstudio/download/>
+
+3.  Uma vez instalados o R e o RStudio, basta abrir o RStudio e começar a criar seus projetos. Lembre-se que os pacotes que usamos ao longo do curso vão precisar ser instalados em sua máquina. Esse processo vai acontecer uma única vez e, nas próximas vezes que for usar o R em sua máquina, basta carregas as bibliotecas.
+
+
 ## Referências bibliográficas
 
 -   Grolemund, Garrett (2014). _Hands-On Programming with R_. Ed: O'Reilly Media. Disponível gratuitamente [aqui](https://rstudio-education.github.io/hopr/).
