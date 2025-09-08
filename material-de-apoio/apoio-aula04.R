@@ -539,9 +539,6 @@ solucao_4
 #   Importação via URL e encodings (Latin-1 vs UTF-8)
 #   Conversão de números (vírgula→ponto) e clean_names()
 #   Join com dicionários; checagens de qualidade (intervalos, NAs, somas=100)
-#   Pitfall crítico: múltiplas agregações (Total/Pública) e dupla contagem
-#   Curadoria: filtrar apenas Estadual/Municipal/Privada
-#   EDA: stats por grupo, histogramas/boxplots/densidades e comparações
 #   Transformações (pivot_longer/wider), correlações e regressão linear simples
 #   Comunicação: tabelas/plots interpretáveis e registro das decisões de limpeza
 
