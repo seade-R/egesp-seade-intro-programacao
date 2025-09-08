@@ -37,20 +37,6 @@ Aprenda a automatizar relatórios combinando texto, código e dados atualizados 
 Neste tutorial de encerramento, o objetivo é reunir e articular várias técnicas aprendidas ao longo do curso, mostrando o fluxo completo de análise: limpeza, organização, tratamento de valores ausentes, identificação de problemas de estrutura nos dados e primeiros passos em análise exploratória e modelagem. O foco está em como pensar o processo e combinar diferentes etapas para extrair informações relevantes de conjuntos de dados complexos.
 
  
-## Instalação do R e RStudio em sua máquina local
-
-Trabalhamos, ao longo de todo o curso, com RStudio instalado no servidor do SEADE. Agora, para que você possa seguir usando R em sua vida, você vai precisar instalar a ferramenta na sua máquina local, seu desktop pessoal ou notebook.
-
-O R e RStudio funcionam juntos, portanto, precisamos instalar os dois. Pense que o R é o motor e RStudio é a lataria do carro (a parte visível). Ambos são inteiramente gratuitos e já vêm com distribuições compiladas para Windows, Mac e Linux.
-
-A instalação é bastante fácil e, em geral, basta seguir as instruções da tela.
-
-1.  Para instalar o R, baixe a versão adequada para seu computador em: <https://cloud.r-project.org/>
-
-2.  Para instalar o RStudio, baixe a versão adequada para seu computador em: <https://www.rstudio.com/products/rstudio/download/>
-
-3.  Uma vez instalados o R e o RStudio, basta abrir o RStudio e começar a criar seus projetos. Lembre-se que os pacotes que usamos ao longo do curso vão precisar ser instalados em sua máquina. Esse processo vai acontecer uma única vez e, nas próximas vezes que for usar o R em sua máquina, basta carregas as bibliotecas.
-
 <!--- ## Avaliação do curso
 
 Criamos um formulário para que você possa avaliar a qualidade do curso oferecido. Assim, esperamos aprimorar os conteúdos e metodologia para as próximas edições. Acesse e preencha o formulário [aqui](https://forms.gle/DRwwt25QohxD4p596). --->
