@@ -197,7 +197,7 @@ g_facetas <- obitos_2021 %>%
 g_facetas
 
 # ----------------------------------------------------------------------------
-# 2.5) NÍVEL INTERMEDIÁRIO+: Combinando geometrias
+# 2.5) NÍVEL INTERMEDIÁRIO: Combinando geometrias
 # ----------------------------------------------------------------------------
 
 # Dispersão com linha de tendência
