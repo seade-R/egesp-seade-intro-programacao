@@ -12,6 +12,34 @@ library(janitor)
 library(forcats)
 library(scales)
 
+
+# ----------------------------------------------------------------------------
+# Manipulando tempo
+
+library(lubridate)
+library(hms)
+
+tempo_1 <- as.POSIXct(c("20:03:01", "12:00:00"),
+                format = "%H:%M:%S", 
+                tz = "Etc/GMT+3")
+
+tempo_2 <- as.POSIXct(c("20:03:01", "12:00:00"),
+                format = "%H:%M:%S",
+                tz = "America/Sao_Paulo")
+
+tempo_1[1] - tempo_1[2]
+
+as.period(tempo_1[1] - tempo_1[2])
+
+tempo_3 <- as_hms(c("20:03:01", "12:00:00"))
+
+tempo_3[1] - tempo_3[2]
+
+as.period(tempo_3[1] - tempo_3[2])
+
+# ---------------------------------------------------------------------
+
+
 # Dados 1: Óbitos 2021 (Registro Civil, SEADE)
 obitos_2021 <- read_csv2(
   "https://raw.githubusercontent.com/seade-R/seade-intro-programacao/main/data/microdados_obitos2021.csv",
