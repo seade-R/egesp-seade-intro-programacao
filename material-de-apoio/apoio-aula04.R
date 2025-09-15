@@ -19,26 +19,60 @@ library(scales)
 library(lubridate)
 library(hms)
 
+# Exemplo com hora e fuso horário definido
 tempo_1 <- as.POSIXct(c("20:03:01", "12:00:00"),
                 format = "%H:%M:%S", 
-                tz = "Etc/GMT+3")
+                tz = "Etc/GMT+3") 
+# Atenção: o "Etc/GMT+3" é o inverso! 
+# Como São Paulo está em UTC-3, devemos usar GMT+3 para ter o mesmo resultado.
 
 tempo_2 <- as.POSIXct(c("20:03:01", "12:00:00"),
                 format = "%H:%M:%S",
-                tz = "America/Sao_Paulo")
+                tz = "America/Sao_Paulo") 
+# Aqui usamos diretamente o identificador da cidade.
 
+
+# Podemos fazer operações matemáticas diretamente:
 tempo_1[1] - tempo_1[2]
+#> Time difference of 8 hours
 
 as.period(tempo_1[1] - tempo_1[2])
+#> "8H 0M 1S"
 
+
+# Se não precisamos de datas completas, o pacote hms é útil para representar só horas, minutos e segundos:
 tempo_3 <- as_hms(c("20:03:01", "12:00:00"))
 
 tempo_3[1] - tempo_3[2]
+#> Time difference of 8 hours 3.01 secs
 
 as.period(tempo_3[1] - tempo_3[2])
+#> "8H 0M 1S"
+
+
+# Com lubridate::floor_date() podemos arredondar horários, por exemplo, para análise de eventos por hora:
+horas <- as.POSIXct(c("20:03:01", "20:45:10", "12:15:00"),
+                    format = "%H:%M:%S",
+                    tz = "America/Sao_Paulo")
+
+floor_date(horas, unit = "hour")
+#> "2025-02-01 20:00:00" "2025-02-01 20:00:00" "2025-02-01 12:00:00"
+
+
+# Ou também podemos usar cut() para categorizar automaticamente em períodos de tempo que desejarmos. Por exemplo, dividindo manhã, tarde, noite:
+
+periodos <- cut(
+  as_hms(horas),
+  breaks = hms::as_hms(c("00:00:00", "12:00:00", "18:00:00", "23:59:59")),
+  labels = c("Manhã", "Tarde", "Noite"),
+  include.lowest = TRUE, right = FALSE
+)
+
+cbind(horas, periodos)
 
 # ---------------------------------------------------------------------
 
+# Revisando Aula 4
 
 # Dados 1: Óbitos 2021 (Registro Civil, SEADE)
 obitos_2021 <- read_csv2(
