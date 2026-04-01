@@ -49,13 +49,18 @@ Textos também podem ser ordenados (lexicograficamente, isto é, alfabeticamente
 "a" < "b"
 "A" < "b"
 "A" > "a"
-```
+"A" == "a"
 
-Inclusive palavras inteiras e frases:
+```
+Observe que letras maiúsculas e minúsculas são consideradas diferentes pelo R. Por isso, `"A" == "a"` é `FALSE`; além disso, na ordenação lexicográfica, `"A"` vem antes de `"a"`, então `"A" > "a"` também é `FALSE`.
+
+Podemos comparar, inclusive, palavras inteiras e frases:
   
 ``` r
 "Fundação SEADE" > "Fundação Nacional do Índio"
 ```
+
+Nesses casos, o R faz a comparação caractere por caractere, da esquerda para a direita, até encontrar a primeira diferença entre os textos. É essa primeira diferença que determina qual valor é considerado "maior" ou "menor".
 
 E valores lógicos? Observe os exemplos abaixo:
   
@@ -65,7 +70,9 @@ FALSE == 0
 TRUE > FALSE
 ```
 
-Podemos comparar valores armazenados em variáveis da mesma maneira que fizemos nos exemplos acima:
+Nesses casos, o R pode tratar `TRUE` e `FALSE` como valores numéricos em algumas comparações: `TRUE` equivale a `1` e `FALSE` equivale a `0`. Por isso, `TRUE == 1` e `FALSE == 0` retornam `TRUE`, e `TRUE > FALSE` também retorna `TRUE`.
+
+Por fim, podemos comparar valores armazenados em variáveis da mesma maneira que fizemos nos exemplos acima:
   
 ``` r
 x <- 5
