@@ -52,7 +52,7 @@ Textos também podem ser ordenados (lexicograficamente, isto é, alfabeticamente
 "A" == "a"
 
 ```
-Observe que letras maiúsculas e minúsculas são consideradas diferentes pelo R. Por isso, `"A" == "a"` é `FALSE`; além disso, na ordenação lexicográfica, `"A"` vem antes de `"a"`, então `"A" > "a"` também é `FALSE`.
+Observe que letras maiúsculas e minúsculas são consideradas diferentes pelo R. Por isso, `"A" == "a"` é `FALSE`; além disso, na ordenação lexicográfica, `"A"` vem antes de `"a"`, então `"A" > "a"` também é `TRUE`.
 
 Podemos comparar, inclusive, palavras inteiras e frases:
   
